@@ -2,14 +2,14 @@
 
 Wrap this component to make your components editable in [storyblok.com](https://www.storyblok.com/)
 
-###Installation
+### Installation
     npm install storyblock-editable --save-dev
 
     // ES6
     import SbEditable from 'storyblock-editable'
 
 
-###Example
+### Example
 
     <SbEditable content={this.props.content}>
       <p>
@@ -18,5 +18,5 @@ Wrap this component to make your components editable in [storyblok.com](https://
     </SbEditable>
 
 
-##License
+## License
 MIT
