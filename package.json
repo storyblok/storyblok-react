@@ -1,6 +1,6 @@
 {
   "name": "storyblok-react",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "React component for storyblok.",
   "keywords": [
     "javascript",
@@ -26,8 +26,8 @@
     "watch": "~0.19.1"
   },
   "dependencies": {
-    "react": "~15.3.2",
-    "react-dom": "~15.3.2"
+    "react": ">=15.3.2",
+    "react-dom": ">=15.3.2"
   },
   "babel": {
     "presets": [
