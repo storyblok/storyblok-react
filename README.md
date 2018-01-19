@@ -3,10 +3,10 @@
 Wrap this component to make your components editable in [storyblok.com](https://www.storyblok.com/)
 
 ### Installation
-    npm install storyblock-editable --save-dev
+    npm install storyblok-editable --save-dev
 
     // ES6
-    import SbEditable from 'storyblock-editable'
+    import SbEditable from 'storyblok-editable'
 
 
 ### Example
