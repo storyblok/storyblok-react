@@ -7,7 +7,8 @@ class SbEditable extends React.Component {
   }
 
   componentDidMount() {
-    if (typeof this.props.content._editable === 'undefined') {
+    if (typeof this.props.content._editable === 'undefined' ||
+        (window && window.location === window.parent.location)) {
       return
     }
 
