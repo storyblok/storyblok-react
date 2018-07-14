@@ -11,6 +11,7 @@
   "author": "Alexander Feiglstorfer",
   "license": "MIT",
   "main": "./lib/sb-editable.js",
+  "types": "./lib/sb-editable.d.ts",
   "scripts": {
     "build": "babel -d lib/ src/  && date",
     "build:watch": "watch 'npm run build' ./src"
