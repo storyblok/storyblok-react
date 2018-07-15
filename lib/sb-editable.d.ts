@@ -1,17 +1,17 @@
 import React from 'react'
 export interface SbEditableContent {
-  _uid: string
-  _editable?: string
-  component: string
-  [index: string]: any
+    _uid: string
+    _editable?: string
+    component: string
+    [index: string]: any
 }
 interface SbEditableProps {
-  content: SbEditableContent
+    content: SbEditableContent
 }
 declare class SbEditable extends React.Component<SbEditableProps, {}> {
-  constructor(props: SbEditableProps)
-  componentDidMount(): void
-  addClass(el: HTMLElement, className: string): void
-  render(): React.ReactNode
+    constructor(props: SbEditableProps)
+    componentDidMount(): void
+    addClass(el: HTMLElement, className: string): void
+    render(): React.ReactNode
 }
 export default SbEditable
