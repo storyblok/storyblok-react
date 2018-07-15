@@ -11,6 +11,7 @@ interface SbEditableProps {
 declare class SbEditable extends React.Component<SbEditableProps, {}> {
     constructor(props: SbEditableProps)
     componentDidMount(): void
+    hasClass(el: HTMLElement, className: string): void
     addClass(el: HTMLElement, className: string): void
     render(): React.ReactNode
 }

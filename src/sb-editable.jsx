@@ -21,10 +21,14 @@ class SbEditable extends React.Component {
     this.addClass(el, 'storyblok__outline')
   }
 
+  hasClass(el, className) {
+    return el.classList ? el.classList.contains(className) : new RegExp('\\b'+ className+'\\b').test(el.className)
+  }
+
   addClass(el, className) {
     if (el.classList) {
       el.classList.add(className)
-    } else if (!hasClass(el, className)) {
+    } else if (!this.hasClass(el, className)) {
       el.className += ' ' + className
     }
   }
