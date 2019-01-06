@@ -15,10 +15,14 @@ class SbEditable extends React.Component {
     var el = ReactDOM.findDOMNode(this)
     var options = JSON.parse(this.props.content._editable.replace('<!--#storyblok#', '').replace('-->', ''))
 
-    el.setAttribute('data-blok-c', JSON.stringify(options))
-    el.setAttribute('data-blok-uid', options.id + '-' + options.uid)
+    if (typeof el.setAttribute === 'function') {
+      el.setAttribute('data-blok-c', JSON.stringify(options))
+      el.setAttribute('data-blok-uid', options.id + '-' + options.uid)
 
-    this.addClass(el, 'storyblok__outline')
+      this.addClass(el, 'storyblok__outline')
+    } else {
+      console.warn('I seams that you are using a text dom element inside the SbEditable wrapper. Please wrap it with a HTML dom element.')
+    }
   }
 
   addClass(el, className) {
