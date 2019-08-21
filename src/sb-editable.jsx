@@ -13,7 +13,7 @@ class SbEditable extends React.Component {
     }
 
     var el = ReactDOM.findDOMNode(this)
-    var options = JSON.parse(this.props.content._editable.replace('<!--#storyblok#', '').replace('-->', ''))
+    var options = JSON.parse(this.props.content._editable.replace(/^<!--#storyblok#/, '').replace(/-->$/, ''))
 
     if (el instanceof Object && typeof el.setAttribute === 'function') {
       el.setAttribute('data-blok-c', JSON.stringify(options))
