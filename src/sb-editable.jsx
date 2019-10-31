@@ -8,12 +8,12 @@ class SbEditable extends React.Component {
 
   componentDidMount() {
     if (typeof this.props.content._editable === 'undefined' ||
-        (window && window.location === window.parent.location)) {
+        window.location === window.parent.location) {
       return
     }
 
     var el = ReactDOM.findDOMNode(this)
-    var options = JSON.parse(this.props.content._editable.replace('<!--#storyblok#', '').replace('-->', ''))
+    var options = JSON.parse(this.props.content._editable.replace(/^<!--#storyblok#/, '').replace(/-->$/, ''))
 
     if (el instanceof Object && typeof el.setAttribute === 'function') {
       el.setAttribute('data-blok-c', JSON.stringify(options))
@@ -21,7 +21,7 @@ class SbEditable extends React.Component {
 
       this.addClass(el, 'storyblok__outline')
     } else {
-      console.warn('I seams that you are using a text dom element inside the SbEditable wrapper. Please wrap it with a HTML dom element.')
+      throw new TypeError('It seems that you are using a DOM text node inside the SbEditable wrapper. Please wrap it with an HTML DOM element.')
     }
   }
 
