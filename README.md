@@ -21,4 +21,4 @@ import SbEditable from 'storyblok-react'
 ~~~
 
 ## License
-MIT
+MIT 
