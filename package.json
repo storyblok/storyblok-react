@@ -14,8 +14,7 @@
   "types": "./lib/sb-editable.d.ts",
   "scripts": {
     "build": "babel -d lib/ src/  && date",
-    "build:watch": "watch 'npm run build' ./src",
-    "semantic-release": "semantic-release"
+    "build:watch": "watch 'npm run build' ./src"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -25,8 +24,7 @@
     "babel-preset-react": "~6.11.1",
     "babel-preset-stage-2": "^6.24.1",
     "babel-runtime": "~6.11.6",
-    "watch": "~0.19.1",
-    "semantic-release": "^15.13.28"
+    "watch": "~0.19.1"
   },
   "dependencies": {
     "react": ">=15.3.2",
