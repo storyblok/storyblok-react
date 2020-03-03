@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 export interface SbEditableContent {
     _uid: string
     _editable?: string
