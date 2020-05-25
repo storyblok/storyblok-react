@@ -21,7 +21,7 @@ class SbEditable extends React.Component {
 
       this.addClass(el, 'storyblok__outline')
     } else {
-      throw new TypeError('It seems that you are using a DOM text-node inside the SbEditable wrapper. Please wrap it with an HTML DOM element.')
+      console.warn(''It seems that you are using a DOM text-node inside the SbEditable wrapper. Please wrap it with an HTML DOM element.', this.props.children)
     }
   }
 
