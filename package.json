@@ -26,7 +26,7 @@
     "babel-runtime": "~6.11.6",
     "watch": "~0.19.1"
   },
-  "dependencies": {
+  "peerDependencies": {
     "react": ">=15.3.2",
     "react-dom": ">=15.3.2"
   },
