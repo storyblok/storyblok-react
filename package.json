@@ -14,7 +14,9 @@
   "types": "./lib/sb-editable.d.ts",
   "scripts": {
     "build": "babel -d lib/ src/  && date",
-    "build:watch": "watch 'npm run build' ./src"
+    "build:watch": "watch 'npm run build' ./src",
+    "test": "echo \"No test specified\" && exit 0",
+    "prepare": "npm run-script build"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
