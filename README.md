@@ -4,21 +4,26 @@ Wrap this component to make your components editable in [storyblok.com](https://
 
 ### Installation
 
-~~~
-npm install storyblok-react --save
-
-import SbEditable from 'storyblok-react'
-~~~
+```sh
+$ npm install storyblok-react --save
+```
 
 ### Example
 
-~~~
-<SbEditable content={this.props.content}>
-  <p>
-    {this.props.content.text}
-  </p>
-</SbEditable>
-~~~
+```js
+import SbEditable from 'storyblok-react';
+
+const Feature = (props) => (
+  <SbEditable content={props.content}>
+    <div className="feature">
+      {props.content.name}
+    </div>
+  </SbEditable>
+);
+
+export default Feature;
+```
 
 ## License
+
 MIT
