@@ -1,19 +1,27 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-class SbEditable extends React.Component {
+class SbEditable extends React.PureComponent {
   constructor(props) {
     super(props)
   }
 
   componentDidMount() {
+    this.addPropsOnChildren()
+  }
+
+  componentDidUpdate() {
+    this.addPropsOnChildren()
+  }
+
+  addPropsOnChildren() {
     if (typeof this.props.content._editable === 'undefined' ||
         window.location === window.parent.location) {
       return
     }
 
-    var el = ReactDOM.findDOMNode(this)
-    var options = JSON.parse(this.props.content._editable.replace(/^<!--#storyblok#/, '').replace(/-->$/, ''))
+    const el = ReactDOM.findDOMNode(this)
+    const options = JSON.parse(this.props.content._editable.replace(/^<!--#storyblok#/, '').replace(/-->$/, ''))
 
     if (el instanceof Object && typeof el.setAttribute === 'function') {
       el.setAttribute('data-blok-c', JSON.stringify(options))

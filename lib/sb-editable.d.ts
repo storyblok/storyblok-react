@@ -8,9 +8,11 @@ export interface SbEditableContent {
 interface SbEditableProps {
     content: SbEditableContent
 }
-declare class SbEditable extends React.Component<SbEditableProps, {}> {
+declare class SbEditable extends React.PureComponent<SbEditableProps, {}> {
     constructor(props: SbEditableProps)
     componentDidMount(): void
+    componentDidUpdate(): void
+    addPropsOnChildren(): void
     addClass(el: HTMLElement, className: string): void
     render(): React.ReactNode
 }
