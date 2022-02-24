@@ -1,0 +1,80 @@
+{
+  "name": "@storyblok/react",
+  "version": "0.0.1",
+  "description": "SDK to integrate Storyblok into your project using React.",
+  "main": "./dist/storyblok-react.js",
+  "module": "./dist/storyblok-react.mjs",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/storyblok-react.mjs",
+      "require": "./dist/storyblok-react.js"
+    }
+  },
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "vite build",
+    "test": "npm run test:unit && npm run test:e2e",
+    "test:unit": "jest __tests__",
+    "test:e2e": "cypress run-ct",
+    "test:e2e-watch": "cypress open-ct",
+    "prepublishOnly": "npm run build && cp ../README.md ./"
+  },
+  "dependencies": {
+    "@storyblok/js": "^1.0.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.16.11",
+    "@cypress/react": "^5.12.3",
+    "@cypress/vite-dev-server": "^2.2.2",
+    "@vitejs/plugin-react": "^1.1.4",
+    "babel-jest": "^26.6.3",
+    "cypress": "^9.5.0",
+    "eslint-plugin-cypress": "^2.12.1",
+    "eslint-plugin-jest": "^25.2.4",
+    "jest": "^26.6.3",
+    "react": "17.0.2",
+    "vite": "^2.8.4"
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ]
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json"
+    ],
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    }
+  },
+  "release": {
+    "branches": [
+      "main"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/storyblok/storyblok-react"
+  },
+  "author": "Storyblok",
+  "bugs": {
+    "url": "https://github.com/storyblok/storyblok-react/issues"
+  },
+  "homepage": "https://github.com/storyblok/storyblok-react",
+  "publishConfig": {
+    "access": "public"
+  }
+}

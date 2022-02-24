@@ -1,0 +1,63 @@
+{
+  "name": "@storyblok/react-workspace",
+  "private": true,
+  "version": "0.0.1",
+  "workspaces": [
+    "./lib",
+    "./playground"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=lib & npm run demo",
+    "demo": "npm run demo --workspace=playground",
+    "build": "npm run build --workspace=lib",
+    "test:unit": "npm run test:unit --workspace=lib",
+    "test:e2e": "npm run test:e2e --workspace=lib",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^14.1.0",
+    "@commitlint/config-conventional": "^14.1.0",
+    "eslint": "^8.2.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-react": "^7.28.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^11.2.6",
+    "prettier": "^2.4.1"
+  },
+  "lint-staged": {
+    "*.{js,jsx,css}": [
+      "prettier --write",
+      "eslint"
+    ],
+    "*.md": [
+      "prettier --write"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "prettier"
+    ],
+    "env": {
+      "browser": true,
+      "es6": true
+    },
+    "ignorePatterns": "dist/",
+    "parserOptions": {
+      "sourceType": "module",
+      "ecmaVersion": 2022
+    }
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "tabWidth": 2,
+    "semi": true,
+    "singleQuote": false
+  }
+}
