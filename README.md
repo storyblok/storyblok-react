@@ -1,6 +1,6 @@
 <div align="center">
 	<a href="https://www.storyblok.com?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react" align="center">
-		<img src="https://a.storyblok.com/f/88751/1776x360/296788fb19/sb-js.png"  alt="Storyblok Logo">
+		<img src="https://a.storyblok.com/f/88751/1776x360/ccc1c50c67/sb-react.png"  alt="Storyblok Logo">
 	</a>
 	<h1 align="center">@storyblok/react</h1>
   <p align="center">
