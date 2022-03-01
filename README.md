@@ -39,8 +39,8 @@
 Install `@storyblok/react`:
 
 ```bash
-npm install --save-dev @storyblok/react
-// yarn add -D @storyblok/react
+npm install @storyblok/react
+// yarn add @storyblok/react
 ```
 
 #### From a CDN
@@ -72,7 +72,7 @@ storyblokInit({
 });
 ```
 
-> Add all your components to the components object in the storyblokInit function.
+> Add all your components to the components object in the `storyblokInit` function.
 
 That's it! All the features are enabled for you: the _Api Client_ for interacting with [Storyblok CDN API](https://www.storyblok.com/docs/api/content-delivery#topics/introduction?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react), and _Storyblok Bridge_ for [real-time visual editing experience](https://www.storyblok.com/docs/guide/essentials/visual-editor?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react).
 
@@ -95,7 +95,15 @@ import { storyblokInit, apiPlugin } from "@storyblok/react";
 
 const { storyblokApi } = storyblokInit({
   accessToken: "YOUR_ACCESS_TOKEN",
+  // bridge: false,
+  // apiOptions: {  },
   use: [apiPlugin],
+  components: {
+    page: Page,
+    teaser: Teaser,
+    grid: Grid,
+    feature: Feature,
+  },
 });
 
 const { data } = await storyblokApi.get("cdn/stories", { version: "draft" });
@@ -105,29 +113,39 @@ const { data } = await storyblokApi.get("cdn/stories", { version: "draft" });
 
 #### 2. Listen to Storyblok Visual Editor events
 
-Use `useStoryBridge` to get the new story every time is triggered a `change` event from the Visual Editor. You need to pass the story id as first param, and a callback function as second param to update the new story:
+Use `useStoryblok` to get the new story every time is triggered a `change` event from the Visual Editor. You need to pass the `slug` as first param, and `apiOptions` as second param to update the new story. `bridgeOptions` (third param) is optional param if you want to set the options for bridge by yourself:
 
 ```js
-import { storyblokInit, apiPlugin, useStoryblokBridge } from "@storyblok/react";
+// index.jsx
+import { storyblokInit, apiPlugin } from "@storyblok/react";
 
 const { storyblokApi } = storyblokInit({
   accessToken: "YOUR_ACCESS_TOKEN",
+  // bridge: false,
+  // apiOptions: {  },
   use: [apiPlugin],
+  components: {
+    page: Page,
+    teaser: Teaser,
+    grid: Grid,
+    feature: Feature,
+  },
 });
 
-const { data } = await storyblokApi.get("cdn/stories", { version: "draft" });
+// App.jsx
+import { useStoryblok, StoryblokComponent } from "@storyblok/react";
 
-const story = data ? data.story : null;
+function App() {
+  const story = useStoryblok("react", { version: "draft" });
 
-useStoryblokBridge(story.id, (story) => (state.story = story));
-```
+  if (!story?.content) {
+    return <div>Loading...</div>;
+  }
 
-You can pass [Bridge options](https://www.storyblok.com/docs/Guides/storyblok-latest-js?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react) as a third parameter as well:
+  return <StoryblokComponent blok={story.content} />;
+}
 
-```js
-useStoryblokBridge(story.id, (story) => (state.story = story), {
-  resolveRelations: ["Article.author"],
-});
+export default App;
 ```
 
 #### 3. Link your components to Storyblok Visual Editor
@@ -137,7 +155,18 @@ For every component you've defined in your Storyblok space, call the `storyblokE
 ```js
 import { storyblokEditable } from "@storyblok/react";
 
-storyblokEditable(blok);
+const Feature = ({ blok }) => {
+  return (
+    <div {...storyblokEditable(blok)} key={blok._uid} data-test="feature">
+      <div>
+        <div>{blok.name}</div>
+        <p>{blok.description}</p>
+      </div>
+    </div>
+  );
+};
+
+export default Feature;
 ```
 
 Where `blok` is the actual blok data coming from [Storblok's Content Delivery API](https://www.storyblok.com/docs/api/content-delivery?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react).
@@ -177,7 +206,7 @@ const { storyblokApi } = storyblokInit({
 });
 ```
 
-If you don't use `useStoryblokBridge`, you have still access to the raw `window.StoryblokBridge`:
+If you don't use `useSbBridge`, you have still access to the raw `window.StoryblokBridge`:
 
 ```js
 const sbBridge = new window.StoryblokBridge(options);
