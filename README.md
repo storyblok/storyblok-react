@@ -82,7 +82,7 @@ That's it! All the features are enabled for you: the _Api Client_ for interactin
 
 `@storyblok/react` does three actions when you initialize it:
 
-- Provides a `storyblokApi` object in your app, which is an instance of [storyblok-js-client](https://github.com/storyblok/storyblok-js-client).
+- Provides a `useStoryblokApi` object in your app, which is an instance of [storyblok-js-client](https://github.com/storyblok/storyblok-js-client).
 - Loads [Storyblok Bridge](https://www.storyblok.com/docs/Guides/storyblok-latest-js?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react) for real-time visual updates.
 - Provides a `storyblokEditable` function to link editable components to the Storyblok Visual Editor.
 
@@ -93,7 +93,7 @@ Inject `storyblokApi`:
 ```js
 import { storyblokInit, apiPlugin } from "@storyblok/react";
 
-const { storyblokApi } = storyblokInit({
+const { useStoryblokApi } = storyblokInit({
   accessToken: "YOUR_ACCESS_TOKEN",
   // bridge: false,
   // apiOptions: {  },
@@ -116,23 +116,6 @@ const { data } = await storyblokApi.get("cdn/stories", { version: "draft" });
 Use `useStoryblok` to get the new story every time is triggered a `change` event from the Visual Editor. You need to pass the `slug` as first param, and `apiOptions` as second param to update the new story. `bridgeOptions` (third param) is optional param if you want to set the options for bridge by yourself:
 
 ```js
-// index.jsx
-import { storyblokInit, apiPlugin } from "@storyblok/react";
-
-const { storyblokApi } = storyblokInit({
-  accessToken: "YOUR_ACCESS_TOKEN",
-  // bridge: false,
-  // apiOptions: {  },
-  use: [apiPlugin],
-  components: {
-    page: Page,
-    teaser: Teaser,
-    grid: Grid,
-    feature: Feature,
-  },
-});
-
-// App.jsx
 import { useStoryblok, StoryblokComponent } from "@storyblok/react";
 
 function App() {
@@ -146,6 +129,14 @@ function App() {
 }
 
 export default App;
+```
+
+You can pass Bridge options as a third parameter as well:
+
+```js
+useStoryblok(story.id, (story) => (state.story = story), {
+  resolveRelations: ["Article.author"],
+});
 ```
 
 #### 3. Link your components to Storyblok Visual Editor
@@ -177,34 +168,32 @@ You can **choose the features to use** when you initialize the plugin. In that w
 
 #### Storyblok API
 
-You can use an `apiOptions` object. This is passed down to the (storyblok-react-client config object](https://github.com/storyblok/storyblok-react-client#class-storyblok):
+You can use an `apiOptions` object. This is passed down to the (storyblok-js-client config object](https://github.com/storyblok/storyblok-js-client#class-storyblok):
 
 ```js
-const { storyblokApi } = storyblokInit({
+const { useStoryblokApi } = storyblokInit({
   accessToken: "YOUR_ACCESS_TOKEN",
   apiOptions: {
-    // storyblok-react-client config object
+    // storyblok-js-client config object
     cache: { type: "memory" },
   },
   use: [apiPlugin],
+  components: {
+    page: Page,
+    teaser: Teaser,
+    grid: Grid,
+    feature: Feature,
+  },
 });
 ```
 
-If you prefer to use your own fetch method, just remove the `apiPlugin` and `storyblok-react-client` won't be added to your application.
+If you prefer to use your own fetch method, just remove the `apiPlugin` and `storyblok-js-client` won't be added to your application.
 
 ```js
 storyblokInit({});
 ```
 
 #### Storyblok Bridge
-
-You can conditionally load it by using the `bridge` option. Very useful if you want to disable it in production:
-
-```js
-const { storyblokApi } = storyblokInit({
-  bridge: process.env.NODE_ENV !== "production",
-});
-```
 
 If you don't use `useSbBridge`, you have still access to the raw `window.StoryblokBridge`:
 
@@ -221,6 +210,7 @@ sbBridge.on(["input", "published", "change"], (event) => {
 - **[Storyblok Technology Hub](https://www.storyblok.com/technologies?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react)**: Storyblok integrates with every framework so that you are free to choose the best fit for your project. We prepared the technology hub so that you can find selected beginner tutorials, videos, boilerplates, and even cheatsheets all in one place.
 - **[Getting Started](https://www.storyblok.com/docs/guide/getting-started?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react)**: Get a project ready in less than 5 minutes.
 - **[Storyblok CLI](https://github.com/storyblok/storyblok)**: A simple CLI for scaffolding Storyblok projects and fieldtypes.
+- **[Storyblok Next.js Technology Hub](https://www.storyblok.com/tc/nextjs)**: Learn how to develop your own Next.js applications that use Storyblok APIs to retrieve and manage content.
 
 ## ℹ️ More Resources
 
