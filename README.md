@@ -88,12 +88,12 @@ That's it! All the features are enabled for you: the _Api Client_ for interactin
 
 #### 1. Fetching Content
 
-Inject `storyblokApi`:
+Inject `useStoryblokApi`:
 
 ```js
-import { storyblokInit, apiPlugin } from "@storyblok/react";
+import { storyblokInit, apiPlugin, useStoryblokApi } from "@storyblok/react";
 
-const { useStoryblokApi } = storyblokInit({
+storyblokInit({
   accessToken: "YOUR_ACCESS_TOKEN",
   // bridge: false,
   // apiOptions: {  },
@@ -106,6 +106,7 @@ const { useStoryblokApi } = storyblokInit({
   },
 });
 
+const storyblokApi = useStoryblokApi()
 const { data } = await storyblokApi.get("cdn/stories", { version: "draft" });
 ```
 
@@ -162,6 +163,41 @@ export default Feature;
 
 Where `blok` is the actual blok data coming from [Storblok's Content Delivery API](https://www.storyblok.com/docs/api/content-delivery?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react).
 
+As an example, you can check in our [Next.js example demo](https://stackblitz.com/edit/react-next-sdk-demo?file=src%2Fpages%2Findex.jsx) how we use APIs provided from React SDK to combine with Next.js projects.
+
+```js
+import { useStoryblokState, useStoryblokApi, StoryblokComponent } from "@storyblok/react";
+
+export default function Home({ story: initialStory }) {
+  const story = useStoryblokState(initialStory);
+
+  if (!story.content) {
+    return <div>Loading...</div>;
+  }
+
+  return <StoryblokComponent blok={story.content} />;
+}
+
+
+export async function getStaticProps({ preview = false }) {
+  const storyblokApi = useStoryblokApi()
+  let { data } = await storyblokApi.get(`cdn/stories/react`, {
+    version: "draft"
+  });
+
+  return {
+    props: {
+      story: data ? data.story : false,
+      preview,
+    },
+    revalidate: 3600, // revalidate every hour
+  };
+}
+```
+
+If you'd like to have a React.js example demo, you can find it and try it out in your environement from here:
+[React.js example demo](https://stackblitz.com/edit/react-sdk-demo)
+
 ### Features and API
 
 You can **choose the features to use** when you initialize the plugin. In that way, you can improve Web Performance by optimizing your page load and save some bytes.
@@ -211,6 +247,8 @@ sbBridge.on(["input", "published", "change"], (event) => {
 - **[Getting Started](https://www.storyblok.com/docs/guide/getting-started?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react)**: Get a project ready in less than 5 minutes.
 - **[Storyblok CLI](https://github.com/storyblok/storyblok)**: A simple CLI for scaffolding Storyblok projects and fieldtypes.
 - **[Storyblok Next.js Technology Hub](https://www.storyblok.com/tc/nextjs)**: Learn how to develop your own Next.js applications that use Storyblok APIs to retrieve and manage content.
+- **[Storyblok React.js example demo](https://stackblitz.com/edit/react-sdk-demo)**: See and try how React SDK works with React.js projects
+- **[Storyblok Next.js example demo](https://stackblitz.com/edit/react-next-sdk-demo)**: See and try how React SDK works with Next.js projects
 
 ## ℹ️ More Resources
 
