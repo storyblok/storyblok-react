@@ -4,11 +4,13 @@
   "version": "0.0.1",
   "workspaces": [
     "./lib",
-    "./playground"
+    "./playground",
+    "./playground-next"
   ],
   "scripts": {
     "dev": "npm run dev --workspace=lib & npm run demo",
     "demo": "npm run demo --workspace=playground",
+    "demo-next": "npm run demo --workspace=playground-next",
     "build": "npm run build --workspace=lib",
     "test:unit": "npm run test:unit --workspace=lib",
     "test:e2e": "npm run test:e2e --workspace=lib",

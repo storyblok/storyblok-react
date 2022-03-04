@@ -2,9 +2,9 @@ name: Release CI
 
 on:
   push:
-    branches: [main, next]
+    branches: [main, feature/v1]
   pull_request:
-    branches: [main, next]
+    branches: [main, feature/v1]
 
 jobs:
   release:
@@ -25,9 +25,9 @@ jobs:
         run: npm run test:unit
       - name: Cypress run
         run: npm run test:e2e
-      # - name: Release
-      #   working-directory: lib
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      #   run: npx semantic-release
+      - name: Release
+        working-directory: lib
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npx semantic-release

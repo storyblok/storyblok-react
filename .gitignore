@@ -3,3 +3,4 @@ node_modules
 dist
 dist-v2
 lib/cypress/videos
+.next
