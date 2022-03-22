@@ -17,14 +17,14 @@
     "prepare": "husky install"
   },
   "devDependencies": {
-    "@commitlint/cli": "^14.1.0",
-    "@commitlint/config-conventional": "^14.1.0",
-    "eslint": "^8.2.0",
+    "@commitlint/cli": "^16.2.3",
+    "@commitlint/config-conventional": "^16.2.1",
+    "eslint": "^8.11.0",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react": "^7.29.4",
     "husky": "^7.0.4",
-    "lint-staged": "^11.2.6",
-    "prettier": "^2.4.1"
+    "lint-staged": "^12.3.7",
+    "prettier": "^2.6.0"
   },
   "lint-staged": {
     "*.{js,jsx,css}": [

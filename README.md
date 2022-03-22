@@ -82,16 +82,16 @@ That's it! All the features are enabled for you: the _Api Client_ for interactin
 
 `@storyblok/react` does three actions when you initialize it:
 
-- Provides a `useStoryblokApi` object in your app, which is an instance of [storyblok-js-client](https://github.com/storyblok/storyblok-js-client).
+- Provides a `getStoryblokApi` object in your app, which is an instance of [storyblok-js-client](https://github.com/storyblok/storyblok-js-client).
 - Loads [Storyblok Bridge](https://www.storyblok.com/docs/Guides/storyblok-latest-js?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react) for real-time visual updates.
 - Provides a `storyblokEditable` function to link editable components to the Storyblok Visual Editor.
 
 #### 1. Fetching Content
 
-Inject `useStoryblokApi`:
+Inject `getStoryblokApi`:
 
 ```js
-import { storyblokInit, apiPlugin, useStoryblokApi } from "@storyblok/react";
+import { storyblokInit, apiPlugin, getStoryblokApi } from "@storyblok/react";
 
 storyblokInit({
   accessToken: "YOUR_ACCESS_TOKEN",
@@ -106,7 +106,7 @@ storyblokInit({
   },
 });
 
-const storyblokApi = useStoryblokApi()
+const storyblokApi = getStoryblokApi()
 const { data } = await storyblokApi.get("cdn/stories", { version: "draft" });
 ```
 
@@ -166,7 +166,7 @@ Where `blok` is the actual blok data coming from [Storblok's Content Delivery AP
 As an example, you can check in our [Next.js example demo](https://stackblitz.com/edit/react-next-sdk-demo?file=src%2Fpages%2Findex.jsx) how we use APIs provided from React SDK to combine with Next.js projects.
 
 ```js
-import { useStoryblokState, useStoryblokApi, StoryblokComponent } from "@storyblok/react";
+import { useStoryblokState, getStoryblokApi, StoryblokComponent } from "@storyblok/react";
 
 export default function Home({ story: initialStory }) {
   const story = useStoryblokState(initialStory);
@@ -180,7 +180,7 @@ export default function Home({ story: initialStory }) {
 
 
 export async function getStaticProps({ preview = false }) {
-  const storyblokApi = useStoryblokApi()
+  const storyblokApi = getStoryblokApi()
   let { data } = await storyblokApi.get(`cdn/stories/react`, {
     version: "draft"
   });
