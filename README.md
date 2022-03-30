@@ -204,10 +204,10 @@ You can **choose the features to use** when you initialize the plugin. In that w
 
 #### Storyblok API
 
-You can use an `apiOptions` object. This is passed down to the (storyblok-js-client config object](https://github.com/storyblok/storyblok-js-client#class-storyblok):
+You can use an `apiOptions` object. This is passed down to the [storyblok-js-client config object](https://github.com/storyblok/storyblok-js-client#class-storyblok):
 
 ```js
-const { getStoryblokApi } = storyblokInit({
+storyblokInit({
   accessToken: "YOUR_ACCESS_TOKEN",
   apiOptions: {
     // storyblok-js-client config object
@@ -231,7 +231,7 @@ storyblokInit({});
 
 #### Storyblok Bridge
 
-If you don't use `useSbBridge`, you have still access to the raw `window.StoryblokBridge`:
+If you don't use `useStoryblokBridge`, you still have access to the raw `window.StoryblokBridge`:
 
 ```js
 const sbBridge = new window.StoryblokBridge(options);
