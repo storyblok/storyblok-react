@@ -1,4 +1,8 @@
-import { useStoryblokState, useStoryblokApi, StoryblokComponent } from "@storyblok/react";
+import {
+  useStoryblokState,
+  getStoryblokApi,
+  StoryblokComponent,
+} from "@storyblok/react";
 
 export default function Home({ story: initialStory }) {
   const story = useStoryblokState(initialStory);
@@ -10,11 +14,10 @@ export default function Home({ story: initialStory }) {
   return <StoryblokComponent blok={story.content} />;
 }
 
-
 export async function getStaticProps({ preview = false }) {
-  const storyblokApi = useStoryblokApi()
+  const storyblokApi = getStoryblokApi();
   let { data } = await storyblokApi.get(`cdn/stories/react`, {
-    version: "draft"
+    version: "draft",
   });
 
   return {

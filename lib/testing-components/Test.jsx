@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import {
   storyblokInit,
   apiPlugin,
-  useStoryblokApi,
+  getStoryblokApi,
   useStoryblokBridge,
   StoryblokComponent,
 } from "@storyblok/react";
@@ -15,7 +15,7 @@ const Test = ({ bridge, accessToken, components, blok }) => {
     components,
   });
 
-  const storyblokApi = useStoryblokApi();
+  const storyblokApi = getStoryblokApi();
   const apiExists = !!(storyblokApi && typeof storyblokApi.get === "function");
 
   useEffect(() => {

@@ -31,7 +31,7 @@ describe("@storyblok/react", () => {
     });
   });
 
-  describe("useStoryblokApi", () => {
+  describe("getStoryblokApi", () => {
     it("should return an instance of the API if we use the API Plugin", () => {
       mount(<Test accessToken="OurklwV5XsDJTIE1NJaD2wtt" />);
       cy.get('[data-test="api"]').should("have.text", "true");
@@ -46,7 +46,7 @@ describe("@storyblok/react", () => {
       mount(<Test />);
       cy.get("@error").should(
         "be.calledWithMatch",
-        "You can't use useStoryblokApi"
+        "You can't use getStoryblokApi"
       );
     });
   });
