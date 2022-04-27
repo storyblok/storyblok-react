@@ -26,7 +26,7 @@ export default Feature;
 
 ## License
 
-MIT
+MIT. See [`LICENSE.txt`](./LICENSE.txt) for more details.
 
 ## Contribution
 
