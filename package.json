@@ -1,6 +1,6 @@
 {
   "name": "storyblok-react",
-  "version": "0.0.0-development",
+  "version": "1.0.5",
   "description": "React component for storyblok.",
   "keywords": [
     "javascript",
