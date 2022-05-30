@@ -1,10 +1,12 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import App from "./App";
+
 import Teaser from "./components/teaser";
 import Grid from "./components/grid";
 import Page from "./components/page";
 import Feature from "./components/feature";
+
 import { storyblokInit, apiPlugin } from "@storyblok/react";
 
 storyblokInit({
@@ -18,4 +20,10 @@ storyblokInit({
   },
 });
 
-ReactDOM.render(<App />, document.getElementById("root"));
+const container = document.getElementById("app");
+const root = createRoot(container);
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);

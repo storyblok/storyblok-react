@@ -1,3 +1,4 @@
+import React from "react";
 import { useStoryblok, StoryblokComponent } from "@storyblok/react";
 
 function App() {
