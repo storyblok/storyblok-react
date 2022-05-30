@@ -34,7 +34,7 @@
     "babel-jest": "^28.1.0",
     "cypress": "^9.7.0",
     "eslint-plugin-cypress": "^2.12.1",
-    "eslint-plugin-jest": "^26.4.2",
+    "eslint-plugin-jest": "^26.4.5",
     "jest": "^28.1.0",
     "react": "17.0.2",
     "vite": "^2.9.9"
