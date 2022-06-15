@@ -7,7 +7,7 @@ export default defineConfig(() => {
   return {
     build: {
       lib: {
-        entry: path.resolve(__dirname, "index.js"),
+        entry: path.resolve(__dirname, "index.ts"),
         name: "storyblokReact",
         fileName: (format) =>
           format === "es" ? `${libName}.mjs` : `${libName}.js`,

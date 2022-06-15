@@ -4,9 +4,18 @@ import {
   apiPlugin,
   useStoryblok,
   StoryblokComponent,
+  SbReactComponentsMap,
 } from "@storyblok/react";
 
-const TestUseStoryblok = ({ accessToken, components }) => {
+interface TestUseStoryblokProps {
+  accessToken?: string;
+  components?: SbReactComponentsMap;
+}
+
+const TestUseStoryblok = ({
+  accessToken,
+  components,
+}: TestUseStoryblokProps) => {
   storyblokInit({
     accessToken,
     use: accessToken ? [apiPlugin] : [],

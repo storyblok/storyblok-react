@@ -5,9 +5,18 @@ import {
   getStoryblokApi,
   useStoryblokBridge,
   StoryblokComponent,
+  SbReactComponentsMap,
+  SbBlokData,
 } from "@storyblok/react";
 
-const Test = ({ bridge, accessToken, components, blok }) => {
+interface TestProps {
+  bridge?: boolean;
+  accessToken?: string;
+  components?: SbReactComponentsMap;
+  blok: SbBlokData | false;
+}
+
+const Test = ({ bridge, accessToken, components, blok }: TestProps) => {
   storyblokInit({
     accessToken,
     bridge,

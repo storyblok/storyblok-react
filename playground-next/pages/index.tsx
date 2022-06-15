@@ -1,10 +1,15 @@
+import React from "react";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
+
 import {
   useStoryblokState,
   getStoryblokApi,
   StoryblokComponent,
 } from "@storyblok/react";
 
-export default function Home({ story: initialStory }) {
+export default function Home({
+  story: initialStory,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   const story = useStoryblokState(initialStory);
 
   if (!story.content) {
@@ -14,8 +19,9 @@ export default function Home({ story: initialStory }) {
   return <StoryblokComponent blok={story.content} />;
 }
 
-export async function getStaticProps({ preview = false }) {
+export const getStaticProps: GetStaticProps = async () => {
   const storyblokApi = getStoryblokApi();
+
   let { data } = await storyblokApi.get(`cdn/stories/react`, {
     version: "draft",
   });
@@ -23,8 +29,7 @@ export async function getStaticProps({ preview = false }) {
   return {
     props: {
       story: data ? data.story : false,
-      preview,
     },
-    revalidate: 3600, // revalidate every hour
+    revalidate: 3600,
   };
-}
+};

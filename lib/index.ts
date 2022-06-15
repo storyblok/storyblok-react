@@ -4,6 +4,15 @@ import {
   storyblokInit as sbInit,
 } from "@storyblok/js";
 
+import {
+  SbReactSDKOptions,
+  StoryblokBridgeConfigV2,
+  SbReactComponentsMap,
+  StoryblokClient,
+  StoryblokConfig,
+  StoryData,
+} from "./types";
+
 export { default as StoryblokComponent } from "./components/storyblok-component";
 export {
   storyblokEditable,
@@ -11,13 +20,18 @@ export {
   useStoryblokBridge,
 } from "@storyblok/js";
 
-export const useStoryblok = (slug, apiOptions = {}, bridgeOptions = {}) => {
-  let [story, setStory] = useState({});
+export const useStoryblok: Function = (
+  slug: string,
+  apiOptions: StoryblokConfig = {},
+  bridgeOptions: StoryblokBridgeConfigV2 = {}
+) => {
+  let [story, setStory] = useState<StoryData>({} as StoryData);
 
   if (!storyblokApiInstance) {
     console.error(
       "You can't use useStoryblok if you're not loading apiPlugin."
     );
+
     return null;
   }
 
@@ -39,8 +53,11 @@ export const useStoryblok = (slug, apiOptions = {}, bridgeOptions = {}) => {
   return story;
 };
 
-export const useStoryblokState = (initialStory = {}, bridgeOptions = {}) => {
-  let [story, setStory] = useState(initialStory);
+export const useStoryblokState: Function = (
+  initialStory: StoryData = {} as StoryData,
+  bridgeOptions: StoryblokBridgeConfigV2 = {}
+) => {
+  let [story, setStory] = useState<StoryData>(initialStory);
 
   useSbBridge(story.id, (newStory) => setStory(newStory), bridgeOptions);
 
@@ -51,9 +68,9 @@ export const useStoryblokState = (initialStory = {}, bridgeOptions = {}) => {
   return story;
 };
 
-let storyblokApiInstance = null;
+let storyblokApiInstance: StoryblokClient = null;
 
-export const useStoryblokApi = () => {
+export const useStoryblokApi: Function = (): StoryblokClient => {
   if (!storyblokApiInstance) {
     console.error(
       "You can't use getStoryblokApi if you're not loading apiPlugin."
@@ -65,19 +82,25 @@ export const useStoryblokApi = () => {
 
 export { useStoryblokApi as getStoryblokApi };
 
-let componentsMap = {};
+let componentsMap: SbReactComponentsMap = {};
 
-export const getComponent = (componentKey) => {
+export const getComponent: Function = (componentKey: string) => {
   if (!componentsMap[componentKey]) {
     console.error(`Component ${componentKey} doesn't exist.`);
     return false;
   }
+
   return componentsMap[componentKey];
 };
 
-export const storyblokInit = (pluginOptions = {}) => {
+export const storyblokInit: Function = (
+  pluginOptions: SbReactSDKOptions = {}
+) => {
   const { storyblokApi } = sbInit(pluginOptions);
   storyblokApiInstance = storyblokApi;
 
   componentsMap = pluginOptions.components;
 };
+
+// Reexport all types so users can have access to them
+export * from "./types";

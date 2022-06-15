@@ -4,6 +4,7 @@
   "description": "SDK to integrate Storyblok into your project using React.",
   "main": "./dist/storyblok-react.js",
   "module": "./dist/storyblok-react.mjs",
+  "types": "./dist/types/index.d.ts",
   "files": [
     "dist"
   ],
@@ -15,7 +16,7 @@
   },
   "scripts": {
     "dev": "vite build --watch",
-    "build": "vite build",
+    "build": "vite build && tsc --project tsconfig.json",
     "test": "npm run test:unit && npm run test:e2e",
     "test:unit": "jest __tests__",
     "test:e2e": "cypress run-ct",
@@ -23,13 +24,15 @@
     "prepublishOnly": "npm run build && cp ../README.md ./"
   },
   "dependencies": {
-    "@storyblok/js": "^1.2.1"
+    "@storyblok/js": "^1.6.1"
   },
   "devDependencies": {
     "@babel/core": "^7.18.2",
     "@babel/preset-env": "^7.18.2",
     "@cypress/react": "^5.12.5",
     "@cypress/vite-dev-server": "^2.2.3",
+    "@tsconfig/recommended": "^1.0.1",
+    "@types/react": "18.0.1",
     "@vitejs/plugin-react": "^1.3.2",
     "babel-jest": "^28.1.0",
     "cypress": "^9.7.0",
