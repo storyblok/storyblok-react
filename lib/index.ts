@@ -55,9 +55,14 @@ export const useStoryblok: Function = (
 
 export const useStoryblokState: Function = (
   initialStory: StoryData = {} as StoryData,
-  bridgeOptions: StoryblokBridgeConfigV2 = {}
+  bridgeOptions: StoryblokBridgeConfigV2 = {},
+  preview: boolean = false
 ) => {
   let [story, setStory] = useState<StoryData>(initialStory);
+
+  if (preview) {
+    return initialStory;
+  }
 
   useSbBridge(story.id, (newStory) => setStory(newStory), bridgeOptions);
 
