@@ -5,11 +5,11 @@ import {
 } from "@storyblok/js";
 
 import {
-  SbReactSDKOptions,
-  StoryblokBridgeConfigV2,
   SbReactComponentsMap,
+  SbReactSDKOptions,
+  StoriesParams,
+  StoryblokBridgeConfigV2,
   StoryblokClient,
-  StoryblokConfig,
   StoryData,
 } from "./types";
 
@@ -20,9 +20,9 @@ export {
   useStoryblokBridge,
 } from "@storyblok/js";
 
-export const useStoryblok: Function = (
+export const useStoryblok = (
   slug: string,
-  apiOptions: StoryblokConfig = {},
+  apiOptions: StoriesParams = {},
   bridgeOptions: StoryblokBridgeConfigV2 = {}
 ) => {
   let [story, setStory] = useState<StoryData>({} as StoryData);
@@ -53,11 +53,11 @@ export const useStoryblok: Function = (
   return story;
 };
 
-export const useStoryblokState: Function = (
+export const useStoryblokState = (
   initialStory: StoryData = {} as StoryData,
   bridgeOptions: StoryblokBridgeConfigV2 = {},
   preview: boolean = false
-) => {
+): StoryData => {
   let [story, setStory] = useState<StoryData>(initialStory);
 
   if (preview) {
@@ -75,7 +75,7 @@ export const useStoryblokState: Function = (
 
 let storyblokApiInstance: StoryblokClient = null;
 
-export const useStoryblokApi: Function = (): StoryblokClient => {
+export const useStoryblokApi = (): StoryblokClient => {
   if (!storyblokApiInstance) {
     console.error(
       "You can't use getStoryblokApi if you're not loading apiPlugin."
@@ -89,7 +89,7 @@ export { useStoryblokApi as getStoryblokApi };
 
 let componentsMap: SbReactComponentsMap = {};
 
-export const getComponent: Function = (componentKey: string) => {
+export const getComponent = (componentKey: string) => {
   if (!componentsMap[componentKey]) {
     console.error(`Component ${componentKey} doesn't exist.`);
     return false;
@@ -98,9 +98,7 @@ export const getComponent: Function = (componentKey: string) => {
   return componentsMap[componentKey];
 };
 
-export const storyblokInit: Function = (
-  pluginOptions: SbReactSDKOptions = {}
-) => {
+export const storyblokInit = (pluginOptions: SbReactSDKOptions = {}) => {
   const { storyblokApi } = sbInit(pluginOptions);
   storyblokApiInstance = storyblokApi;
 
