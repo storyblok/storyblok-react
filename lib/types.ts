@@ -1,7 +1,8 @@
 import { SbSDKOptions } from "@storyblok/js";
+import React from "react";
 
 export interface SbReactComponentsMap {
-  [key: string]: JSX.Element;
+  [key: string]: React.ElementType;
 }
 
 export interface SbReactSDKOptions extends SbSDKOptions {
