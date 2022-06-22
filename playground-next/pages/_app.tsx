@@ -1,3 +1,5 @@
+import { AppProps } from "next/app";
+
 import { storyblokInit, apiPlugin } from "@storyblok/react";
 import Teaser from "../components/teaser";
 import Grid from "../components/grid";
@@ -15,8 +17,8 @@ storyblokInit({
   },
 });
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+function MyApp({ Component, pageProps }: AppProps) {
+  return <Component {...pageProps} />;
 }
 
-export default MyApp
+export default MyApp;

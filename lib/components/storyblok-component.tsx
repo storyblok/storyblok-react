@@ -1,18 +1,28 @@
 import React from "react";
+import type { SbBlokData } from "../types";
 import { getComponent } from "../index";
 
-const StoryblokComponent = ({ blok, ...restProps }) => {
+interface StoryblokComponentProps {
+  blok: SbBlokData;
+  [key: string]: unknown;
+}
+
+const StoryblokComponent = ({
+  blok,
+  ...restProps
+}: StoryblokComponentProps) => {
   if (!blok) {
     console.error("Please provide a 'blok' property to the StoryblokComponent");
     return <div>Please provide a blok property to the StoryblokComponent</div>;
   }
 
   const Component = getComponent(blok.component);
-  if (!Component) {
-    return "";
+
+  if (Component) {
+    return <Component blok={blok} {...restProps} />;
   }
 
-  return <Component blok={blok} {...restProps} />;
+  return <div></div>;
 };
 
 export default StoryblokComponent;
