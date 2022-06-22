@@ -4,7 +4,7 @@ import { getComponent } from "../index";
 
 interface StoryblokComponentProps {
   blok: SbBlokData;
-  restProps?: any;
+  [key: string]: unknown;
 }
 
 const StoryblokComponent = ({
