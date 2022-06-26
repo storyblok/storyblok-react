@@ -48,7 +48,7 @@ export const useStoryblok = (
     }
 
     fetchData();
-  }, []);
+  }, [slug]);
 
   return story;
 };
