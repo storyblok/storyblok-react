@@ -56,11 +56,11 @@ export const useStoryblok = (
 export const useStoryblokState = (
   initialStory: StoryData = {} as StoryData,
   bridgeOptions: StoryblokBridgeConfigV2 = {},
-  preview: boolean = false
+  preview: boolean = true
 ): StoryData => {
   let [story, setStory] = useState<StoryData>(initialStory);
 
-  if (preview) {
+  if (!preview) {
     return initialStory;
   }
 
