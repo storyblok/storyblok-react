@@ -13,9 +13,12 @@ export default defineConfig(() => {
           format === "es" ? `${libName}.mjs` : `${libName}.js`,
       },
       rollupOptions: {
-        external: ["react", "axios"],
+        external: ["react", "axios", "@storyblok/js" ],
         output: {
-          globals: { react: "React" },
+          globals: { 
+            react: "React", 
+            "@storyblok/js": "storyblokJs" 
+          },
         },
       },
     },
