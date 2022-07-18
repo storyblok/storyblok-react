@@ -41,7 +41,7 @@
     "jest": "^28.1.3",
     "react": "18.1.0",
     "react-dom": "18.1.0",
-    "vite": "^2.9.14"
+    "vite": "^3.0.0"
   },
   "peerDependencies": {
     "react": "18.1.0",
