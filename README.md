@@ -36,11 +36,11 @@
 
 ### Installation
 
-Install `@storyblok/react`:
+Install `@storyblok/react` and it's peer dependency `axios`:
 
 ```bash
-npm install @storyblok/react
-// yarn add @storyblok/react
+npm install @storyblok/react axios
+// yarn add @storyblok/react axios
 ```
 
 #### From a CDN

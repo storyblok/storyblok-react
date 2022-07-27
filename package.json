@@ -27,6 +27,9 @@
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1"
   },
+  "peerDependencies": {
+    "axios": "^0.27.2"
+  },
   "lint-staged": {
     "*.{js,jsx,css,ts,tsx}": [
       "prettier --write",
