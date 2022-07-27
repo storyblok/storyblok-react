@@ -18,6 +18,7 @@ export {
   storyblokEditable,
   apiPlugin,
   useStoryblokBridge,
+  renderRichText,
 } from "@storyblok/js";
 
 export const useStoryblok = (
