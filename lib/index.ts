@@ -35,9 +35,9 @@ export const useStoryblok = (
     return null;
   }
 
-  useSbBridge(story.id, (story) => setStory(story), bridgeOptions);
-
   useEffect(() => {
+    useSbBridge(story.id, (story) => setStory(story), bridgeOptions);
+
     async function fetchData() {
       const { data } = await storyblokApiInstance.get(
         `cdn/stories/${slug}`,
@@ -53,20 +53,20 @@ export const useStoryblok = (
   return story;
 };
 
-export const useStoryblokState = (
-  initialStory: StoryData = {} as StoryData,
+export const useStoryblokState = <T = void>(
+  initialStory: StoryData<T> = {} as StoryData<T>,
   bridgeOptions: StoryblokBridgeConfigV2 = {},
   preview: boolean = true
-): StoryData => {
-  let [story, setStory] = useState<StoryData>(initialStory);
+): StoryData<T> => {
+  let [story, setStory] = useState<StoryData<T>>(initialStory);
 
   if (!preview) {
     return initialStory;
   }
 
-  useSbBridge(story.id, (newStory) => setStory(newStory), bridgeOptions);
-
   useEffect(() => {
+    useSbBridge(story.id, (newStory) => setStory(newStory), bridgeOptions);
+
     setStory(initialStory);
   }, [initialStory]);
 
