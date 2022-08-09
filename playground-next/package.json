@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@storyblok/react": "^0.0.1",
-    "@types/node": "^18.6.4",
+    "@types/node": "^18.6.5",
     "@types/react": "18.0.1",
     "typescript": "^4.7.4"
   }
