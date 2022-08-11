@@ -54,6 +54,7 @@ Install the file from the CDN:
 ### Initialization
 
 Register the plugin on your application and add the [access token](https://www.storyblok.com/docs/api/content-delivery#topics/authentication?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react) of your Storyblok space. You can also add the `apiPlugin` in case that you want to use the Storyblok API Client:
+For Spaces created under `US` region, you should pass the region like `{ apiOptions: { region: 'us' } }`. If your space is under `EU`, no further configuration is required.
 
 ```js
 import { storyblokInit, apiPlugin } from "@storyblok/react";
@@ -61,7 +62,9 @@ import { storyblokInit, apiPlugin } from "@storyblok/react";
 storyblokInit({
   accessToken: "YOUR_ACCESS_TOKEN",
   // bridge: false,
-  // apiOptions: {  },
+  apiOptions: {
+    region: 'us' // Pass this key/value if your space was created under US region
+  },
   use: [apiPlugin],
   components: {
     page: Page,
