@@ -22,7 +22,7 @@
     "@tsconfig/recommended": "^1.0.1",
     "eslint": "^8.23.0",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-react": "^7.31.0",
+    "eslint-plugin-react": "^7.31.1",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1"
