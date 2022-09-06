@@ -106,7 +106,7 @@ storyblokInit({
   },
 });
 
-const storyblokApi = getStoryblokApi()
+const storyblokApi = getStoryblokApi();
 const { data } = await storyblokApi.get("cdn/stories", { version: "draft" });
 ```
 
@@ -166,7 +166,11 @@ Where `blok` is the actual blok data coming from [Storblok's Content Delivery AP
 As an example, you can check in our [Next.js example demo](https://stackblitz.com/edit/react-next-sdk-demo?file=src%2Fpages%2Findex.jsx) how we use APIs provided from React SDK to combine with Next.js projects.
 
 ```js
-import { useStoryblokState, getStoryblokApi, StoryblokComponent } from "@storyblok/react";
+import {
+  useStoryblokState,
+  getStoryblokApi,
+  StoryblokComponent,
+} from "@storyblok/react";
 
 export default function Home({ story: initialStory }) {
   const story = useStoryblokState(initialStory);
@@ -178,11 +182,10 @@ export default function Home({ story: initialStory }) {
   return <StoryblokComponent blok={story.content} />;
 }
 
-
 export async function getStaticProps({ preview = false }) {
-  const storyblokApi = getStoryblokApi()
+  const storyblokApi = getStoryblokApi();
   let { data } = await storyblokApi.get(`cdn/stories/react`, {
-    version: "draft"
+    version: "draft",
   });
 
   return {
@@ -238,6 +241,61 @@ const sbBridge = new window.StoryblokBridge(options);
 
 sbBridge.on(["input", "published", "change"], (event) => {
   // ...
+});
+```
+
+#### Rendering Rich Text
+
+You can easily render rich text by using the `renderRichText` function that comes with `@storyblok/react`:
+
+```js
+import { renderRichText } from "@storyblok/react";
+
+const renderedRichText = renderRichText(blok.richtext);
+```
+
+You can set a **custom Schema and component resolver globally** at init time by using the `richText` init option:
+
+```js
+import { RichTextSchema, storyblokInit } from "@storyblok/react";
+import cloneDeep from "clone-deep";
+
+const mySchema = cloneDeep(RichTextSchema); // you can make a copy of the default RichTextSchema
+// ... and edit the nodes and marks, or add your own.
+// Check the base RichTextSchema source here https://github.com/storyblok/storyblok-js-client/blob/master/source/schema.js
+
+storyblokInit({
+  accessToken: "<your-token>",
+  richText: {
+    schema: mySchema,
+    resolver: (component, blok) => {
+      switch (component) {
+        case "my-custom-component":
+          return `<div class="my-component-class">${blok.text}</div>`;
+        default:
+          return "Resolver not defined";
+      }
+    },
+  },
+});
+```
+
+You can also set a **custom Schema and component resolver only once** by passing the options as the second parameter to `renderRichText` function:
+
+```js
+import { renderRichText } from "@storyblok/react";
+
+renderRichText(blok.richTextField, {
+  schema: mySchema,
+  resolver: (component, blok) => {
+    switch (component) {
+      case "my-custom-component":
+        return `<div class="my-component-class">${blok.text}</div>`;
+        break;
+      default:
+        return `Component ${component} not found`;
+    }
+  },
 });
 ```
 

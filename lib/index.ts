@@ -19,6 +19,7 @@ export {
   apiPlugin,
   useStoryblokBridge,
   renderRichText,
+  RichTextSchema,
 } from "@storyblok/js";
 
 export const useStoryblok = (
