@@ -37,9 +37,9 @@ export const useStoryblok = (
     return null;
   }
 
-  useEffect(() => {
-    useSbBridge(story.id, (story) => setStory(story), bridgeOptions);
+  useSbBridge(story.id, (story) => setStory(story), bridgeOptions);
 
+  useEffect(() => {
     async function fetchData() {
       const { data } = await storyblokApiInstance.get(
         `cdn/stories/${slug}`,

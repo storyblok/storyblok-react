@@ -22,7 +22,7 @@ export default function Home({
 export const getStaticProps: GetStaticProps = async () => {
   const storyblokApi = getStoryblokApi();
 
-  let { data } = await storyblokApi.get(`cdn/stories/react`, {
+  let { data } = await storyblokApi.get(`cdn/stories/home`, {
     version: "draft",
   });
 
