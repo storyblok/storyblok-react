@@ -15,6 +15,7 @@ export type {
   RichtextInstance,
   SbBlokData,
   SbBlokKeyDataTypes,
+  SbRichTextOptions,
   SbSDKOptions,
   Stories,
   StoriesParams,
