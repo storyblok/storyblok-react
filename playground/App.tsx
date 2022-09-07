@@ -2,7 +2,7 @@ import React from "react";
 import { useStoryblok, StoryblokComponent } from "@storyblok/react";
 
 function App() {
-  const story = useStoryblok("react", { version: "draft" });
+  const story = useStoryblok("home", { version: "draft" });
 
   if (!story?.content) {
     return <div>Loading...</div>;
