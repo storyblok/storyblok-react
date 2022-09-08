@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import {
-  useStoryblokBridge as useSbBridge,
+  registerStoryblokBridge as registerSbBridge,
   storyblokInit as sbInit,
 } from "@storyblok/js";
 
@@ -18,6 +18,7 @@ export {
   storyblokEditable,
   apiPlugin,
   useStoryblokBridge,
+  registerStoryblokBridge,
   renderRichText,
   RichTextSchema,
 } from "@storyblok/js";
@@ -37,7 +38,7 @@ export const useStoryblok = (
     return null;
   }
 
-  useSbBridge(story.id, (story) => setStory(story), bridgeOptions);
+  registerSbBridge(story.id, (story) => setStory(story), bridgeOptions);
 
   useEffect(() => {
     async function fetchData() {
@@ -67,7 +68,7 @@ export const useStoryblokState = <T = void>(
   }
 
   useEffect(() => {
-    useSbBridge(story.id, (newStory) => setStory(newStory), bridgeOptions);
+    registerSbBridge(story.id, (newStory) => setStory(newStory), bridgeOptions);
 
     setStory(initialStory);
   }, [initialStory]);
