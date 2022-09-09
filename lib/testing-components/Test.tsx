@@ -3,7 +3,7 @@ import {
   storyblokInit,
   apiPlugin,
   getStoryblokApi,
-  useStoryblokBridge,
+  registerStoryblokBridge,
   StoryblokComponent,
   SbReactComponentsMap,
   SbBlokData,
@@ -28,7 +28,7 @@ const Test = ({ bridge, accessToken, components, blok }: TestProps) => {
   const apiExists = !!(storyblokApi && typeof storyblokApi.get === "function");
 
   useEffect(() => {
-    useStoryblokBridge(43423, (newStory) => console.log(newStory));
+    registerStoryblokBridge(43423, (newStory) => console.log(newStory));
   }, []);
 
   return (

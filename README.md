@@ -237,7 +237,7 @@ storyblokInit({});
 
 #### Storyblok Bridge
 
-If you don't use `useStoryblokBridge`, you still have access to the raw `window.StoryblokBridge`:
+If you don't use `registerStoryblokBridge`, you still have access to the raw `window.StoryblokBridge`:
 
 ```js
 const sbBridge = new window.StoryblokBridge(options);
