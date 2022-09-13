@@ -1,2 +1,6 @@
+.DS_Store
 node_modules
-npm-debug.log
+dist
+dist-v2
+lib/cypress/videos
+.next

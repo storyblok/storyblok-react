@@ -1,0 +1,22 @@
+{
+  "name": "next",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "demo": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "12.1.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@storyblok/react": "^0.0.1",
+    "@types/node": "^18.7.17",
+    "@types/react": "18.0.19",
+    "typescript": "^4.8.3"
+  }
+}
