@@ -70,8 +70,7 @@
   },
   "release": {
     "branches": [
-      "main",
-      "feature/v1"
+      "main"
     ]
   },
   "repository": {
