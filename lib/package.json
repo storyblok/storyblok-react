@@ -29,7 +29,7 @@
   "devDependencies": {
     "@babel/core": "^7.20.2",
     "@babel/preset-env": "^7.20.2",
-    "@cypress/react": "^5.12.5",
+    "@cypress/react": "^7.0.1",
     "@cypress/vite-dev-server": "^2.2.3",
     "@tsconfig/recommended": "^1.0.1",
     "@types/react": "18.0.25",
