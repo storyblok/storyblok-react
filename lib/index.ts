@@ -60,7 +60,7 @@ export const useStoryblok = (
 };
 
 export const useStoryblokState = <T = void>(
-  initialStory: StoryData<T> = null as StoryData<T>,
+  initialStory: StoryData<T> | null = null as StoryData<T>,
   bridgeOptions: StoryblokBridgeConfigV2 = {},
   preview: boolean = true
 ): StoryData<T> => {
