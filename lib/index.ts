@@ -26,7 +26,8 @@ export {
 export const useStoryblok = (
   slug: string,
   apiOptions: StoriesParams = {},
-  bridgeOptions: StoryblokBridgeConfigV2 = {}
+  bridgeOptions: StoryblokBridgeConfigV2 = {},
+  preview: boolean = true
 ) => {
   let [story, setStory] = useState<StoryData>({} as StoryData);
 
@@ -37,8 +38,6 @@ export const useStoryblok = (
 
     return null;
   }
-
-  registerSbBridge(story.id, (story) => setStory(story), bridgeOptions);
 
   useEffect(() => {
     async function fetchData() {
@@ -53,17 +52,21 @@ export const useStoryblok = (
     fetchData();
   }, [slug]);
 
+  if (preview && story.id) {
+    registerSbBridge(story.id, (story) => setStory(story), bridgeOptions);
+  }
+
   return story;
 };
 
 export const useStoryblokState = <T = void>(
-  initialStory: StoryData<T> = {} as StoryData<T>,
+  initialStory: StoryData<T> = null as StoryData<T>,
   bridgeOptions: StoryblokBridgeConfigV2 = {},
   preview: boolean = true
 ): StoryData<T> => {
   let [story, setStory] = useState<StoryData<T>>(initialStory);
 
-  if (!preview) {
+  if (!preview || !initialStory) {
     return initialStory;
   }
 
