@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { forwardRef, useEffect } from "react";
 import {
   storyblokInit,
   apiPlugin,
@@ -16,31 +16,37 @@ interface TestProps {
   blok: SbBlokData | false;
 }
 
-const Test = ({ bridge, accessToken, components, blok }: TestProps) => {
-  storyblokInit({
-    accessToken,
-    bridge,
-    use: accessToken ? [apiPlugin] : [],
-    components,
-  });
+const Test = forwardRef<HTMLElement, TestProps>(
+  ({ bridge, accessToken, components, blok }, ref) => {
+    storyblokInit({
+      accessToken,
+      bridge,
+      use: accessToken ? [apiPlugin] : [],
+      components,
+    });
 
-  const storyblokApi = getStoryblokApi();
-  const apiExists = !!(storyblokApi && typeof storyblokApi.get === "function");
+    const storyblokApi = getStoryblokApi();
+    const apiExists = !!(
+      storyblokApi && typeof storyblokApi.get === "function"
+    );
 
-  useEffect(() => {
-    registerStoryblokBridge(43423, (newStory) => console.log(newStory));
-  }, []);
+    useEffect(() => {
+      registerStoryblokBridge(43423, (newStory) => console.log(newStory));
+    }, []);
 
-  return (
-    <div>
-      <h2>React Testing Component</h2>
-      <StoryblokComponent blok={blok} />
-      <h3>
-        <code>storyblokApi.get:</code>
-        <span data-test="api">{apiExists.toString()}</span>
-      </h3>
-    </div>
-  );
-};
+    return (
+      <div>
+        <h2>React Testing Component</h2>
+        <StoryblokComponent ref={ref} blok={blok} />
+        <h3>
+          <code>storyblokApi.get:</code>
+          <span data-test="api">{apiExists.toString()}</span>
+        </h3>
+      </div>
+    );
+  }
+);
+
+Test.displayName = "Test";
 
 export default Test;
