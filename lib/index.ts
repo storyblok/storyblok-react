@@ -7,10 +7,10 @@ import {
 import {
   SbReactComponentsMap,
   SbReactSDKOptions,
-  StoriesParams,
+  ISbStoriesParams,
   StoryblokBridgeConfigV2,
   StoryblokClient,
-  StoryData,
+  ISbStoryData,
 } from "./types";
 
 export { default as StoryblokComponent } from "./components/storyblok-component";
@@ -20,15 +20,14 @@ export {
   useStoryblokBridge,
   registerStoryblokBridge,
   renderRichText,
-  RichTextSchema,
 } from "@storyblok/js";
 
 export const useStoryblok = (
   slug: string,
-  apiOptions: StoriesParams = {},
+  apiOptions: ISbStoriesParams = {},
   bridgeOptions: StoryblokBridgeConfigV2 = {}
 ) => {
-  let [story, setStory] = useState<StoryData>({} as StoryData);
+  let [story, setStory] = useState<ISbStoryData>({} as ISbStoryData);
 
   if (!storyblokApiInstance) {
     console.error(
@@ -57,11 +56,11 @@ export const useStoryblok = (
 };
 
 export const useStoryblokState = <T = void>(
-  initialStory: StoryData<T> = {} as StoryData<T>,
+  initialStory: ISbStoryData<T> = {} as ISbStoryData<T>,
   bridgeOptions: StoryblokBridgeConfigV2 = {},
   preview: boolean = true
-): StoryData<T> => {
-  let [story, setStory] = useState<StoryData<T>>(initialStory);
+): ISbStoryData<T> => {
+  let [story, setStory] = useState<ISbStoryData<T>>(initialStory);
 
   if (!preview) {
     return initialStory;
