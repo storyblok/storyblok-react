@@ -31,8 +31,6 @@ export type {
   ISbStoriesParams,
   ISbStoryParams,
   ISbRichtext,
-  RichTextResolver,
-  RichTextSchema,
   SbBlokData,
   SbBlokKeyDataTypes,
   SbRichTextOptions,

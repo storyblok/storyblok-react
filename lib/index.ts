@@ -20,6 +20,8 @@ export {
   useStoryblokBridge,
   registerStoryblokBridge,
   renderRichText,
+  RichTextResolver,
+  RichTextSchema,
 } from "@storyblok/js";
 
 export const useStoryblok = (
