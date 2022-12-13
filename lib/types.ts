@@ -10,7 +10,6 @@ export interface SbReactSDKOptions extends SbSDKOptions {
 }
 
 export type {
-  apiPlugin,
   ISbConfig,
   ISbCache,
   ISbResult,
