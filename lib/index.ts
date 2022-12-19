@@ -44,21 +44,25 @@ export const useStoryblok = (
     typeof window.storyblokRegisterEvent !== "undefined";
 
   useEffect(() => {
-    async function fetchData() {
+    async function initStory() {
       const { data } = await storyblokApiInstance.get(
         `cdn/stories/${slug}`,
         apiOptions
       );
 
       setStory(data.story);
+
+      if (isBridgeEnable && data.story.id) {
+        registerSbBridge(
+          data.story.id,
+          (story) => setStory(story),
+          bridgeOptions
+        );
+      }
     }
 
-    fetchData();
+    initStory();
   }, [slug]);
-
-  if (isBridgeEnable && story.id) {
-    registerSbBridge(story.id, (story) => setStory(story), bridgeOptions);
-  }
 
   return story;
 };
