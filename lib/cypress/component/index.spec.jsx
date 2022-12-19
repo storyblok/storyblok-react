@@ -2,6 +2,7 @@ import React from "react";
 import Test from "../../testing-components/Test";
 import TestUseStoryblok from "../../testing-components/TestUseStoryblok";
 import { mount } from "@cypress/react";
+import RefChecker from "@storyblok/react-playground/components/ref-checker";
 import Teaser from "@storyblok/react-playground/components/teaser";
 import Grid from "@storyblok/react-playground/components/grid";
 import Feature from "@storyblok/react-playground/components/feature";
@@ -108,6 +109,28 @@ describe("@storyblok/react", () => {
         "be.calledWithMatch",
         "Component teaser doesn't exist."
       );
+    });
+
+    it("Should pass ref to a 'real' component", () => {
+      const blok = {
+        component: "RefChecker",
+        _editable: `<!--#storyblok#{ "id": 12345, "uid": "fc34-uad1"}-->`,
+      };
+
+      const ref = cy.stub();
+
+      mount(
+        <Test
+          ref={ref}
+          accessToken="OurklwV5XsDJTIE1NJaD2wtt"
+          blok={blok}
+          components={{
+            RefChecker,
+          }}
+        />
+      ).then(() => {
+        expect(ref).to.be.calledOnce;
+      });
     });
   });
 
