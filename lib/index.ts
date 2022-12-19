@@ -7,10 +7,10 @@ import {
 import {
   SbReactComponentsMap,
   SbReactSDKOptions,
-  StoriesParams,
+  ISbStoriesParams,
   StoryblokBridgeConfigV2,
   StoryblokClient,
-  StoryData,
+  ISbStoryData,
 } from "./types";
 
 export { default as StoryblokComponent } from "./components/storyblok-component";
@@ -20,15 +20,16 @@ export {
   useStoryblokBridge,
   registerStoryblokBridge,
   renderRichText,
+  RichTextResolver,
   RichTextSchema,
 } from "@storyblok/js";
 
 export const useStoryblok = (
   slug: string,
-  apiOptions: StoriesParams = {},
+  apiOptions: ISbStoriesParams = {},
   bridgeOptions: StoryblokBridgeConfigV2 = {}
 ) => {
-  let [story, setStory] = useState<StoryData>({} as StoryData);
+  let [story, setStory] = useState<ISbStoryData>({} as ISbStoryData);
 
   if (!storyblokApiInstance) {
     console.error(
@@ -38,39 +39,52 @@ export const useStoryblok = (
     return null;
   }
 
-  registerSbBridge(story.id, (story) => setStory(story), bridgeOptions);
+  const isBridgeEnable =
+    typeof window !== "undefined" &&
+    typeof window.storyblokRegisterEvent !== "undefined";
 
   useEffect(() => {
-    async function fetchData() {
+    async function initStory() {
       const { data } = await storyblokApiInstance.get(
         `cdn/stories/${slug}`,
         apiOptions
       );
 
       setStory(data.story);
+
+      if (isBridgeEnable && data.story.id) {
+        registerSbBridge(
+          data.story.id,
+          (story) => setStory(story),
+          bridgeOptions
+        );
+      }
     }
 
-    fetchData();
+    initStory();
   }, [slug]);
 
   return story;
 };
 
 export const useStoryblokState = <T = void>(
-  initialStory: StoryData<T> = {} as StoryData<T>,
-  bridgeOptions: StoryblokBridgeConfigV2 = {},
-  preview: boolean = true
-): StoryData<T> => {
-  let [story, setStory] = useState<StoryData<T>>(initialStory);
+  initialStory: ISbStoryData<T> | null = null as ISbStoryData<T>,
+  bridgeOptions: StoryblokBridgeConfigV2 = {}
+): ISbStoryData<T> => {
+  let [story, setStory] = useState<ISbStoryData<T>>(initialStory);
 
-  if (!preview) {
+  const isBridgeEnable =
+    typeof window !== "undefined" &&
+    typeof window.storyblokRegisterEvent !== "undefined";
+
+  if (!isBridgeEnable || !initialStory) {
     return initialStory;
   }
 
   useEffect(() => {
-    registerSbBridge(story.id, (newStory) => setStory(newStory), bridgeOptions);
-
     setStory(initialStory);
+
+    registerSbBridge(story.id, (newStory) => setStory(newStory), bridgeOptions);
   }, [initialStory]);
 
   return story;

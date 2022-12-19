@@ -13,7 +13,7 @@ export default defineConfig(() => {
           format === "es" ? `${libName}.mjs` : `${libName}.js`,
       },
       rollupOptions: {
-        external: ["react", "axios"],
+        external: ["react"],
         output: {
           globals: { react: "React" },
         },
