@@ -68,10 +68,10 @@ export const useStoryblok = (
 };
 
 export const useStoryblokState = <T = void>(
-  initialStory: ISbStoryData<T> | null = null as ISbStoryData<T>,
+  initialStory: ISbStoryData<T> | null = null,
   bridgeOptions: StoryblokBridgeConfigV2 = {}
-): ISbStoryData<T> => {
-  let [story, setStory] = useState<ISbStoryData<T>>(initialStory);
+): ISbStoryData<T> | null => {
+  let [story, setStory] = useState(initialStory);
 
   const isBridgeEnable =
     typeof window !== "undefined" &&
