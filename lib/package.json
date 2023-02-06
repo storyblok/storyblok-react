@@ -24,7 +24,7 @@
     "prepublishOnly": "npm run build && cp ../README.md ./"
   },
   "dependencies": {
-    "@storyblok/js": "^2.0.14"
+    "@storyblok/js": "^2.0.15"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
