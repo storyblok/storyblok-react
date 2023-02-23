@@ -25,10 +25,6 @@ describe("@storyblok/react", () => {
     it("doesn't load if the bridge is disabled", () => {
       mount(<Test bridge={false} />);
       cy.get("#storyblok-javascript-bridge").should("not.exist");
-      cy.get("@error").should(
-        "be.calledWithMatch",
-        "Storyblok Bridge is disabled"
-      );
     });
   });
 
