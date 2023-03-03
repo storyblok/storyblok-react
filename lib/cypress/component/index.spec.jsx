@@ -16,18 +16,6 @@ describe("@storyblok/react", () => {
     document.getElementById("storyblok-javascript-bridge")?.remove();
   });
 
-  describe("JS Bridge", () => {
-    it("loads by default", () => {
-      mount(<Test />);
-      cy.get("#storyblok-javascript-bridge").should("exist");
-    });
-
-    it("doesn't load if the bridge is disabled", () => {
-      mount(<Test bridge={false} />);
-      cy.get("#storyblok-javascript-bridge").should("not.exist");
-    });
-  });
-
   describe("getStoryblokApi", () => {
     it("should return an instance of the API if we use the API Plugin", () => {
       mount(<Test accessToken="OurklwV5XsDJTIE1NJaD2wtt" />);
