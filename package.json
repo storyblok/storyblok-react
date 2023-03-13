@@ -5,12 +5,14 @@
   "workspaces": [
     "./lib",
     "./playground",
-    "./playground-next"
+    "./playground-next",
+    "./playground-next13-rsc"
   ],
   "scripts": {
     "dev": "npm run dev --workspace=lib & npm run demo",
     "demo": "npm run demo --workspace=playground",
     "demo-next": "npm run demo --workspace=playground-next",
+    "demo-next13-rsc": "npm run demo --workspace=playground-next13-rsc",
     "build": "npm run build --workspace=lib",
     "test:unit": "npm run test:unit --workspace=lib",
     "test:e2e": "npm run test:e2e --workspace=lib",

@@ -36,8 +36,8 @@ describe("@storyblok/react", () => {
     });
   });
 
-  describe("StoryblokComponent", () => {
-    it("Should render the StoryblokComponent if the blok is passed", () => {
+  describe.only("StoryblokComponent", () => {
+    it.only("Should render the StoryblokComponent if the blok is passed", () => {
       const blok = {
         component: "teaser",
         headline: "Hello React",
