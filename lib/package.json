@@ -16,6 +16,10 @@
     "./rsc": {
       "import": "./dist/storyblok-react2.mjs",
       "require": "./dist/storyblok-react2.js"
+    },
+    "./StoryblokBridgeLoader": {
+      "import": "./dist/storyblok-react3.mjs",
+      "require": "./dist/storyblok-react3.js"
     }
   },
   "scripts": {
@@ -45,6 +49,7 @@
     "jest": "^29.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "terser": "^5.16.6",
     "vite": "^4.1.4"
   },
   "peerDependencies": {

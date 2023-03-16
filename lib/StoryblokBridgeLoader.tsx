@@ -1,11 +1,9 @@
 "use client";
-import React from "react"
-import { loadStoryblokBridge } from "../index";
+import React from "react";
+import { loadStoryblokBridge } from "@storyblok/js";
 
 const setBridge = async (options) => {
   await loadStoryblokBridge();
-
-  console.log(options);
   const sbBridge = new window.StoryblokBridge(options);
 
   sbBridge.on(["published", "change"], (event) => {
@@ -13,9 +11,9 @@ const setBridge = async (options) => {
   });
 };
 
-const SbBridgeRSC = ({ options }) => {
+const StoryblokBridgeLoader = ({ options }) => {
   setBridge(options);
   return <></>;
 };
 
-export default SbBridgeRSC;
+export default StoryblokBridgeLoader;

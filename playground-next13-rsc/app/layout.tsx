@@ -1,4 +1,6 @@
-import { storyblokInit, apiPlugin, SbBridgeRSC } from "@storyblok/react/rsc";
+import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
+import StoryblokBridgeLoader from "@storyblok/react/StoryblokBridgeLoader";
+
 import Page from "../components/Page";
 import Teaser from "../components/Teaser";
 
@@ -8,7 +10,7 @@ const components = {
 };
 
 storyblokInit({
-  accessToken: "RVLbQ7MG4kCi3r1sQQ4VEAtt",
+  accessToken: "OurklwV5XsDJTIE1NJaD2wtt",
   use: [apiPlugin],
   components,
 });
@@ -26,7 +28,7 @@ export default function RootLayout({ children }: RootLayoutType) {
   return (
     <html lang="en">
       <body>{children}</body>
-      <SbBridgeRSC options={{ a: 0 }} />
+      <StoryblokBridgeLoader options={{}} />
     </html>
   );
 }
