@@ -1,10 +1,20 @@
-import { getStoryblokApi } from "@storyblok/react/rsc";
-import StoryblokWrapper from "../components/StoryblokWrapper";
+"use client";
+import {
+  getStoryblokApi,
+  StoryblokComponent,
+  useStoryblokState,
+} from "@storyblok/react";
 
 export default async function Home() {
   const { data } = await fetchData();
+  const story = useStoryblokState(data.story);
 
-  return <StoryblokWrapper story={data.story} />;
+  return (
+    <div>
+      <h1>Story: {story.id}</h1>
+      <StoryblokComponent blok={story.content} />
+    </div>
+  );
 }
 
 export async function fetchData() {

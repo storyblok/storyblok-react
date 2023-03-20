@@ -1,6 +1,5 @@
 "use client";
-import { StoryblokComponent } from "@storyblok/react/rsc";
-import { useStoryblokState } from "@storyblok/react";
+import { StoryblokComponent, useStoryblokState } from "@storyblok/react";
 
 export default function StoryblokWrapper({ story }) {
   story = useStoryblokState(story);

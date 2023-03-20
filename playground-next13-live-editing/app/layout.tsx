@@ -1,18 +1,4 @@
-import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
-
-import Page from "../components/Page";
-import Teaser from "../components/Teaser";
-
-const components = {
-  teaser: Teaser,
-  page: Page,
-};
-
-storyblokInit({
-  accessToken: "OurklwV5XsDJTIE1NJaD2wtt",
-  use: [apiPlugin],
-  components,
-});
+import StoryblokInit from "@/components/StoryblokInit";
 
 export const metadata = {
   title: "Create Next App",
@@ -26,7 +12,9 @@ interface RootLayoutType {
 export default function RootLayout({ children }: RootLayoutType) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <StoryblokInit>{children}</StoryblokInit>
+      </body>
     </html>
   );
 }
