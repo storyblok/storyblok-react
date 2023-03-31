@@ -17,6 +17,6 @@
     "@storyblok/react": "^0.0.1",
     "@types/node": "^18.15.11",
     "@types/react": "18.0.31",
-    "typescript": "^5.0.2"
+    "typescript": "^5.0.3"
   }
 }
