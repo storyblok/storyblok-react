@@ -1,5 +1,5 @@
 import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
-import StoryblokBridgeLoader from "@storyblok/react/StoryblokBridgeLoader";
+import StoryblokBridgeLoader from "@storyblok/react/storyblok-bridge-loader";
 
 import Page from "../components/Page";
 import Teaser from "../components/Teaser";
@@ -10,7 +10,7 @@ const components = {
 };
 
 storyblokInit({
-  accessToken: "OurklwV5XsDJTIE1NJaD2wtt",
+  accessToken: "RVLbQ7MG4kCi3r1sQQ4VEAtt",
   use: [apiPlugin],
   components,
 });

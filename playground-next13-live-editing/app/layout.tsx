@@ -1,4 +1,4 @@
-import StoryblokInit from "@/components/StoryblokInit";
+import StoryblokProvider from "../components/StoryblokProvider";
 
 export const metadata = {
   title: "Create Next App",
@@ -11,10 +11,10 @@ interface RootLayoutType {
 
 export default function RootLayout({ children }: RootLayoutType) {
   return (
-    <html lang="en">
-      <body>
-        <StoryblokInit>{children}</StoryblokInit>
-      </body>
-    </html>
+    <StoryblokProvider>
+      <html lang="en">
+        <body>{children}</body>
+      </html>
+    </StoryblokProvider>
   );
 }

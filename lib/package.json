@@ -17,7 +17,7 @@
       "import": "./dist/storyblok-react2.mjs",
       "require": "./dist/storyblok-react2.js"
     },
-    "./StoryblokBridgeLoader": {
+    "./storyblok-bridge-loader": {
       "import": "./dist/storyblok-react3.mjs",
       "require": "./dist/storyblok-react3.js"
     }

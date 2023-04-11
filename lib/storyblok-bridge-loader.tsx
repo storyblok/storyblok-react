@@ -6,7 +6,7 @@ const setBridge = async (options) => {
   await loadStoryblokBridge();
   const sbBridge = new window.StoryblokBridge(options);
 
-  sbBridge.on(["published", "change"], (event) => {
+  sbBridge.on(["published", "change"], () => {
     window.location.reload();
   });
 };

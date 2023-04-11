@@ -1,25 +1,24 @@
-"use client";
 import {
   getStoryblokApi,
-  StoryblokComponent,
-  useStoryblokState,
-} from "@storyblok/react";
+  StoryblokClient,
+  ISbStoriesParams,
+} from "@storyblok/react/rsc";
+import StoryblokWrapper from "@/components/StoryblokWrapper";
 
 export default async function Home() {
   const { data } = await fetchData();
-  const story = useStoryblokState(data.story);
 
   return (
     <div>
-      <h1>Story: {story.id}</h1>
-      <StoryblokComponent blok={story.content} />
+      <h1>Story: {data.story.id}</h1>
+      <StoryblokWrapper story={data.story} />
     </div>
   );
 }
 
 export async function fetchData() {
-  let sbParams = { version: "draft" };
+  let sbParams: ISbStoriesParams = { version: "draft" };
 
-  const storyblokApi: any = getStoryblokApi();
+  const storyblokApi: StoryblokClient = getStoryblokApi();
   return storyblokApi.get(`cdn/stories/home`, sbParams);
 }
