@@ -9,7 +9,8 @@ export default defineConfig({
       entry: [
         path.resolve(__dirname, "index.ts"),
         path.resolve(__dirname, "rsc/index.ts"),
-        path.resolve(__dirname, "storyblok-bridge-loader.tsx"),
+        path.resolve(__dirname, "bridge-loader.tsx"),
+        path.resolve(__dirname, "story.tsx"),
       ],
       name: "storyblokReact",
       fileName: (format) =>
@@ -26,7 +27,9 @@ export default defineConfig({
       output: {
         globals: { react: "React" },
         banner: (chunk) =>
-          chunk.name === "storyblok-bridge-loader" ? '"use client";' : "",
+          ["bridge-loader", "story"].includes(chunk.name)
+            ? '"use client";'
+            : "",
       },
     },
   },

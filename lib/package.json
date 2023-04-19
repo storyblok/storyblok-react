@@ -17,9 +17,13 @@
       "import": "./dist/storyblok-react2.mjs",
       "require": "./dist/storyblok-react2.js"
     },
-    "./storyblok-bridge-loader": {
+    "./bridge-loader": {
       "import": "./dist/storyblok-react3.mjs",
       "require": "./dist/storyblok-react3.js"
+    },
+    "./story": {
+      "import": "./dist/storyblok-react4.mjs",
+      "require": "./dist/storyblok-react4.js"
     }
   },
   "scripts": {

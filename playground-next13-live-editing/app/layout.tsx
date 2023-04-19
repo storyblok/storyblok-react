@@ -1,4 +1,5 @@
-import StoryblokProvider from "../components/StoryblokProvider";
+import StoryblokClientProvider from "../components/StoryblokClientProvider";
+import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 
 export const metadata = {
   title: "Create Next App",
@@ -9,12 +10,22 @@ interface RootLayoutType {
   children: React.ReactNode;
 }
 
+const options = {
+  accessToken: "OurklwV5XsDJTIE1NJaD2wtt",
+  use: [apiPlugin],
+};
+
+/**
+ * Initializes the API Client for the server requests
+ */
+storyblokInit(options);
+
 export default function RootLayout({ children }: RootLayoutType) {
   return (
-    <StoryblokProvider>
+    <StoryblokClientProvider>
       <html lang="en">
         <body>{children}</body>
       </html>
-    </StoryblokProvider>
+    </StoryblokClientProvider>
   );
 }

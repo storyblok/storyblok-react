@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { registerStoryblokBridge as registerSbBridge } from "@storyblok/js";
+import { registerStoryblokBridge } from "@storyblok/js";
 
 import {
   ISbStoriesParams,
@@ -39,7 +39,7 @@ export const useStoryblok = (
       setStory(data.story);
 
       if (isBridgeEnable && data.story.id) {
-        registerSbBridge(
+        registerStoryblokBridge(
           data.story.id,
           (story) => setStory(story),
           bridgeOptions
@@ -53,10 +53,15 @@ export const useStoryblok = (
   return story;
 };
 
-export const useStoryblokState = <T = void>(
-  initialStory: ISbStoryData<T> | null = null,
-  bridgeOptions: StoryblokBridgeConfigV2 = {}
-): ISbStoryData<T> | null => {
+type tUseStoryblokState = <T = void>(
+  initialStory: ISbStoryData<T> | null,
+  bridgeOptions: StoryblokBridgeConfigV2
+) => ISbStoryData<T> | null;
+
+export const useStoryblokState: tUseStoryblokState = (
+  initialStory = null,
+  bridgeOptions = {}
+) => {
   let [story, setStory] = useState(initialStory);
 
   const isBridgeEnable =
@@ -70,10 +75,15 @@ export const useStoryblokState = <T = void>(
   useEffect(() => {
     setStory(initialStory);
 
-    registerSbBridge(story.id, (newStory) => setStory(newStory), bridgeOptions);
+    registerStoryblokBridge(
+      story.id,
+      (newStory) => setStory(newStory),
+      bridgeOptions
+    );
   }, [initialStory]);
 
   return story;
 };
 
 export * from "./common";
+export * from "./common/client";

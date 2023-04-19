@@ -1,5 +1,6 @@
-import { SbSDKOptions } from "@storyblok/js";
 import React from "react";
+import { SbSDKOptions } from "@storyblok/js";
+import type { ISbStoryData, StoryblokBridgeConfigV2 } from "@storyblok/js";
 
 export interface SbReactComponentsMap {
   [key: string]: React.ElementType;
@@ -8,6 +9,11 @@ export interface SbReactComponentsMap {
 export interface SbReactSDKOptions extends SbSDKOptions {
   components?: SbReactComponentsMap;
 }
+
+export type TUseStoryblokState = <T = void>(
+  initialStory: ISbStoryData<T> | null,
+  bridgeOptions?: StoryblokBridgeConfigV2
+) => ISbStoryData<T> | null;
 
 export type {
   ISbConfig,
