@@ -17,11 +17,11 @@ _Cons: live editing is limited to when saving the story_
 
 > Note: always import from `@storyblok/react/rsc`
 
-**1. Initialize and Import your Storyblok Components**
+### 1. Initialize and Import your Storyblok Components
 
 In _app/layout.jsx_, call `storyblokInit` and use the new `StoryblokBridgeLoader` to setup the bridge:
 
-```jsx
+```js
 import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 import StoryblokBridgeLoader from "@storyblok/react/bridge-loader";
 
@@ -47,11 +47,11 @@ export default RootLayout({ children }) =>{
 }
 ```
 
-**2. Fetch data and render components**
+### 2. Fetch data and render components
 
 In _app/page.tsx_, use `StoryblokComponent` and `getStoryblokApi` as follows:
 
-```jsx
+```js
 import { getStoryblokApi, StoryblokComponent } from "@storyblok/react/rsc";
 
 export default async function Home() {
@@ -80,11 +80,11 @@ _Cons: leverages partially RSC (still better than Next 12)_
 
 > Note: always import from `@storyblok/react/rsc`
 
-**1. Initialize**
+### 1. Initialize
 
 In _app/layout.jsx_, call `storyblokInit` (no need to pass the components) and use `StoryblokClientProvider` (to be implemented in next step):
 
-```jsx
+```js
 import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 import StoryblokClientProvider from "../components/StoryblokClientProvider";
 
@@ -104,11 +104,11 @@ export default function RootLayout({ children }) {
 }
 ```
 
-**2. Import your Storyblok components**
+### 2. Import your Storyblok components
 
 Create _components/StoryblokClientProvider.jsx_, and re-initalize and import your Storyblok components:
 
-```jsx
+```js
 /** 1. Tag it as client component */
 "use client";
 import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
@@ -134,11 +134,11 @@ export default function StoryblokClientProvider({ children }) {
 
 > Note: it's necessary to re-initialize here as well, as to enable the live editing you must initialize the lib universally (client + server) via a React client component.
 
-**3. Fetch data and render components**
+### 3. Fetch data and render components
 
 In _app/page.jsx_, use `getStoryblokApi` and `StoryblokStory` (this will handle automatically the story live events):
 
-```jsx
+```js
 import { getStoryblokApi } from "@storyblok/react/rsc";
 import StoryblokStory from "@storyblok/react/story";
 
