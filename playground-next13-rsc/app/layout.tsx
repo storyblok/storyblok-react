@@ -4,15 +4,13 @@ import StoryblokBridgeLoader from "@storyblok/react/bridge-loader";
 import Page from "../components/Page";
 import Teaser from "../components/Teaser";
 
-const components = {
-  teaser: Teaser,
-  page: Page,
-};
-
 storyblokInit({
   accessToken: "RVLbQ7MG4kCi3r1sQQ4VEAtt",
   use: [apiPlugin],
-  components,
+  components: {
+    teaser: Teaser,
+    page: Page,
+  },
 });
 
 export const metadata = {
