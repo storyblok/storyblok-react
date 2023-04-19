@@ -3,7 +3,7 @@ import {
   StoryblokClient,
   ISbStoriesParams,
 } from "@storyblok/react/rsc";
-import StoryblokWrapper from "@/components/StoryblokWrapper";
+import StoryblokStory from "@storyblok/react/story";
 
 export default async function Home() {
   const { data } = await fetchData();
@@ -11,7 +11,7 @@ export default async function Home() {
   return (
     <div>
       <h1>Story: {data.story.id}</h1>
-      <StoryblokWrapper story={data.story} />
+      <StoryblokStory story={data.story} />
     </div>
   );
 }

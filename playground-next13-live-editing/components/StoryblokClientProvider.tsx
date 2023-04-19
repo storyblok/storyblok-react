@@ -1,17 +1,19 @@
+/** 1. Tag it as client component */
 "use client";
-import { storyblokInit } from "@storyblok/react";
+import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 
+/** 2. Import your components */
 import Page from "../components/Page";
 import Teaser from "../components/Teaser";
 
-const components = {
-  teaser: Teaser,
-  page: Page,
-};
-
+/** 3. Initialize it as usual */
 storyblokInit({
-  accessToken: "RVLbQ7MG4kCi3r1sQQ4VEAtt",
-  components,
+  accessToken: "OurklwV5XsDJTIE1NJaD2wtt",
+  use: [apiPlugin],
+  components: {
+    teaser: Teaser,
+    page: Page,
+  },
 });
 
 export default function StoryblokClientProvider({ children }) {
