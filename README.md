@@ -56,7 +56,6 @@ Install the file from the CDN:
 ### Initialization
 
 Register the plugin on your application and add the [access token](https://www.storyblok.com/docs/api/content-delivery#topics/authentication?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react) of your Storyblok space. You can also add the `apiPlugin` in case that you want to use the Storyblok API Client:
-For Spaces created under `US` region, you should pass the region like `{ apiOptions: { region: 'us' } }`. If your space is under `EU`, no further configuration is required.
 
 ```js
 import { storyblokInit, apiPlugin } from "@storyblok/react";
@@ -64,9 +63,7 @@ import { storyblokInit, apiPlugin } from "@storyblok/react";
 storyblokInit({
   accessToken: "YOUR_ACCESS_TOKEN",
   // bridge: false,
-  apiOptions: {
-    region: "us", // Pass this key/value if your space was created under US region
-  },
+  // apiOptions: {},
   use: [apiPlugin],
   components: {
     page: Page,
@@ -82,6 +79,31 @@ storyblokInit({
 That's it! All the features are enabled for you: the _Api Client_ for interacting with [Storyblok CDN API](https://www.storyblok.com/docs/api/content-delivery#topics/introduction?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react), and _Storyblok Bridge_ for [real-time visual editing experience](https://www.storyblok.com/docs/guide/essentials/visual-editor?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react).
 
 > You can enable/disable some of these features if you don't need them, so you save some KB. Please read the "Features and API" section
+
+#### Region parameter
+
+Possible values:
+
+- `eu` (default): For spaces created in the EU
+- `us`: For spaces created in the US
+- `cn`: For spaces created in China
+
+Full example for a space created in the US:
+
+```js
+import { storyblokInit, apiPlugin } from "@storyblok/react";
+
+storyblokInit({
+  accessToken: "YOUR_ACCESS_TOKEN",
+  use: [apiPlugin],
+  apiOptions: {
+    region: "us",
+  },
+  components: {},
+});
+```
+
+> Note: For spaces created in the United States or China, the `region` parameter **must** be specified.
 
 ### Getting Started
 
