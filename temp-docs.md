@@ -4,7 +4,7 @@
 
 **Demo: see _playground_**
 
-## Next 12
+## Next 12 and Next 13 (no RSC)
 
 **Demo: see _playground-next_**
 
