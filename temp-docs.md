@@ -13,6 +13,7 @@
 **Demo: see _playground-next13-rsc_**
 
 _Pros: benefits from the power and performance of using fully RSC_
+
 _Cons: live editing is limited to when saving the story_
 
 > Note: always import from `@storyblok/react/rsc`
@@ -76,17 +77,18 @@ export async function fetchData() {
 **Demo: see _playground-next13-live-editing_**
 
 _Pros: live editing is 100% in place_
-_Cons: leverages partially RSC (still better than Next 12)_
+
+_Cons: leverages partially RSC (still better perf-wise than Next 12)_
 
 > Note: always import from `@storyblok/react/rsc`
 
 ### 1. Initialize
 
-In _app/layout.jsx_, call `storyblokInit` (no need to pass the components) and use `StoryblokClientProvider` (to be implemented in next step):
+In _app/layout.jsx_, call `storyblokInit` (no need to pass the components) and use `StoryblokProvider` (to be implemented in next step):
 
 ```js
 import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
-import StoryblokClientProvider from "../components/StoryblokClientProvider";
+import StoryblokProvider from "../components/StoryblokProvider";
 
 storyblokInit({
   accessToken: "OurklwV5XsDJTIE1NJaD2wtt",
@@ -95,18 +97,18 @@ storyblokInit({
 
 export default function RootLayout({ children }) {
   return (
-    <StoryblokClientProvider>
+    <StoryblokProvider>
       <html lang="en">
         <body>{children}</body>
       </html>
-    </StoryblokClientProvider>
+    </StoryblokProvider>
   );
 }
 ```
 
 ### 2. Import your Storyblok components
 
-Create _components/StoryblokClientProvider.jsx_, and re-initalize and import your Storyblok components:
+Create _components/StoryblokProvider.jsx_, and re-initalize and import your Storyblok components:
 
 ```js
 /** 1. Tag it as client component */
@@ -127,7 +129,7 @@ storyblokInit({
   },
 });
 
-export default function StoryblokClientProvider({ children }) {
+export default function StoryblokProvider({ children }) {
   return children;
 }
 ```

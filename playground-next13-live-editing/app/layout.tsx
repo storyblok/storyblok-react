@@ -1,5 +1,5 @@
 import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
-import StoryblokClientProvider from "../components/StoryblokClientProvider";
+import StoryblokProvider from "../components/StoryblokProvider";
 
 storyblokInit({
   accessToken: "OurklwV5XsDJTIE1NJaD2wtt",
@@ -16,10 +16,10 @@ interface RootLayoutType {
 
 export default function RootLayout({ children }: RootLayoutType) {
   return (
-    <StoryblokClientProvider>
+    <StoryblokProvider>
       <html lang="en">
         <body>{children}</body>
       </html>
-    </StoryblokClientProvider>
+    </StoryblokProvider>
   );
 }

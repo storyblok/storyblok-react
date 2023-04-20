@@ -3,8 +3,8 @@
 import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 
 /** 2. Import your components */
-import Page from "../components/Page";
-import Teaser from "../components/Teaser";
+import Page from "./Page";
+import Teaser from "./Teaser";
 
 /** 3. Initialize it as usual */
 storyblokInit({
@@ -16,6 +16,6 @@ storyblokInit({
   },
 });
 
-export default function StoryblokClientProvider({ children }) {
+export default function StoryblokProvider({ children }) {
   return children;
 }
