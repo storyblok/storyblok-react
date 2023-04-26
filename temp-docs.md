@@ -192,7 +192,7 @@ The initalization remains the same when you work with Next.js. You can intialze 
 
 ### Fetching Content
 
-The SDK provdies a `getStoryblokApi` object in your app, which is an instance of [storyblok-js-client]. This can be used to fetch the content from Storyblok. You can use it in functions like `getStaticProps`, `getStaticPaths`, `getServerSideProps` etc.
+The SDK provdies a `getStoryblokApi` object in your app, which is an instance of [storyblok-js-client](https://github.com/storyblok/storyblok-js-client). This can be used to fetch the content from Storyblok. You can use it in functions like `getStaticProps`, `getStaticPaths`, `getServerSideProps` etc.
 
 ```js
 import { getStoryblokApi } from "@storyblok/react";
@@ -277,7 +277,7 @@ If you're using the complete React Server Components along with app directory, f
 
 ### Initialize and Import your Storyblok Components
 
-The initialzation remains the same here as well. Please refer to the above section for more information about `storyblokInit` function.
+The initialzation remains the same here as well. Please refer to the above section about "Initialization" for more information about `storyblokInit` function.
 In `_app/layout.jsx`, call `storyblokInit` and use the new `StoryblokBridgeLoader` to setup the bridge. This Bridge Loader can be imported from `@storyblok/react/bridge-loader`:
 
 ```js
@@ -305,7 +305,7 @@ export default RootLayout({ children }) =>{
   );
 }
 ```
-As the name says, `StoryblokBridgeLoader` loads the bridge on the client. It helps you see the dotted lines and allows you to still click on the components inside the Visual Editor. You can pass the bridge options using the `options` prop.
+As the name says, `StoryblokBridgeLoader` loads the bridge on the client. It helps you see the dotted lines and allows you to still click on the components inside the Visual Editor to open their schema. You can pass the bridge options using the `options` prop.
 
 ### 2. Fetch Content and Render Components
 
@@ -344,7 +344,7 @@ You can enable the live editing with Server Side Components by rendering them wi
 
 ### 1. Initialize
 
-In `_app/layout.jsx`, call `storyblokInit` without loading the components and use `StoryblokProvider` (this provider is created in the next step).  :
+In `_app/layout.jsx`, call `storyblokInit` without loading the components and use `StoryblokProvider` (this provider is created in the next step) :
 
 ```js
 import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
@@ -366,7 +366,7 @@ export default function RootLayout({ children }) {
 }
 ```
 
-### 2. Create StoryblokProvider and Import your Storyblok components
+### 2. Create StoryblokProvider and Import your Storyblok Components
 
 Create `components/StoryblokProvider.jsx`, and re-initalize and import your Storyblok components:
 
