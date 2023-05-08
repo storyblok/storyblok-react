@@ -206,7 +206,7 @@ import Page from "../components/Page";
 import Teaser from "../components/Teaser";
 
 storyblokInit({
-  accessToken: "RVLbQ7MG4kCi3r1sQQ4VEAtt",
+  accessToken: "YOUR_ACCESS_TOKEN",
   use: [apiPlugin],
   components: {
     teaser: Teaser,
