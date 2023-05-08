@@ -184,7 +184,7 @@ useStoryblok(story.id, {version: 'draft'}, {
 **Check out our React Boilerplate [here](https://github.com/storyblok/storyblok-react-boilerplate), or read on how to add Storyblok to React in 5 mins [here](https://www.storyblok.com/tp/headless-cms-react)**
 
 
-## Next 13 (Full RSC)
+## Next.js using App Router - Full React Server Components
 
 If you're using the complete React Server Components along with app directory, follow this method. Using all the Server Components has great performance benefits. 
 
