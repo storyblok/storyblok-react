@@ -181,7 +181,7 @@ useStoryblok(story.id, {version: 'draft'}, {
 });
 ```
 
-**Check out the React Bolierplate [here](https://github.com/storyblok/storyblok-react-boilerplate) or read on how to add Storyblok to React in 5 mins [here](https://www.storyblok.com/tp/headless-cms-react)**
+**Check out our React Boilerplate [here](https://github.com/storyblok/storyblok-react-boilerplate), or read on how to add Storyblok to React in 5 mins [here](https://www.storyblok.com/tp/headless-cms-react)**
 
 
 ## Next 12 and Next 13 (no RSC)
