@@ -423,7 +423,7 @@ export async function getStaticProps({ preview = false }) {
 
 **Check out the [code for the first part of our Next.js + Storyblok Ultimate Tutorial](https://github.com/storyblok/next.js-ultimate-tutorial/tree/part-1). Or you can also read on how to add Storyblok to a Next.js project in 5 minutes [here](https://www.storyblok.com/tp/add-a-headless-cms-to-next-js-in-5-minutes)**
 
-### Features and API
+## Features and API
 
 You can **choose the features to use** when you initialize the plugin. In that way, you can improve Web Performance by optimizing your page load and save some bytes.
 
