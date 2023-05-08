@@ -465,7 +465,7 @@ const sbBridge = new window.StoryblokBridge(options);
 sbBridge.on(["input", "published", "change"], (event) => {
   // ...
 });
-
+```
 
 ### Rendering Rich Text
 
