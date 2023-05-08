@@ -184,88 +184,6 @@ useStoryblok(story.id, {version: 'draft'}, {
 **Check out our React Boilerplate [here](https://github.com/storyblok/storyblok-react-boilerplate), or read on how to add Storyblok to React in 5 mins [here](https://www.storyblok.com/tp/headless-cms-react)**
 
 
-## Next 12 and Next 13 (no RSC)
-
-In this section, the way to use the SDK with the `pages` directory is described.
-
-The initalization remains the same when you work with Next.js. You can intialze the SDK in the `_app.js` file. Please refer to the 'Initialization' section above to read more.
-
-### Fetching Content
-
-The SDK provdies a `getStoryblokApi` object in your app, which is an instance of [storyblok-js-client](https://github.com/storyblok/storyblok-js-client). This can be used to fetch the content from Storyblok. You can use it in functions like `getStaticProps`, `getStaticPaths`, `getServerSideProps` etc.
-
-```js
-import { getStoryblokApi } from "@storyblok/react";
-
-// At the required place
-const storyblokApi = getStoryblokApi();
-const { data } = await storyblokApi.get("cdn/stories", { version: "draft" });
-```
-
-> Note: To use this, you need to use the `apiPlugin` during the initalization inside the `storyblokInit` function. If you don't use `apiPlugin`, you can use your prefered method or function to fetch your data.
-
-
-### Listening to Storyblok Visual Editor events
-
-The SDK also gives you `useStoryblokState` hook. It works similar to `useStoryblok` for live editing, but doesn't fetch the content. Instead, it takes a story object as the first parameter. You can also pass the Bridge Options as the second paramter.
-
-```js
-import {
-  useStoryblokState,
-  StoryblokComponent,
-} from "@storyblok/react";
-
-export default function Home({ story: initialStory }) {
-  const story = useStoryblokState(initialStory);
-
-  if (!story.content) {
-    return <div>Loading...</div>;
-  }
-
-  return <StoryblokComponent blok={story.content} />;
-}
-```
-
-In this case, it story is being passed as a prop that can be coming from where the story is being fetched. A complete example would look like this- 
-
-```js
-import {
-  useStoryblokState,
-  getStoryblokApi,
-  StoryblokComponent,
-} from "@storyblok/react";
-
-export default function Home({ story: initialStory }) {
-  const story = useStoryblokState(initialStory);
-
-  if (!story.content) {
-    return <div>Loading...</div>;
-  }
-
-  return <StoryblokComponent blok={story.content} />;
-}
-
-export async function getStaticProps({ preview = false }) {
-  const storyblokApi = getStoryblokApi();
-  let { data } = await storyblokApi.get(`cdn/stories/react`, {
-    version: "draft",
-  });
-
-  return {
-    props: {
-      story: data ? data.story : false,
-      preview,
-    },
-    revalidate: 3600, // revalidate every hour
-  };
-}
-```
-
-`StoryblokComponent` renders all the components dynamically which you loaded before during the initalization inside the `storyblokInit` function. 
-
-**Check out the this [repo](https://github.com/storyblok/next.js-ultimate-tutorial/tree/part-1), it is the code for the first part of our Ultimate Tutorial for Next.js or read on how to add Storyblok to Next.js in 5 mins [here](https://www.storyblok.com/tp/add-a-headless-cms-to-next-js-in-5-minutes)**
-
-
 ## Next 13 (Full RSC)
 
 If you're using the complete React Server Components along with app directory, follow this method. Using all the Server Components has great performance benefits. 
@@ -422,6 +340,88 @@ export async function fetchData() {
 }
 ```
 **Demo: see _playground-next13-live-editing_**
+
+
+## Next.js using Pages Router and Remix
+
+In this section, the way to use the SDK with the `pages` directory is described.
+
+The initalization remains the same when you work with Next.js. You can intialze the SDK in the `_app.js` file. Please refer to the 'Initialization' section above to read more.
+
+### Fetching Content
+
+The SDK provdies a `getStoryblokApi` object in your app, which is an instance of [storyblok-js-client](https://github.com/storyblok/storyblok-js-client). This can be used to fetch the content from Storyblok. You can use it in functions like `getStaticProps`, `getStaticPaths`, `getServerSideProps` etc.
+
+```js
+import { getStoryblokApi } from "@storyblok/react";
+
+// At the required place
+const storyblokApi = getStoryblokApi();
+const { data } = await storyblokApi.get("cdn/stories", { version: "draft" });
+```
+
+> Note: To use this, you need to use the `apiPlugin` during the initalization inside the `storyblokInit` function. If you don't use `apiPlugin`, you can use your prefered method or function to fetch your data.
+
+
+### Listening to Storyblok Visual Editor events
+
+The SDK also gives you `useStoryblokState` hook. It works similar to `useStoryblok` for live editing, but doesn't fetch the content. Instead, it takes a story object as the first parameter. You can also pass the Bridge Options as the second paramter.
+
+```js
+import {
+  useStoryblokState,
+  StoryblokComponent,
+} from "@storyblok/react";
+
+export default function Home({ story: initialStory }) {
+  const story = useStoryblokState(initialStory);
+
+  if (!story.content) {
+    return <div>Loading...</div>;
+  }
+
+  return <StoryblokComponent blok={story.content} />;
+}
+```
+
+In this case, it story is being passed as a prop that can be coming from where the story is being fetched. A complete example would look like this- 
+
+```js
+import {
+  useStoryblokState,
+  getStoryblokApi,
+  StoryblokComponent,
+} from "@storyblok/react";
+
+export default function Home({ story: initialStory }) {
+  const story = useStoryblokState(initialStory);
+
+  if (!story.content) {
+    return <div>Loading...</div>;
+  }
+
+  return <StoryblokComponent blok={story.content} />;
+}
+
+export async function getStaticProps({ preview = false }) {
+  const storyblokApi = getStoryblokApi();
+  let { data } = await storyblokApi.get(`cdn/stories/react`, {
+    version: "draft",
+  });
+
+  return {
+    props: {
+      story: data ? data.story : false,
+      preview,
+    },
+    revalidate: 3600, // revalidate every hour
+  };
+}
+```
+
+`StoryblokComponent` renders all the components dynamically which you loaded before during the initalization inside the `storyblokInit` function. 
+
+**Check out the this [repo](https://github.com/storyblok/next.js-ultimate-tutorial/tree/part-1), it is the code for the first part of our Ultimate Tutorial for Next.js or read on how to add Storyblok to Next.js in 5 mins [here](https://www.storyblok.com/tp/add-a-headless-cms-to-next-js-in-5-minutes)**
 
 ### Features and API
 
