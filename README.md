@@ -196,7 +196,7 @@ If you're using the Next.js `app` directory approach, and React Server Component
 ### Initialize and Import your Storyblok Components
 
 The initialzation remains the same here as well. Please refer to the above section about "Initialization" for more information about `storyblokInit` function.
-In `_app/layout.jsx`, call `storyblokInit` and use the new `StoryblokBridgeLoader` to setup the bridge. This Bridge Loader can be imported from `@storyblok/react/bridge-loader`:
+In `app/layout.jsx`, call the `storyblokInit` function and use the new `StoryblokBridgeLoader` component to set up the Storyblok bridge. This Bridge Loader can be imported from `@storyblok/react/bridge-loader`:
 
 ```js
 import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
