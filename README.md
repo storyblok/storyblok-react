@@ -344,13 +344,13 @@ export async function fetchData() {
 
 ## Next.js using Pages Router and Remix
 
-In this section, the way to use the SDK with the `pages` directory is described.
+In this section, we'll see how to use the React SDK with the `pages` directory approach.
 
 The initalization remains the same when you work with Next.js. You can intialze the SDK in the `_app.js` file. Please refer to the 'Initialization' section above to read more.
 
 ### Fetching Content
 
-The SDK provdies a `getStoryblokApi` object in your app, which is an instance of [storyblok-js-client](https://github.com/storyblok/storyblok-js-client). This can be used to fetch the content from Storyblok. You can use it in functions like `getStaticProps`, `getStaticPaths`, `getServerSideProps` etc.
+The SDK provides a `getStoryblokApi` object in your app, which is an instance of [storyblok-js-client](https://github.com/storyblok/storyblok-js-client). This can be used to fetch the content from Storyblok. You can use it in functions like `getStaticProps`, `getStaticPaths`, `getServerSideProps` etc.
 
 ```js
 import { getStoryblokApi } from "@storyblok/react";
@@ -360,12 +360,12 @@ const storyblokApi = getStoryblokApi();
 const { data } = await storyblokApi.get("cdn/stories", { version: "draft" });
 ```
 
-> Note: To use this, you need to use the `apiPlugin` during the initalization inside the `storyblokInit` function. If you don't use `apiPlugin`, you can use your prefered method or function to fetch your data.
+> Note: To use this approach, you need to include the `apiPlugin` module when calling `storyblokInit` function. If you don't use `apiPlugin`, you can use your preferred method or function to fetch your data.
 
 
 ### Listening to Storyblok Visual Editor events
 
-The SDK also gives you `useStoryblokState` hook. It works similar to `useStoryblok` for live editing, but doesn't fetch the content. Instead, it takes a story object as the first parameter. You can also pass the Bridge Options as the second paramter.
+The SDK also provides you with the `useStoryblokState` hook. It works similarly to `useStoryblok` for live editing, but it doesn't fetch the content. Instead, it receives a story object as the first parameter. You can also pass the Bridge Options as the second parameter.
 
 ```js
 import {
@@ -419,9 +419,9 @@ export async function getStaticProps({ preview = false }) {
 }
 ```
 
-`StoryblokComponent` renders all the components dynamically which you loaded before during the initalization inside the `storyblokInit` function. 
+`StoryblokComponent` renders the route components dynamically, using the list of components loaded during the initialization inside the `storyblokInit` function.
 
-**Check out the this [repo](https://github.com/storyblok/next.js-ultimate-tutorial/tree/part-1), it is the code for the first part of our Ultimate Tutorial for Next.js or read on how to add Storyblok to Next.js in 5 mins [here](https://www.storyblok.com/tp/add-a-headless-cms-to-next-js-in-5-minutes)**
+**Check out the [code for the first part of our Next.js + Storyblok Ultimate Tutorial](https://github.com/storyblok/next.js-ultimate-tutorial/tree/part-1). Or you can also read on how to add Storyblok to a Next.js project in 5 minutes [here](https://www.storyblok.com/tp/add-a-headless-cms-to-next-js-in-5-minutes)**
 
 ### Features and API
 
