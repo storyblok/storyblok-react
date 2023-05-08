@@ -171,9 +171,9 @@ function App() {
 export default App;
 ```
 
-`StoryblokComponent` here renders all the components dynamically which you loaded before during the initalization inside the `storyblokInit` function. 
+`StoryblokComponent` renders the route components dynamically, using the list of components loaded during the initialization inside the `storyblokInit` function. 
 
-This is how you can pass the Bridge options as a third parameter to `useStoryblok` :
+This is how you can pass the Bridge options as a third parameter to `useStoryblok`:
 
 ```js
 useStoryblok(story.id, {version: 'draft'}, {
