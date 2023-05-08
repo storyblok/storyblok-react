@@ -467,7 +467,7 @@ sbBridge.on(["input", "published", "change"], (event) => {
 });
 
 
-#### Rendering Rich Text
+### Rendering Rich Text
 
 You can easily render rich text by using the `renderRichText` function that comes with `@storyblok/react`:
 
