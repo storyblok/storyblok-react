@@ -299,7 +299,7 @@ import Teaser from "../components/Teaser";
 
 /** 3. Initialize it as usual */
 storyblokInit({
-  accessToken: "OurklwV5XsDJTIE1NJaD2wtt",
+  accessToken: "YOUR_ACCESS_TOKEN",
   use: [apiPlugin],
   components: {
     teaser: Teaser,
