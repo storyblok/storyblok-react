@@ -384,7 +384,7 @@ export default function Home({ story: initialStory }) {
 }
 ```
 
-In this case, it story is being passed as a prop that can be coming from where the story is being fetched. A complete example would look like this- 
+In this case, the story is being passed as a prop that can be coming from where the story is being fetched. A complete example would look like this- 
 
 ```js
 import {
