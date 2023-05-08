@@ -228,7 +228,7 @@ As the name says, `StoryblokBridgeLoader` loads the bridge on the client. It hel
 ### 2. Fetch Content and Render Components
 
 The `getStoryblokApi` function can be used to fetch the data from the Storyblok API. This is imported from `@storyblok/react/rsc`.
-In `_app/page.jsx`, use it as follows:
+Go to the route you want to fetch data from and use it as follows:
 
 ```js
 import { getStoryblokApi, StoryblokComponent } from "@storyblok/react/rsc";
