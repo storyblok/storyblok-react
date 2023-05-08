@@ -262,7 +262,7 @@ You can enable the live editing with Server Side Components by rendering them wi
 
 ### 1. Initialize
 
-In `_app/layout.jsx`, call `storyblokInit` without loading the components and use `StoryblokProvider` (this provider is created in the next step) :
+In `app/layout.jsx`, call the `storyblokInit` function, but without loading the component list (we will do that on the client). Wrap your whole app using a `StoryblokProvider` component (this provider is created in the next step) :
 
 ```js
 import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
