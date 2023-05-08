@@ -399,7 +399,7 @@ export default function StoryblokProvider({ children }) {
 ### 3. Fetch Content and Render Components
 
 The `getStoryblokApi` can be used to fetch the data from the Storyblok API. This should be imported from `@storyblok/react/rsc`. 
-Instead of using `StoryblokCompnent`, you can render the content of your route with the `StoryblokStory` component, which will automatically handle the Visual Editor live events when editing the story. In `app/page.jsx`, use them as follows:
+Instead of using `StoryblokComponent`, you can render the content of your route with the `StoryblokStory` component, which will automatically handle the Visual Editor live events when editing the story. In `app/page.jsx`, use them as follows:
 
 
 ```js
