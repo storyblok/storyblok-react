@@ -191,7 +191,7 @@ If you're using the Next.js `app` directory approach, and React Server Component
 
 > The SDK has a special module for RSC. Always import `@storyblok/react/rsc` while using Server Components.
 
-**Limitation** - Real time editing can not work if all the components are on the server, you can see the changes when you save the story.
+**Limitation** - Real-time editing won't work if all the components are rendered on the server. Although, you can see the changes applied in the Visual Editor whenever you save or publish the changes applied to the story.
 
 ### Initialize and Import your Storyblok Components
 
