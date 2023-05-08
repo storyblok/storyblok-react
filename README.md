@@ -455,7 +455,7 @@ If you prefer to use your own fetch method, just remove the `apiPlugin` and `sto
 storyblokInit({});
 ```
 
-#### Storyblok Bridge
+### Storyblok Bridge
 
 If you don't use `registerStoryblokBridge`, you still have access to the raw `window.StoryblokBridge`:
 
