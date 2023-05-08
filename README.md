@@ -286,7 +286,7 @@ export default function RootLayout({ children }) {
 
 ### 2. Create StoryblokProvider and Import your Storyblok Components
 
-Create `components/StoryblokProvider.jsx`, and re-initalize and import your Storyblok components:
+Create the `components/StoryblokProvider.jsx` file. Re-initalize the connection with Storyblok (this time, on the client) using `storyblokInit`, and import your Storyblok components:
 
 ```js
 /** 1. Tag it as client component */
