@@ -186,7 +186,7 @@ useStoryblok(story.id, {version: 'draft'}, {
 
 ## Next.js using App Router - Full React Server Components
 
-If you're using the complete React Server Components along with app directory, follow this method. Using all the Server Components has great performance benefits. 
+If you're using the Next.js `app` directory approach, and React Server Components exclusively, follow this approach.
 
 
 > The SDK has a special module for RSC. Always use `@storyblok/react/rsc` for importing while using Server Side Components.
