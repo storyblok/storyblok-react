@@ -254,7 +254,7 @@ export async function fetchData() {
 
 **Demo: see _playground-next13-rsc_**
 
-## Next 13 (with Live Editing)
+## Next.js using App Router - Live Editing support
 
 You can enable the live editing with Server Side Components by rendering them with a wrapper (`StoryblokPovider`) on client. The SDK allows you to take full advantage of the Live Editing, but the use of Server Side Components is partial, which is still better than Next.js 12 performance wise. 
 
