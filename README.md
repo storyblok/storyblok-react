@@ -250,7 +250,7 @@ export async function fetchData() {
 }
 ```
 
-`StoryblokComponent` here renders all the components dynamically which you loaded before during the initalization inside the `storyblokInit` function. 
+`StoryblokComponent` renders the route components dynamically, using the list of components loaded during the initialization inside the `storyblokInit` function.
 
 **Demo: see _playground-next13-rsc_**
 
