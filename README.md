@@ -312,7 +312,7 @@ export default function StoryblokProvider({ children }) {
 }
 ```
 
-> Note: it's necessary to re-initialize here as well, as to enable the live editing you must initialize the lib universally (client + server) via a React client component.
+> Note: it's necessary to re-initialize here as well, as to enable the live editing experience inside the Visual Editor you need to initialize the lib universally (client + server).
 
 ### 3. Fetch Content and Render Components
 
