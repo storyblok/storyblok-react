@@ -258,7 +258,7 @@ export async function fetchData() {
 
 You can enable the live editing with Server Side Components by rendering them with a wrapper (`StoryblokPovider`) on client. The SDK allows you to take full advantage of the Live Editing, but the use of Server Side Components is partial, which is still better than Next.js 12 performance wise. 
 
-> The SDK has a special module for RSC. Always use `@storyblok/react/rsc` for importing while using Server Side Components.
+> The SDK has a special module for RSC. Always import `@storyblok/react/rsc` while using Server Components.
 
 ### 1. Initialize
 
