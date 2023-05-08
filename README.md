@@ -189,7 +189,7 @@ useStoryblok(story.id, {version: 'draft'}, {
 If you're using the Next.js `app` directory approach, and React Server Components exclusively, follow this approach.
 
 
-> The SDK has a special module for RSC. Always use `@storyblok/react/rsc` for importing while using Server Side Components.
+> The SDK has a special module for RSC. Always import `@storyblok/react/rsc` while using Server Components.
 
 **Limitation** - Real time editing can not work if all the components are on the server, you can see the changes when you save the story.
 
