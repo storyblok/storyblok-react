@@ -153,7 +153,7 @@ The initalization remains the same when you work with React. You can intialze th
 
 ### Fetching Content and Listening to Storyblok Visual Editor events
 
-For React, use `useStoryblok` to fetch the content as well as enable the live editing. You need to pass the `slug` as first parameter, and `apiOptions` as second parameter and `bridgeOptions` as third parameter which is optional if you want to set the options for bridge by yourself:
+Use `useStoryblok` to fetch the content as well as enable live editing. You need to pass the `slug` as the first parameter, `apiOptions` as the second parameter, and `bridgeOptions` as the third parameter, which is optional if you want to set the options for the bridge by yourself:
 
 ```js
 import { useStoryblok, StoryblokComponent } from "@storyblok/react";
