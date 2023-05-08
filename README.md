@@ -113,7 +113,7 @@ storyblokInit({
 `@storyblok/react` does three actions when you initialize it:
 
 - Provides a `getStoryblokApi` object in your app, which is an instance of [storyblok-js-client](https://github.com/storyblok/storyblok-js-client).
-- Loads [Storyblok Bridge](https://www.storyblok.com/docs/Guides/storyblok-latest-js?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react) for real-time visual updates.
+- Loads the [Storyblok Bridge](https://www.storyblok.com/docs/Guides/storyblok-latest-js?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react) for real-time visual updates.
 - Provides a `storyblokEditable` function to link editable components to the Storyblok Visual Editor.
 
 For every component you've defined in your Storyblok space, call the `storyblokEditable` function with the blok content:
