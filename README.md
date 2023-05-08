@@ -428,7 +428,7 @@ export async function getStaticProps({ preview = false }) {
 You can **choose the features to use** when you initialize the plugin. In that way, you can improve Web Performance by optimizing your page load and save some bytes.
 
 
-#### Storyblok API
+### Storyblok API
 
 You can use an `apiOptions` object. This is passed down to the [storyblok-js-client config object](https://github.com/storyblok/storyblok-js-client#class-storyblok):
 
