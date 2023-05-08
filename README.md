@@ -289,7 +289,7 @@ export default function RootLayout({ children }) {
 Create the `components/StoryblokProvider.jsx` file. Re-initalize the connection with Storyblok (this time, on the client) using `storyblokInit`, and import your Storyblok components:
 
 ```js
-/** 1. Tag it as client component */
+/** 1. Tag it as a client component */
 "use client";
 import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 
