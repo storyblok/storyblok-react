@@ -4,7 +4,7 @@
 	</a>
 	<h1 align="center">@storyblok/react</h1>
   <p align="center">
-    The React plugin you need to interact with <a href="http://www.storyblok.com?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react" target="_blank">Storyblok API</a> and enable the <a href="https://www.storyblok.com/docs/guide/essentials/visual-editor?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react" target="_blank">Real-time Visual Editing Experience</a>. This package helps you integrate Storyblok with React along with all types of Next.js projects. 
+    The React plugin you need to interact with <a href="http://www.storyblok.com?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react" target="_blank">Storyblok API</a> and enable the <a href="https://www.storyblok.com/docs/guide/essentials/visual-editor?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react" target="_blank">Real-time Visual Editing Experience</a>. This package helps you integrate Storyblok with React along with all types of React based frameworks like Next.js, Remix etc. 
   </p>
   <br />
 </div>
@@ -76,7 +76,7 @@ storyblokInit({
 });
 ```
 
-> Note: This is the general way for initalizing the SDK, the initialization might be different depending upon the framework. You can see how everything works according to the framework in their respective sections below.
+> Note: This is the general way for initalizing the SDK, the initialization might be a little different depending upon the framework. You can see how everything works according to the framework in their respective sections below.
 
 Add all your components to the components object in the `storyblokInit` function.
 
@@ -142,9 +142,9 @@ Where `blok` is the actual blok data coming from [Storyblok's Content Delivery A
 
 ### Getting Started
 
-**This SDK provides you the support to work with React, Next.js 12 (or Next.js 13 with no RSC), Next.js 13 (Full RSC) and Next.js (Partial RSC, with Live Editing). Depending upon these different frameworks and versions, the way to use the SDK and the functionalities it provides differ.**
+**This SDK provides you the support to work with React and all React Frameworks such as Next.js, Remix etc. Depending upon these different frameworks and versions, the way to use the SDK and the functionalities it provides differ.**
 
-Below is the guide on how to use it with all the frameworks -
+Below is the guide and examples on how to use it with different frameworks -
 
 
 ## React
@@ -182,12 +182,12 @@ useStoryblok(story.id, {version: 'draft'}, {
 ```
 
 **Check out our React Boilerplate [here](https://github.com/storyblok/storyblok-react-boilerplate), or read on how to add Storyblok to React in 5 mins [here](https://www.storyblok.com/tp/headless-cms-react)**
+You can also take a look at the [React Playground](https://github.com/arorachakit/storyblok-react/tree/main/playground) in this repo.
 
 
 ## Next.js using App Router - Full React Server Components
 
 If you're using the Next.js `app` directory approach, and React Server Components exclusively, follow this approach.
-
 
 > The SDK has a special module for RSC. Always import `@storyblok/react/rsc` while using Server Components.
 
@@ -227,7 +227,7 @@ As the name says, `StoryblokBridgeLoader` loads the bridge on the client. It hel
 
 ### 2. Fetch Content and Render Components
 
-The `getStoryblokApi` function can be used to fetch the data from the Storyblok API. This is imported from `@storyblok/react/rsc`.
+The `getStoryblokApi` function, is an instance of [storyblok-js-client](https://github.com/storyblok/storyblok-js-client) can be used to fetch the data from the Storyblok API. This is imported from `@storyblok/react/rsc`.
 Go to the route you want to fetch data from and use it as follows:
 
 ```js
@@ -249,10 +249,11 @@ export async function fetchData() {
   return storyblokApi.get(`cdn/stories/home`, { version: "draft" });
 }
 ```
+> Note: To use this approach (with `getStoryblokApi`), you need to include the `apiPlugin` module when calling `storyblokInit` function. If you don't use `apiPlugin`, you can use your preferred method or function to fetch your data.
 
 `StoryblokComponent` renders the route components dynamically, using the list of components loaded during the initialization inside the `storyblokInit` function.
+To try it, take a look at the [Next 13 RSC Playground](https://github.com/arorachakit/storyblok-react/tree/main/playground-next13-rsc) in this repo.
 
-**Demo: see _playground-next13-rsc_**
 
 ## Next.js using App Router - Live Editing support
 
@@ -316,7 +317,7 @@ export default function StoryblokProvider({ children }) {
 
 ### 3. Fetch Content and Render Components
 
-The `getStoryblokApi` can be used to fetch the data from the Storyblok API. This should be imported from `@storyblok/react/rsc`. 
+The `getStoryblokApi` function, which is an instance of [storyblok-js-client](https://github.com/storyblok/storyblok-js-client) can be used to fetch the data from the Storyblok API. This should be imported from `@storyblok/react/rsc`. 
 Instead of using `StoryblokComponent`, you can render the content of your route with the `StoryblokStory` component, which will automatically handle the Visual Editor live events when editing the story. In `app/page.jsx`, use them as follows:
 
 
@@ -339,10 +340,13 @@ export async function fetchData() {
   return storyblokApi.get(`cdn/stories/home`, { version: "draft" });
 }
 ```
-**Demo: see _playground-next13-live-editing_**
+
+> Note: To use this approach (with `getStoryblokApi`), you need to include the `apiPlugin` module when calling `storyblokInit` function. If you don't use `apiPlugin`, you can use your preferred method or function to fetch your data.
+
+To try this setup, take a look at the [Next 13 Live Editing Playground](https://github.com/arorachakit/storyblok-react/tree/main/playground-next13-live-editing) in this repo.
 
 
-## Next.js using Pages Router and Remix
+## Next.js using Pages Router
 
 In this section, we'll see how to use the React SDK with the `pages` directory approach.
 
