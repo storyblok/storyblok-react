@@ -193,7 +193,7 @@ If you're using the Next.js `app` directory approach, and React Server Component
 
 **Limitation** - Real-time editing won't work if all the components are rendered on the server. Although, you can see the changes applied in the Visual Editor whenever you save or publish the changes applied to the story.
 
-### Initialize and Import your Storyblok Components
+### 1. Initialize and Import your Storyblok Components
 
 The initialzation remains the same here as well. Please refer to the above section about "Initialization" for more information about `storyblokInit` function.
 In `app/layout.jsx`, call the `storyblokInit` function and use the new `StoryblokBridgeLoader` component to set up the Storyblok bridge. This Bridge Loader can be imported from `@storyblok/react/bridge-loader`:
@@ -352,7 +352,7 @@ In this section, we'll see how to use the React SDK with the `pages` directory a
 
 The initalization remains the same when you work with Next.js. You can intialze the SDK in the `_app.js` file. Please refer to the 'Initialization' section above to read more.
 
-### Fetching Content
+### 1. Fetching Content
 
 The SDK provides a `getStoryblokApi` object in your app, which is an instance of [storyblok-js-client](https://github.com/storyblok/storyblok-js-client). This can be used to fetch the content from Storyblok. You can use it in functions like `getStaticProps`, `getStaticPaths`, `getServerSideProps` etc.
 
@@ -367,7 +367,7 @@ const { data } = await storyblokApi.get("cdn/stories", { version: "draft" });
 > Note: To use this approach, you need to include the `apiPlugin` module when calling `storyblokInit` function. If you don't use `apiPlugin`, you can use your preferred method or function to fetch your data.
 
 
-### Listening to Storyblok Visual Editor events
+### 2. Listening to Storyblok Visual Editor events
 
 The SDK also provides you with the `useStoryblokState` hook. It works similarly to `useStoryblok` for live editing, but it doesn't fetch the content. Instead, it receives a story object as the first parameter. You can also pass the Bridge Options as the second parameter.
 
