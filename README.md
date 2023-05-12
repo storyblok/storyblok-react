@@ -147,6 +147,7 @@ Where `blok` is the actual blok data coming from [Storyblok's Content Delivery A
 Below is the guide and examples on how to use it with different frameworks -
 
 
+
 ## React
 
 The initalization remains the same when you work with React. You can intialze the SDK in the `index.js` file. Please refer to the 'Initialization' section above to read more.
@@ -183,6 +184,7 @@ useStoryblok(story.id, {version: 'draft'}, {
 
 **Check out our React Boilerplate [here](https://github.com/storyblok/storyblok-react-boilerplate), or read on how to add Storyblok to React in 5 mins [here](https://www.storyblok.com/tp/headless-cms-react)**
 You can also take a look at the [React Playground](https://github.com/arorachakit/storyblok-react/tree/main/playground) in this repo.
+
 
 
 ## Next.js using App Router - Live Editing support
@@ -275,6 +277,7 @@ export async function fetchData() {
 > Note: To use this approach (with `getStoryblokApi`), you need to include the `apiPlugin` module when calling `storyblokInit` function. If you don't use `apiPlugin`, you can use your preferred method or function to fetch your data.
 
 To try this setup, take a look at the [Next 13 Live Editing Playground](https://github.com/arorachakit/storyblok-react/tree/main/playground-next13-live-editing) in this repo.
+
 
 
 ## Next.js using App Router - Full React Server Components
