@@ -66,9 +66,9 @@ import Teaser from './components/Teaser'
 
 storyblokInit({
   accessToken: "YOUR_ACCESS_TOKEN",
+  use: [apiPlugin],
   // bridge: false,
   // apiOptions: {},
-  use: [apiPlugin],
   components: {
     page: Page,
     teaser: Teaser,
@@ -533,6 +533,7 @@ renderRichText(blok.richTextField, {
 ## The Storyblok JavaScript SDK Ecosystem
 
 ![A visual representation of the Storyblok JavaScript SDK Ecosystem](https://a.storyblok.com/f/88751/2400x1350/be4a4a4180/sdk-ecosystem.png/m/1200x0)
+
 
 ## 🔗 Related Links
 
