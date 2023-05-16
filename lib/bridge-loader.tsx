@@ -1,8 +1,14 @@
 "use client";
 import React from "react";
 import { loadStoryblokBridge } from "@storyblok/js";
+import { StoryblokBridgeConfigV2 } from "./types";
 
-const setBridge = async (options) => {
+interface StoryblokBridgeLoaderProps {
+  options: StoryblokBridgeConfigV2;
+  [key: string]: unknown;
+}
+
+const setBridge = async (options: StoryblokBridgeConfigV2) => {
   await loadStoryblokBridge();
   const sbBridge = new window.StoryblokBridge(options);
 
@@ -11,7 +17,7 @@ const setBridge = async (options) => {
   });
 };
 
-const StoryblokBridgeLoader = ({ options }) => {
+const StoryblokBridgeLoader = ({ options }: StoryblokBridgeLoaderProps) => {
   setBridge(options);
   return <></>;
 };

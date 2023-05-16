@@ -53,37 +53,5 @@ export const useStoryblok = (
   return story;
 };
 
-type tUseStoryblokState = <T = void>(
-  initialStory: ISbStoryData<T> | null,
-  bridgeOptions: StoryblokBridgeConfigV2
-) => ISbStoryData<T> | null;
-
-export const useStoryblokState: tUseStoryblokState = (
-  initialStory = null,
-  bridgeOptions = {}
-) => {
-  let [story, setStory] = useState(initialStory);
-
-  const isBridgeEnable =
-    typeof window !== "undefined" &&
-    typeof window.storyblokRegisterEvent !== "undefined";
-
-  if (!isBridgeEnable || !initialStory) {
-    return initialStory;
-  }
-
-  useEffect(() => {
-    setStory(initialStory);
-
-    registerStoryblokBridge(
-      story.id,
-      (newStory) => setStory(newStory),
-      bridgeOptions
-    );
-  }, [initialStory]);
-
-  return story;
-};
-
 export * from "./common";
 export * from "./common/client";
