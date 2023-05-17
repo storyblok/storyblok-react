@@ -326,6 +326,8 @@ renderRichText(blok.richTextField, {
 });
 ```
 
+We also recommend using the [Storyblok Rich Text Renderer for React by Claus](https://github.com/claus/storyblok-rich-text-react-renderer) for rendering your Storyblok rich text content to React elements and Next.js applications.
+
 ## The Storyblok JavaScript SDK Ecosystem
 
 ![A visual representation of the Storyblok JavaScript SDK Ecosystem](https://a.storyblok.com/f/88751/2400x1350/be4a4a4180/sdk-ecosystem.png/m/1200x0)
