@@ -15,6 +15,6 @@
   "extends": "@tsconfig/recommended/tsconfig.json",
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "Recommended",
-  "include": ["./index.ts", "./components/storyblok-component.tsx"],
+  "include": ["index.ts", "rsc/*", "common", "bridge-loader.tsx", "story.tsx"],
   "exclude": ["node_modules"]
 }

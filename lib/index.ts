@@ -1,36 +1,20 @@
 import { useState, useEffect } from "react";
-import {
-  registerStoryblokBridge as registerSbBridge,
-  storyblokInit as sbInit,
-} from "@storyblok/js";
+import { registerStoryblokBridge } from "@storyblok/js";
 
 import {
-  SbReactComponentsMap,
-  SbReactSDKOptions,
   ISbStoriesParams,
   StoryblokBridgeConfigV2,
-  StoryblokClient,
   ISbStoryData,
 } from "./types";
 
-export { default as StoryblokComponent } from "./components/storyblok-component";
-export {
-  storyblokEditable,
-  apiPlugin,
-  useStoryblokBridge,
-  registerStoryblokBridge,
-  renderRichText,
-  RichTextResolver,
-  RichTextSchema,
-} from "@storyblok/js";
+import { getStoryblokApi } from "./common";
 
 export const useStoryblok = (
   slug: string,
   apiOptions: ISbStoriesParams = {},
   bridgeOptions: StoryblokBridgeConfigV2 = {}
 ) => {
-  let [story, setStory] = useState<ISbStoryData>({} as ISbStoryData);
-
+  const storyblokApiInstance = getStoryblokApi();
   if (!storyblokApiInstance) {
     console.error(
       "You can't use useStoryblok if you're not loading apiPlugin."
@@ -38,6 +22,8 @@ export const useStoryblok = (
 
     return null;
   }
+
+  let [story, setStory] = useState<ISbStoryData>({} as ISbStoryData);
 
   const isBridgeEnable =
     typeof window !== "undefined" &&
@@ -53,7 +39,7 @@ export const useStoryblok = (
       setStory(data.story);
 
       if (isBridgeEnable && data.story.id) {
-        registerSbBridge(
+        registerStoryblokBridge(
           data.story.id,
           (story) => setStory(story),
           bridgeOptions
@@ -67,60 +53,5 @@ export const useStoryblok = (
   return story;
 };
 
-export const useStoryblokState = <T = void>(
-  initialStory: ISbStoryData<T> | null = null,
-  bridgeOptions: StoryblokBridgeConfigV2 = {}
-): ISbStoryData<T> | null => {
-  let [story, setStory] = useState(initialStory);
-
-  const isBridgeEnable =
-    typeof window !== "undefined" &&
-    typeof window.storyblokRegisterEvent !== "undefined";
-
-  if (!isBridgeEnable || !initialStory) {
-    return initialStory;
-  }
-
-  useEffect(() => {
-    setStory(initialStory);
-
-    registerSbBridge(story.id, (newStory) => setStory(newStory), bridgeOptions);
-  }, [initialStory]);
-
-  return story;
-};
-
-let storyblokApiInstance: StoryblokClient = null;
-
-export const useStoryblokApi = (): StoryblokClient => {
-  if (!storyblokApiInstance) {
-    console.error(
-      "You can't use getStoryblokApi if you're not loading apiPlugin."
-    );
-  }
-
-  return storyblokApiInstance;
-};
-
-export { useStoryblokApi as getStoryblokApi };
-
-let componentsMap: SbReactComponentsMap = {};
-
-export const getComponent = (componentKey: string) => {
-  if (!componentsMap[componentKey]) {
-    console.error(`Component ${componentKey} doesn't exist.`);
-    return false;
-  }
-
-  return componentsMap[componentKey];
-};
-
-export const storyblokInit = (pluginOptions: SbReactSDKOptions = {}) => {
-  const { storyblokApi } = sbInit(pluginOptions);
-  storyblokApiInstance = storyblokApi;
-
-  componentsMap = pluginOptions.components;
-};
-
-// Reexport all types so users can have access to them
-export * from "./types";
+export * from "./common";
+export * from "./common/client";

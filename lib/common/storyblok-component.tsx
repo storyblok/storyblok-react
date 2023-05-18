@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import { getComponent } from "../index";
+import { getComponent } from "./index";
 import type { SbBlokData } from "../types";
 
 interface StoryblokComponentProps {
