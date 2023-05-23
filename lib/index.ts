@@ -29,26 +29,28 @@ export const useStoryblok = (
     typeof window !== "undefined" &&
     typeof window.storyblokRegisterEvent !== "undefined";
 
+  const initStory = async () => {
+    const { data } = await storyblokApiInstance.get(
+      `cdn/stories/${slug}`,
+      apiOptions
+    );
+    setStory(data.story);
+  };
+
   useEffect(() => {
-    async function initStory() {
-      const { data } = await storyblokApiInstance.get(
-        `cdn/stories/${slug}`,
-        apiOptions
-      );
-
-      setStory(data.story);
-
-      if (isBridgeEnable && data.story.id) {
-        registerStoryblokBridge(
-          data.story.id,
-          (story) => setStory(story),
-          bridgeOptions
-        );
-      }
-    }
-
     initStory();
-  }, [slug, JSON.stringify(apiOptions)]);
+  }, [slug, apiOptions]);
+
+  useEffect(() => {
+    if (isBridgeEnable && story.id) {
+      registerStoryblokBridge(
+        story.id,
+        (story) => setStory(story),
+        bridgeOptions
+      );
+    }
+  }, [story])
+  
 
   return story;
 };
