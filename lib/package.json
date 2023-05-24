@@ -10,44 +10,24 @@
   ],
   "exports": {
     ".": {
-      "import": {
-        "types": "./dist/types/index.d.ts",
-        "default": "./dist/storyblok-react.mjs"
-      },
-      "require": {
-        "types": "./dist/types/index.d.ts",
-        "default": "./dist/storyblok-react.js"
-      }
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/storyblok-react.mjs",
+      "require": "./dist/storyblok-react.js"
     },
     "./rsc": {
-      "import": {
-        "types": "./dist/types/rsc/index.d.ts",
-        "default": "./dist/storyblok-react2.mjs"
-      },
-      "require": {
-        "types": "./dist/types/rsc/index.d.ts",
-        "default": "./dist/storyblok-react2.js"
-      }
+      "types": "./dist/types/rsc/index.d.ts",
+      "import": "./dist/storyblok-react2.mjs",
+      "require": "./dist/storyblok-react2.js"
     },
     "./bridge-loader": {
-      "import": {
-        "types": "./dist/types/bridge-loader.d.ts",
-        "default": "./dist/storyblok-react3.mjs"
-      },
-      "require": {
-        "types": "./dist/types/bridge-loader.d.ts",
-        "default": "./dist/storyblok-react3.js"
-      }
+      "types": "./dist/types/bridge-loader.d.ts",
+      "import": "./dist/storyblok-react3.mjs",
+      "require": "./dist/storyblok-react3.js"
     },
     "./story": {
-      "import": {
-        "types": "./dist/types/story.d.ts",
-        "default": "./dist/storyblok-react4.mjs"
-      },
-      "require": {
-        "types": "./dist/types/story.d.ts",
-        "default": "./dist/storyblok-react4.js"
-      }
+      "types": "./dist/types/story.d.ts",
+      "import": "./dist/storyblok-react4.mjs",
+      "require": "./dist/storyblok-react4.js"
     }
   },
   "scripts": {
