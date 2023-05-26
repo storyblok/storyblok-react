@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import type { TUseStoryblokState } from "../types";
 import { registerStoryblokBridge } from "@storyblok/js";
 
@@ -16,14 +16,11 @@ export const useStoryblokState: TUseStoryblokState = (
     return initialStory;
   }
 
-  useEffect(() => {
-    setStory(initialStory);
-    registerStoryblokBridge(
-      story.id,
-      (newStory) => setStory(newStory),
-      bridgeOptions
-    );
-  }, [initialStory]);
+  registerStoryblokBridge(
+    story.id,
+    (newStory) => setStory(newStory),
+    bridgeOptions
+  );
 
   return story;
 };
