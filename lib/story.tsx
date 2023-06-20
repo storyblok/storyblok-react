@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, {forwardRef} from "react";
 import { useStoryblokState } from "./common/client";
 import StoryblokComponent from "./common/storyblok-component";
 import { ISbStoryData } from "./types";
@@ -10,9 +10,11 @@ interface StoryblokStoryProps {
   [key: string]: unknown;
 }
 
-const StoryblokStory = ({ story }: StoryblokStoryProps) => {
-  story = useStoryblokState(story);
-  return <StoryblokComponent blok={story.content} />;
-};
+const StoryblokStory =  forwardRef<HTMLElement, StoryblokStoryProps>(
+  ({ story, ...restProps }, ref) => {
+    story = useStoryblokState(story); 
+    return <StoryblokComponent ref={ref} blok={story.content} {...restProps} />;
+  }
+);
 
 export default StoryblokStory;
