@@ -7,7 +7,7 @@ import {
 } from "../types";
 
 let storyblokApiInstance: StoryblokClient = null;
-let componentsMap: SbReactComponentsMap = {};
+export let componentsMap: SbReactComponentsMap = {};
 
 export const useStoryblokApi = (): StoryblokClient => {
   if (!storyblokApiInstance) {
@@ -18,6 +18,11 @@ export const useStoryblokApi = (): StoryblokClient => {
 
   return storyblokApiInstance;
 };
+
+export const setComponents = (newComponentsMap: SbReactComponentsMap) => {
+  componentsMap = newComponentsMap;
+  return componentsMap;
+}
 
 export const getComponent = (componentKey: string) => {
   if (!componentsMap[componentKey]) {
