@@ -425,6 +425,69 @@ export async function getStaticProps({ preview = false }) {
 
 **Check out the [code for the first part of our Next.js + Storyblok Ultimate Tutorial](https://github.com/storyblok/next.js-ultimate-tutorial/tree/part-1). Or you can also read on how to add Storyblok to a Next.js project in 5 minutes [here](https://www.storyblok.com/tp/add-a-headless-cms-to-next-js-in-5-minutes)**
 
+### 3. Adding components per page
+
+If you are using the pages router, you might want to load your components per page, instead of all in the `_app` file.
+
+If you load all components in the `_app` file with `storyblokInit` funciton, the JavaScript for all of those components will be loaded on every page, even on pages where most of these components might not be used.
+
+A better approach is to load these components on a per-page basis, reducing the JS bundle for that page, improving your load time, and SEO.
+
+Simply execute `storyblokInit` in the `_app` file as you did before, but omit the `components` object and the component imports like so:
+
+```diff
+import { storyblokInit, apiPlugin } from "@storyblok/react";
+
+/** Import your components */
+-import Page from "./components/Page";
+-import Teaser from "./components/Teaser";
+
+storyblokInit({
+  accessToken: "YOUR_ACCESS_TOKEN",
+  use: [apiPlugin],
+- components: {
+-   page: Page,
+-   teaser: Teaser,
+- },
+});
+```
+
+After that, use the `setComponent` method in each of your pages, to only load the components you need for that particular page:
+
+```diff
+import React from "react";
+import Teaser from "../components/teaser";
+import Grid from "../components/grid";
+import Page from "../components/page";
+import Feature from "../components/feature";
+
+import {
+  useStoryblokState,
+  StoryblokComponent,
++  setComponents,
+} from "@storyblok/react";
+
+export default function Home({
+  story: initialStory,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
+
++  setComponents({
++    teaser: Teaser,
++    grid: Grid,
++    feature: Feature,
++    page: Page,
++  })
+  
+  const story = useStoryblokState(initialStory);
+
+  if (!story.content) {
+    return <div>Loading...</div>;
+  }
+
+  return <StoryblokComponent blok={story.content} />;
+}
+```
+
 ## Features and API
 
 You can **choose the features to use** when you initialize the plugin. In that way, you can improve Web Performance by optimizing your page load and save some bytes.

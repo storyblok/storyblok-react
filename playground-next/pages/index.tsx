@@ -1,15 +1,28 @@
 import React from "react";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
+import Teaser from "../components/teaser";
+import Grid from "../components/grid";
+import Page from "../components/page";
+import Feature from "../components/feature";
 
 import {
   useStoryblokState,
   getStoryblokApi,
   StoryblokComponent,
+  setComponents,
 } from "@storyblok/react";
 
 export default function Home({
   story: initialStory,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+
+  setComponents({
+    teaser: Teaser,
+    grid: Grid,
+    feature: Feature,
+    page: Page,
+  })
+  
   const story = useStoryblokState(initialStory);
 
   if (!story.content) {

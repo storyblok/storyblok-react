@@ -19,6 +19,11 @@ export const useStoryblokApi = (): StoryblokClient => {
   return storyblokApiInstance;
 };
 
+export const setComponents = (newComponentsMap: SbReactComponentsMap) => {
+  componentsMap = newComponentsMap;
+  return componentsMap;
+}
+
 export const getComponent = (componentKey: string) => {
   if (!componentsMap[componentKey]) {
     console.error(`Component ${componentKey} doesn't exist.`);
