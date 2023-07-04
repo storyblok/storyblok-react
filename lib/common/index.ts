@@ -7,7 +7,7 @@ import {
 } from "../types";
 
 let storyblokApiInstance: StoryblokClient = null;
-export let componentsMap: SbReactComponentsMap = {};
+let componentsMap: SbReactComponentsMap = {};
 
 export const useStoryblokApi = (): StoryblokClient => {
   if (!storyblokApiInstance) {
