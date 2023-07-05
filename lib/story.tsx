@@ -12,7 +12,9 @@ interface StoryblokStoryProps {
 
 const StoryblokStory = forwardRef<HTMLElement, StoryblokStoryProps>(
   ({ story, ...restProps }, ref) => {
-    if (typeof story.content === "string") story.content = JSON.parse(story.content);
+    if (typeof story.content === "string") {
+      story.content = JSON.parse(story.content);
+    }
     story = useStoryblokState(story);
     return <StoryblokComponent ref={ref} blok={story.content} {...restProps} />;
   }
