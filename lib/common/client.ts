@@ -4,7 +4,8 @@ import { registerStoryblokBridge } from "@storyblok/js";
 
 export const useStoryblokState: TUseStoryblokState = (
   initialStory = null,
-  bridgeOptions = {}
+  bridgeOptions = {},
+
 ) => {
   let [story, setStory] = useState(initialStory);
 
@@ -16,10 +17,12 @@ export const useStoryblokState: TUseStoryblokState = (
     return initialStory;
   }
 
+  const id = (story as any).internalId || story.id;
+
   useEffect(() => {
     setStory(initialStory);
     registerStoryblokBridge(
-      story.id,
+      id,
       (newStory) => setStory(newStory),
       bridgeOptions
     );
