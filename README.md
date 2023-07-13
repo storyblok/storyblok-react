@@ -178,6 +178,7 @@ useStoryblok(
   { version: "draft", resolveRelations: ["Article.author"] },
   {
     resolveRelations: ["Article.author"],
+    resolveLinks: "url",
     preventClicks: true,
   }
 );
