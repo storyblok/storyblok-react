@@ -48,7 +48,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.22.9",
-    "@babel/preset-env": "^7.22.7",
+    "@babel/preset-env": "^7.22.9",
     "@cypress/react": "^5.12.5",
     "@cypress/vite-dev-server": "^2.2.3",
     "@tsconfig/recommended": "^1.0.2",
