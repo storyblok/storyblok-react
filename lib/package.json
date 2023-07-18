@@ -63,7 +63,7 @@
     "react-dom": "^18.2.0",
     "start-server-and-test": "^2.0.0",
     "terser": "^5.19.1",
-    "vite": "^4.1.4"
+    "vite": "^4.4.4"
   },
   "peerDependencies": {
     "react": "^17.0.0 || ^18.0.0",
