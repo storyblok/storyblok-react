@@ -253,8 +253,7 @@ The `getStoryblokApi` function, which is an instance of [storyblok-js-client](ht
 You can render the content of your route with the `StoryblokStory` component, which will automatically handle the Visual Editor live events when editing the story. In `app/page.jsx`, use them as follows:
 
 ```js
-import { getStoryblokApi } from "@storyblok/react/rsc";
-import StoryblokStory from "@storyblok/react/story";
+import { getStoryblokApi, StoryblokStory } from "@storyblok/react/rsc";
 
 export default async function Home() {
   const { data } = await fetchData();
@@ -272,9 +271,10 @@ export async function fetchData() {
 }
 ```
 
-`StoryblokStory` keeps the state for thet story behind the scenes and uses `StoryblokComponent` to render the route components dynamically, using the list of components loaded during the initialization inside the `storyblokInit` function. You can use the `StoryblokComponent` inside the components to render the nested components dynamically. You can also pass bridge options to `StoryblokStory` using the prop `bridgeOptions`. 
+`StoryblokStory` keeps the state for thet story behind the scenes and uses `StoryblokComponent` to render the route components dynamically, using the list of components loaded during the initialization inside the `storyblokInit` function. You can use the `StoryblokComponent` inside the components to render the nested components dynamically. You can also pass bridge options to `StoryblokStory` using the prop `bridgeOptions`.
+
 ```js
-    <StoryblokStory story={data.story} bridgeOptions={bridgeOptions} />
+<StoryblokStory story={data.story} bridgeOptions={bridgeOptions} />
 ```
 
 > Note: To use this approach (with `getStoryblokApi`), you need to include the `apiPlugin` module when calling `storyblokInit` function. If you don't use `apiPlugin`, you can use your preferred method or function to fetch your data.
@@ -295,8 +295,7 @@ The initialzation remains the same here as well. Please refer to the above secti
 In `app/layout.jsx`, call the `storyblokInit` function and use the new `StoryblokBridgeLoader` component to set up the Storyblok bridge. This Bridge Loader can be imported from `@storyblok/react/bridge-loader`:
 
 ```js
-import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
-import StoryblokBridgeLoader from "@storyblok/react/bridge-loader";
+import { storyblokInit, apiPlugin, StoryblokBridgeLoader } from "@storyblok/react/rsc";
 
 import Page from "../components/Page";
 import Teaser from "../components/Teaser";
@@ -481,7 +480,7 @@ export default function Home({
 +    feature: Feature,
 +    page: Page,
 +  })
-  
+
   const story = useStoryblokState(initialStory);
 
   if (!story.content) {
