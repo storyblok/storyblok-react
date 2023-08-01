@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import { getComponent } from "./index";
+import { getComponent, getCustomFallbackComponent } from "./index";
 import type { SbBlokData } from "../types";
 
 interface StoryblokComponentProps {
@@ -24,7 +24,20 @@ const StoryblokComponent = forwardRef<HTMLElement, StoryblokComponentProps>(
       return <Component ref={ref} blok={blok} {...restProps} />;
     }
 
-    return <div></div>;
+    const CustomFallbackComponent = getCustomFallbackComponent();
+
+    if (CustomFallbackComponent) {
+      return <CustomFallbackComponent blok={blok} {...restProps} />;
+    } else {
+      return (
+        <>
+          <p>
+            Component could not be found for blok{" "}
+            <strong>{blok.component}</strong>! Is it configured correctly?
+          </p>
+        </>
+      );
+    }
   }
 );
 

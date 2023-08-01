@@ -8,6 +8,7 @@ import {
 
 let storyblokApiInstance: StoryblokClient = null;
 let componentsMap: SbReactComponentsMap = {};
+let customFallbackComponent: React.ElementType = null;
 
 export const useStoryblokApi = (): StoryblokClient => {
   if (!storyblokApiInstance) {
@@ -22,7 +23,7 @@ export const useStoryblokApi = (): StoryblokClient => {
 export const setComponents = (newComponentsMap: SbReactComponentsMap) => {
   componentsMap = newComponentsMap;
   return componentsMap;
-}
+};
 
 export const getComponent = (componentKey: string) => {
   if (!componentsMap[componentKey]) {
@@ -33,11 +34,14 @@ export const getComponent = (componentKey: string) => {
   return componentsMap[componentKey];
 };
 
+export const getCustomFallbackComponent = () => customFallbackComponent;
+
 export const storyblokInit = (pluginOptions: SbReactSDKOptions = {}) => {
   const { storyblokApi } = sbInit(pluginOptions);
   storyblokApiInstance = storyblokApi;
 
   componentsMap = pluginOptions.components;
+  customFallbackComponent = pluginOptions.customFallbackComponent;
 };
 
 export { default as StoryblokComponent } from "./storyblok-component";
