@@ -16,8 +16,8 @@
     },
     "./rsc": {
       "types": "./dist/types/rsc/index.d.ts",
-      "import": "./dist/index2.mjs",
-      "require": "./dist/index2.js"
+      "import": "./dist/rsc.mjs",
+      "require": "./dist/rsc.js"
     },
     "./bridge-loader": {
       "types": "./dist/types/bridge-loader.d.ts",

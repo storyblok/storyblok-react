@@ -13,8 +13,9 @@ export default defineConfig({
         path.resolve(__dirname, "rsc/index.ts"),
       ],
       name: "storyblokReact",
-      fileName: (format, entryName) => {
-        const name = entryName.split("/").pop();
+      fileName: (format, entry) => {
+        const isRscEntry = entry.includes("rsc/index");
+        const name = isRscEntry ? "rsc" : entry.split("/").pop();
         return format === "es" ? `${name}.mjs` : `${name}.js`;
       },
     },
