@@ -1,5 +1,9 @@
 import React, { forwardRef } from "react";
-import { getComponent, getCustomFallbackComponent } from "./index";
+import {
+  getComponent,
+  getEnableFallbackComponent,
+  getCustomFallbackComponent,
+} from "./index";
 import type { SbBlokData } from "../types";
 
 interface StoryblokComponentProps {
@@ -24,20 +28,24 @@ const StoryblokComponent = forwardRef<HTMLElement, StoryblokComponentProps>(
       return <Component ref={ref} blok={blok} {...restProps} />;
     }
 
-    const CustomFallbackComponent = getCustomFallbackComponent();
+    if (getEnableFallbackComponent()) {
+      const CustomFallbackComponent = getCustomFallbackComponent();
 
-    if (CustomFallbackComponent) {
-      return <CustomFallbackComponent blok={blok} {...restProps} />;
-    } else {
-      return (
-        <>
-          <p>
-            Component could not be found for blok{" "}
-            <strong>{blok.component}</strong>! Is it configured correctly?
-          </p>
-        </>
-      );
+      if (CustomFallbackComponent) {
+        return <CustomFallbackComponent blok={blok} {...restProps} />;
+      } else {
+        return (
+          <>
+            <p>
+              Component could not be found for blok{" "}
+              <strong>{blok.component}</strong>! Is it configured correctly?
+            </p>
+          </>
+        );
+      }
     }
+
+    return <div></div>;
   }
 );
 

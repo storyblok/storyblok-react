@@ -7,6 +7,7 @@ import Teaser from "@storyblok/react-playground/components/teaser";
 import Grid from "@storyblok/react-playground/components/grid";
 import Feature from "@storyblok/react-playground/components/feature";
 import Page from "@storyblok/react-playground/components/page";
+import TestFallbackComponent from "../../testing-components/TestFallbackComponent";
 
 describe("@storyblok/react", () => {
   beforeEach(() => {
@@ -89,6 +90,8 @@ describe("@storyblok/react", () => {
       mount(<Test blok={blok} components={[]} />);
 
       cy.get('[data-test="teaser"]').should("not.exist");
+      cy.get(":empty").should("have.length", 1);
+
       cy.get("@error").should(
         "be.calledWithMatch",
         "Component teaser doesn't exist."
@@ -115,6 +118,41 @@ describe("@storyblok/react", () => {
       ).then(() => {
         expect(ref).to.be.calledOnce;
       });
+    });
+  });
+
+  describe("FallbackComponent", () => {
+    it("Should render the default Fallback Component", () => {
+      const blok = {
+        component: "teaser",
+        headline: "Hello React",
+        _editable: `<!--#storyblok#{ "id": 12345, "uid": "fc34-uad1"}-->`,
+      };
+
+      mount(
+        <Test blok={blok} components={[]} enableFallbackComponent={true} />
+      );
+
+      cy.get("p").contains("Is it configured correctly").should("exist");
+    });
+
+    it("Should render the custom Fallback Component", () => {
+      const blok = {
+        component: "teaser",
+        headline: "Hello React",
+        _editable: `<!--#storyblok#{ "id": 12345, "uid": "fc34-uad1"}-->`,
+      };
+
+      mount(
+        <Test
+          blok={blok}
+          components={[]}
+          enableFallbackComponent={true}
+          customFallbackComponent={TestFallbackComponent}
+        />
+      );
+
+      cy.get("[data-test=custom-fallback]").should("exist");
     });
   });
 

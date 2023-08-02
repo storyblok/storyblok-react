@@ -88,6 +88,7 @@ describe("@storyblok/react/rsc", () => {
       mount(<TestRsc blok={blok} components={[]} />);
 
       cy.get('[data-test="teaser"]').should("not.exist");
+      cy.get(":empty").should("have.length", 1);
       cy.get("@error").should(
         "be.calledWithMatch",
         "Component teaser doesn't exist."

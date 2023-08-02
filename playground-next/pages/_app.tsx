@@ -6,6 +6,7 @@ import FallbackComponent from "../components/fallback-component";
 storyblokInit({
   accessToken: "d6IKUtAUDiKyAhpJtrLFcwtt",
   use: [apiPlugin],
+  enableFallbackComponent: true,
   customFallbackComponent: FallbackComponent,
 });
 
