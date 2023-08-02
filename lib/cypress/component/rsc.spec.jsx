@@ -117,4 +117,39 @@ describe("@storyblok/react/rsc", () => {
       });
     });
   });
+
+  describe("FallbackComponent", () => {
+    it("Should render the default Fallback Component", () => {
+      const blok = {
+        component: "teaser",
+        headline: "Hello React",
+        _editable: `<!--#storyblok#{ "id": 12345, "uid": "fc34-uad1"}-->`,
+      };
+
+      mount(
+        <TestRsc blok={blok} components={[]} enableFallbackComponent={true} />
+      );
+
+      cy.get("p").contains("Is it configured correctly").should("exist");
+    });
+
+    it("Should render the custom Fallback Component", () => {
+      const blok = {
+        component: "teaser",
+        headline: "Hello React",
+        _editable: `<!--#storyblok#{ "id": 12345, "uid": "fc34-uad1"}-->`,
+      };
+
+      mount(
+        <TestRsc
+          blok={blok}
+          components={[]}
+          enableFallbackComponent={true}
+          customFallbackComponent={TestFallbackComponent}
+        />
+      );
+
+      cy.get("[data-test=custom-fallback]").should("exist");
+    });
+  });
 });
