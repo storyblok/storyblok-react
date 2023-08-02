@@ -25,6 +25,12 @@ export const useStoryblok = (
 
   let [story, setStory] = useState<ISbStoryData>({} as ISbStoryData);
 
+  bridgeOptions.resolveRelations =
+    bridgeOptions.resolveRelations ?? apiOptions.resolve_relations;
+
+  bridgeOptions.resolveLinks =
+    bridgeOptions.resolveLinks ?? apiOptions.resolve_links;
+
   const isBridgeEnable =
     typeof window !== "undefined" &&
     typeof window.storyblokRegisterEvent !== "undefined";
