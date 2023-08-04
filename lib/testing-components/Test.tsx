@@ -13,15 +13,29 @@ interface TestProps {
   bridge?: boolean;
   accessToken?: string;
   components?: SbReactComponentsMap;
+  enableFallbackComponent?: boolean;
+  customFallbackComponent?: React.ElementType;
   blok: SbBlokData | false;
 }
 
 const Test = forwardRef<HTMLElement, TestProps>(
-  ({ bridge, accessToken, components, blok }, ref) => {
+  (
+    {
+      bridge,
+      accessToken,
+      components,
+      enableFallbackComponent,
+      customFallbackComponent,
+      blok,
+    },
+    ref
+  ) => {
     storyblokInit({
       accessToken,
       bridge,
       use: accessToken ? [apiPlugin] : [],
+      enableFallbackComponent,
+      customFallbackComponent,
       components,
     });
 

@@ -14,14 +14,25 @@ interface TestProps {
   bridge?: boolean;
   accessToken?: string;
   components?: SbReactComponentsMap;
+  enableFallbackComponent?: boolean;
+  customFallbackComponent?: React.ElementType;
   blok: SbBlokData | false;
 }
 
-const TestRsc = ({ bridge, accessToken, components, blok }: TestProps) => {
+const TestRsc = ({
+  bridge,
+  accessToken,
+  components,
+  enableFallbackComponent,
+  customFallbackComponent,
+  blok,
+}: TestProps) => {
   storyblokInit({
     accessToken,
     bridge,
     use: accessToken ? [apiPlugin] : [],
+    enableFallbackComponent,
+    customFallbackComponent,
     components,
   });
 

@@ -15,14 +15,13 @@ import {
 export default function Home({
   story: initialStory,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-
   setComponents({
     teaser: Teaser,
     grid: Grid,
     feature: Feature,
     page: Page,
-  })
-  
+  });
+
   const story = useStoryblokState(initialStory);
 
   if (!story.content) {

@@ -63,16 +63,20 @@ import { storyblokInit, apiPlugin } from "@storyblok/react";
 /** Import your components */
 import Page from "./components/Page";
 import Teaser from "./components/Teaser";
+// import FallbackComponent from "./components/FallbackComponent";
 
 storyblokInit({
   accessToken: "YOUR_ACCESS_TOKEN",
   use: [apiPlugin],
-  // bridge: false,
-  // apiOptions: {},
   components: {
     page: Page,
     teaser: Teaser,
   },
+  // bridge: false,
+  // apiOptions: {},
+  // richText: {},
+  // enableFallbackComponent: false,
+  // customFallbackComponent: FallbackComponent,
 });
 ```
 
@@ -590,6 +594,10 @@ renderRichText(blok.richTextField, {
 ```
 
 We also recommend using the [Storyblok Rich Text Renderer for React by Claus](https://github.com/claus/storyblok-rich-text-react-renderer) for rendering your Storyblok rich text content to React elements and Next.js applications.
+
+### Using fallback components
+
+By default, `@storyblok/react` returns an empty `<div>` if a component is not implemented. Setting `enableFallbackComponent` to `true` when calling `storyblokInit` bypasses that behavior, rendering a fallback component in the frontend instead. You can use the default fallback component, or create a custom React fallback component in your project and use it by setting `customFallbackComponent: [YourFallbackComponent]`.
 
 ## The Storyblok JavaScript SDK Ecosystem
 

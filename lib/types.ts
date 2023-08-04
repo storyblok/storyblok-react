@@ -8,6 +8,8 @@ export interface SbReactComponentsMap {
 
 export interface SbReactSDKOptions extends SbSDKOptions {
   components?: SbReactComponentsMap;
+  enableFallbackComponent?: boolean;
+  customFallbackComponent?: React.ElementType;
 }
 
 export type TUseStoryblokState = <T = void>(
