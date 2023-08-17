@@ -278,6 +278,8 @@ export async function fetchData() {
 `StoryblokStory` keeps the state for thet story behind the scenes and uses `StoryblokComponent` to render the route components dynamically, using the list of components loaded during the initialization inside the `storyblokInit` function. You can use the `StoryblokComponent` inside the components to render the nested components dynamically. You can also pass bridge options to `StoryblokStory` using the prop `bridgeOptions`.
 
 ```js
+const bridgeOptions = { resolveRelations: ["article.author"] };
+
 <StoryblokStory story={data.story} bridgeOptions={bridgeOptions} />
 ```
 
@@ -314,6 +316,8 @@ storyblokInit({
 });
 
 export default RootLayout({ children }) =>{
+  const bridgeOptions = { resolveRelations: ["article.author"] };
+
   return (
     <html lang="en">
       <body>{children}</body>
