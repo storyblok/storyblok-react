@@ -7,8 +7,8 @@ import {
   StoryblokComponent,
   SbReactComponentsMap,
   SbBlokData,
+  StoryblokBridgeLoader,
 } from "@storyblok/react/rsc";
-import StoryblokBridgeLoader from "@storyblok/react/bridge-loader";
 
 interface TestProps {
   bridge?: boolean;
