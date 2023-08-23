@@ -2,8 +2,6 @@ import { defineConfig } from "vite";
 import path from "path";
 import preserveDirectives from "rollup-plugin-preserve-directives";
 
-const libName = "storyblok-react";
-
 export default defineConfig({
   plugins: [preserveDirectives()],
   build: {

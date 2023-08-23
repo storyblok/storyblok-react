@@ -1,5 +1,8 @@
-import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
-import StoryblokBridgeLoader from "@storyblok/react/bridge-loader";
+import {
+  storyblokInit,
+  apiPlugin,
+  StoryblokBridgeLoader,
+} from "@storyblok/react/rsc";
 
 import Page from "../components/Page";
 import Teaser from "../components/Teaser";
