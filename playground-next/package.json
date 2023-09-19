@@ -11,7 +11,7 @@
   "devDependencies": {
     "@storyblok/react": "^0.0.1",
     "@types/node": "^20.6.2",
-    "@types/react": "^18.2.21",
+    "@types/react": "^18.2.22",
     "next": "^13.4.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
