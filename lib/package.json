@@ -63,7 +63,7 @@
     "react-dom": "^18.2.0",
     "rollup-plugin-preserve-directives": "^0.2.0",
     "start-server-and-test": "^2.0.1",
-    "vite": "^4.4.11"
+    "vite": "^4.5.0"
   },
   "peerDependencies": {
     "react": "^17.0.0 || ^18.0.0",
