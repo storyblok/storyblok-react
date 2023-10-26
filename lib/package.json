@@ -52,7 +52,7 @@
     "@cypress/react": "^8.0.0",
     "@cypress/vite-dev-server": "^5.0.6",
     "@tsconfig/recommended": "^1.0.3",
-    "@types/react": "18.2.31",
+    "@types/react": "18.2.33",
     "@vitejs/plugin-react": "^4.1.0",
     "babel-jest": "^29.7.0",
     "cypress": "^13.3.3",
