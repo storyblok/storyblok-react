@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^18.2.0",
-    "@commitlint/config-conventional": "^18.1.0",
+    "@commitlint/config-conventional": "^18.4.0",
     "@tsconfig/recommended": "^1.0.3",
     "eslint": "^8.53.0",
     "eslint-config-prettier": "^9.0.0",
