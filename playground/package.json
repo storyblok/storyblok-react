@@ -8,7 +8,7 @@
   "devDependencies": {
     "@storyblok/react": "^0.0.1",
     "@types/node": "^20.10.0",
-    "@types/react": "18.2.38",
+    "@types/react": "18.2.39",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "typescript": "^5.2.2",
