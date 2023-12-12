@@ -9,6 +9,12 @@ export const useStoryblokState: TUseStoryblokState = (
 ) => {
   let [story, setStory] = useState(initialStory);
 
+  bridgeOptions.resolve_relations =
+    bridgeOptions.resolve_relations ?? bridgeOptions.resolveRelations;
+
+  bridgeOptions.resolve_links =
+    bridgeOptions.resolve_links ?? bridgeOptions.resolveLinks;
+
   const isBridgeEnable =
     typeof window !== "undefined" &&
     typeof window.storyblokRegisterEvent !== "undefined";
