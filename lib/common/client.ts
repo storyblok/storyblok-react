@@ -12,21 +12,21 @@ export const useStoryblokState: TUseStoryblokState = (
   const isBridgeEnable =
     typeof window !== "undefined" &&
     typeof window.storyblokRegisterEvent !== "undefined";
-
-  if (!isBridgeEnable || !initialStory) {
-    return initialStory;
-  }
-
-  const id = (story as any).internalId || story.id;
-
+  
   useEffect(() => {
+    if (!isBridgeEnable || !initialStory) return
+    const id = (story as any).internalId || story.id;
     setStory(initialStory);
     registerStoryblokBridge(
       id,
       (newStory) => setStory(newStory),
       bridgeOptions
     );
-  }, [initialStory]);
+  }, [initialStory, isBridgeEnable, story]);
+
+  if (!isBridgeEnable || !initialStory) {
+    return initialStory;
+  }
 
   return story;
 };
