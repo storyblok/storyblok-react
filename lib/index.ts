@@ -14,28 +14,21 @@ export const useStoryblok = (
   apiOptions: ISbStoriesParams = {},
   bridgeOptions: StoryblokBridgeConfigV2 = {}
 ) => {
-  const storyblokApiInstance = getStoryblokApi();
-  if (!storyblokApiInstance) {
-    console.error(
-      "You can't use useStoryblok if you're not loading apiPlugin."
-    );
-
-    return null;
-  }
-
   let [story, setStory] = useState<ISbStoryData>({} as ISbStoryData);
-
-  bridgeOptions.resolveRelations =
-    bridgeOptions.resolveRelations ?? apiOptions.resolve_relations;
-
-  bridgeOptions.resolveLinks =
-    bridgeOptions.resolveLinks ?? apiOptions.resolve_links;
 
   const isBridgeEnable =
     typeof window !== "undefined" &&
     typeof window.storyblokRegisterEvent !== "undefined";
 
+  const storyblokApiInstance = getStoryblokApi();
+
   useEffect(() => {
+    if (!storyblokApiInstance) {
+      console.error(
+        "You can't use useStoryblok if you're not loading apiPlugin."
+      ); 
+      return
+    }
     async function initStory() {
       const { data } = await storyblokApiInstance.get(
         `cdn/stories/${slug}`,
@@ -54,7 +47,17 @@ export const useStoryblok = (
     }
 
     initStory();
-  }, [slug, JSON.stringify(apiOptions)]);
+  }, [slug, JSON.stringify(apiOptions), storyblokApiInstance]);
+
+  if (!storyblokApiInstance) {
+    return null;
+  }
+
+  bridgeOptions.resolveRelations =
+    bridgeOptions.resolveRelations ?? apiOptions.resolve_relations;
+
+  bridgeOptions.resolveLinks =
+    bridgeOptions.resolveLinks ?? apiOptions.resolve_links;
 
   return story;
 };
