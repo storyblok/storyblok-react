@@ -94,6 +94,8 @@ Possible values:
 
 - `eu` (default): For spaces created in the EU
 - `us`: For spaces created in the US
+- `ap`: For spaces created in Australia
+- `ca`: For spaces created in Canada
 - `cn`: For spaces created in China
 
 Full example for a space created in the US:
@@ -280,7 +282,7 @@ export async function fetchData() {
 ```js
 const bridgeOptions = { resolveRelations: ["article.author"] };
 
-<StoryblokStory story={data.story} bridgeOptions={bridgeOptions} />
+<StoryblokStory story={data.story} bridgeOptions={bridgeOptions} />;
 ```
 
 > Note: To use this approach (with `getStoryblokApi`), you need to include the `apiPlugin` module when calling `storyblokInit` function. If you don't use `apiPlugin`, you can use your preferred method or function to fetch your data.
