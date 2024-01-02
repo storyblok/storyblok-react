@@ -5,28 +5,23 @@ import { registerStoryblokBridge } from "@storyblok/js";
 export const useStoryblokState: TUseStoryblokState = (
   initialStory = null,
   bridgeOptions = {},
-
 ) => {
-  let [story, setStory] = useState(initialStory);
+  const [story, setStory] = useState(initialStory);
 
-  const isBridgeEnable =
-    typeof window !== "undefined" &&
+  const storyId = (initialStory as any).internalId || initialStory.id;
+  const isBridgeEnabled = typeof window !== "undefined" &&
     typeof window.storyblokRegisterEvent !== "undefined";
-  
+
   useEffect(() => {
-    if (!isBridgeEnable || !initialStory) return
-    const id = (story as any).internalId || story.id;
-    setStory(initialStory);
+    if (!isBridgeEnabled || !initialStory) return;
+
     registerStoryblokBridge(
-      id,
+      storyId,
       (newStory) => setStory(newStory),
       bridgeOptions
     );
-  }, [initialStory, isBridgeEnable, story]);
 
-  if (!isBridgeEnable || !initialStory) {
-    return initialStory;
-  }
+  }, [initialStory, isBridgeEnabled]);
 
   return story;
 };
