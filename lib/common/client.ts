@@ -13,6 +13,8 @@ export const useStoryblokState: TUseStoryblokState = (
     typeof window.storyblokRegisterEvent !== "undefined";
 
   useEffect(() => {
+    setStory(initialStory);
+
     if (!isBridgeEnabled || !initialStory) return;
 
     registerStoryblokBridge(
