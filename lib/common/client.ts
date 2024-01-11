@@ -23,7 +23,7 @@ export const useStoryblokState: TUseStoryblokState = (
       bridgeOptions
     );
 
-  }, [initialStory, isBridgeEnabled]);
+  }, [initialStory]);
 
   return story;
 };
