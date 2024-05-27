@@ -47,7 +47,7 @@
     "@storyblok/js": "^3.0.8"
   },
   "devDependencies": {
-    "@babel/core": "^7.24.5",
+    "@babel/core": "^7.24.6",
     "@babel/preset-env": "^7.24.6",
     "@cypress/react": "^8.0.1",
     "@cypress/vite-dev-server": "^5.1.0",
