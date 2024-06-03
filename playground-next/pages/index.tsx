@@ -24,11 +24,11 @@ export default function Home({
 
   const story = useStoryblokState(initialStory);
 
-  if (!story.content) {
-    return <div>Loading...</div>;
+  if (story != null && story.content != null) {
+    return <StoryblokComponent blok={story.content} />;
   }
 
-  return <StoryblokComponent blok={story.content} />;
+  return <div>Loading...</div>;
 }
 
 export const getStaticProps: GetStaticProps = async () => {
