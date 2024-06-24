@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import type { TUseStoryblokState } from "../types";
+import { TUseStoryblokState } from "../types";
 import { registerStoryblokBridge } from "@storyblok/js";
 
 export const useStoryblokState: TUseStoryblokState = (
@@ -13,9 +13,9 @@ export const useStoryblokState: TUseStoryblokState = (
     typeof window.storyblokRegisterEvent !== "undefined";
 
   useEffect(() => {
-    setStory(initialStory);
-
     if (!isBridgeEnabled || !initialStory) return;
+
+    setStory(initialStory);
 
     registerStoryblokBridge(
       storyId,
@@ -23,7 +23,7 @@ export const useStoryblokState: TUseStoryblokState = (
       bridgeOptions
     );
 
-  }, [initialStory]);
+  }, [initialStory, isBridgeEnabled]);
 
   return story;
 };
