@@ -30,11 +30,16 @@
   </a>
 </p>
 
-## 🚀 Usage
+## Kickstart a new project
+Are you eager to dive into coding? **[Follow these steps to kickstart a new project with Storyblok and React](https://www.storyblok.com/technologies#react?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react)**, and get started in just a few minutes!
 
-> If you are first-time user of Storyblok, read the [Getting Started](https://www.storyblok.com/docs/guide/getting-started?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react) guide to get a project ready in less than 5 minutes.
+## 5-minute Tutorial
+Are you looking for a hands-on, step-by-step tutorial? The **[React 5-minute Tutorial](https://www.storyblok.com/tp/headless-cms-react?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react)** has you covered! It provides comprehensive instructions on how to set up a Storyblok space and connect it to your React project.
 
-### Installation
+## Ultimate Tutorial
+Are you looking for a hands-on, step-by-step tutorial? The **[Next.js Ultimate Tutorial](https://www.storyblok.com/tp/nextjs-headless-cms-ultimate-tutorial?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react)** has you covered! It provides comprehensive instructions on building a complete, multilingual website using Storyblok and Next.js from start to finish.
+
+## Installation
 
 Install `@storyblok/react`:
 
@@ -45,7 +50,7 @@ npm install @storyblok/react
 
 > ⚠️ This SDK uses the Fetch API under the hood. If your environment doesn't support it, you need to install a polyfill like [isomorphic-fetch](https://github.com/matthew-andrews/isomorphic-fetch). More info on [storyblok-js-client docs](https://github.com/storyblok/storyblok-js-client#fetch-use-polyfill-if-needed---version-5).
 
-#### From a CDN
+### From a CDN
 
 Install the file from the CDN:
 
@@ -53,7 +58,7 @@ Install the file from the CDN:
 <script src="https://unpkg.com/@storyblok/react"></script>
 ```
 
-### Initialization
+## Initialization
 
 Register the plugin on your application and add the [access token](https://www.storyblok.com/docs/api/content-delivery#topics/authentication?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react) of your Storyblok space. You can also add the `apiPlugin` in case that you want to use the Storyblok API Client:
 
@@ -88,7 +93,7 @@ That's it! All the features are enabled for you: the _Api Client_ for interactin
 
 > You can enable/disable some of these features if you don't need them, so you save some KB. Please read the "Features and API" section
 
-#### Region parameter
+## Region parameter
 
 Possible values:
 
@@ -144,13 +149,13 @@ Where `blok` is the actual blok data coming from [Storyblok's Content Delivery A
 
 > Note: The `storyblokEditable` function works the same way for all the frameworks and components created.
 
-### Getting Started
+## Getting Started
 
 **This SDK provides you the support to work with React and all React Frameworks such as Next.js, Remix etc. Depending upon these different frameworks and versions, the way to use the SDK and the functionalities it provides differ.**
 
 Below is the guide and examples on how to use it with different frameworks -
 
-## React
+### React
 
 The initalization remains the same when you work with React. You can intialze the SDK in the `index.js` file. Please refer to the 'Initialization' section above to read more.
 
@@ -609,23 +614,20 @@ By default, `@storyblok/react` returns an empty `<div>` if a component is not im
 
 ![A visual representation of the Storyblok JavaScript SDK Ecosystem](https://a.storyblok.com/f/88751/2400x1350/be4a4a4180/sdk-ecosystem.png/m/1200x0)
 
-## 🔗 Related Links
+## Further Resources
 
-- **[Storyblok Technology Hub](https://www.storyblok.com/technologies?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react)**: Storyblok integrates with every framework so that you are free to choose the best fit for your project. We prepared the technology hub so that you can find selected beginner tutorials, videos, boilerplates, and even cheatsheets all in one place.
-- **[Getting Started](https://www.storyblok.com/docs/guide/getting-started?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react)**: Get a project ready in less than 5 minutes.
-- **[Storyblok CLI](https://github.com/storyblok/storyblok)**: A simple CLI for scaffolding Storyblok projects and fieldtypes.
-- **[Storyblok Next.js Technology Hub](https://www.storyblok.com/tc/nextjs)**: Learn how to develop your own Next.js applications that use Storyblok APIs to retrieve and manage content.
-- **[Storyblok React.js example demo](https://stackblitz.com/edit/react-sdk-demo)**: See and try how React SDK works with React.js projects
-- **[Storyblok Next.js example demo](https://stackblitz.com/edit/react-next-sdk-demo)**: See and try how React SDK works with Next.js projects
+- [Quick Start](https://www.storyblok.com/technologies?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react)
+- [API Documentation](https://www.storyblok.com/docs/api?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react)
+- [Developer Tutorials](https://www.storyblok.com/tutorials?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react)
+- [Developer Guides](https://www.storyblok.com/docs/guide/introduction?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react)
+- [FAQs](https://www.storyblok.com/faqs?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react)
 
-## ℹ️ More Resources
-
-### Support
+## Support
 
 - Bugs or Feature Requests? [Submit an issue](/../../issues/new).
 - Do you have questions about Storyblok or you need help? [Join our Discord Community](https://discord.gg/jKrbAMz).
 
-### Contributing
+## Contributing
 
 Please see our [contributing guidelines](https://github.com/storyblok/.github/blob/master/contributing.md) and our [code of conduct](https://www.storyblok.com/trust-center#code-of-conduct?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react).
 This project use [semantic-release](https://semantic-release.gitbook.io/semantic-release/) for generate new versions by using commit messages and we use the Angular Convention to naming the commits. Check [this question](https://semantic-release.gitbook.io/semantic-release/support/faq#how-can-i-change-the-type-of-commits-that-trigger-a-release) about it in semantic-release FAQ.
