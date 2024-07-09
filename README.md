@@ -198,6 +198,30 @@ useStoryblok(
 **Check out our React Boilerplate [here](https://github.com/storyblok/storyblok-react-boilerplate), or read on how to add Storyblok to React in 5 mins [here](https://www.storyblok.com/tp/headless-cms-react)**
 You can also take a look at the [React Playground](https://github.com/arorachakit/storyblok-react/tree/main/playground) in this repo.
 
+### Important Note: Using App Router in Next.js 13 and 14 with Storyblok
+
+When using Next.js 13 or 14 with the App Router, ensure that you include `cache: "no-store"` in your requests when fetching data from Storyblok. This prevents data caching, ensuring that you always receive the most up-to-date content from Storyblok.
+
+For more details, refer to the Next.js documentation on [opting out of caching](https://nextjs.org/docs/app/building-your-application/caching#opting-out-1).
+
+> Note: In Next.js 15, this will no longer be necessary, as the default caching behavior has been adjusted based on [community feedback](https://nextjs.org/blog/next-15-rc#caching-updates).
+
+#### Example
+
+Here's how you can fetch data from Storyblok with `cache: "no-store"`:
+
+```javascript
+export async function fetchData() {
+  let sbParams: ISbStoriesParams = { version: "draft" };
+
+  const storyblokApi: StoryblokClient = getStoryblokApi();
+
+  return storyblokApi.get(`cdn/stories/home`, sbParams, {
+    cache: "no-store", // This prevents Next.js 13, 14 default caching behaviour
+  });
+}
+```
+
 ## Next.js using App Router - Live Editing support
 
 The components in the `app` directory are by default React Server Side Components, which limits the reactivity. You can enable Storyblok Visual Editor's live editing with React Server Components by rendering them inside a wrapper (`StoryblokPovider`) on the client. The SDK allows you to take full advantage of the Live Editing, but the use of Server Side Components is partial, which will be still better than the older Next.js approach performance-wise. The next section explains about how to use complete server side approach.
