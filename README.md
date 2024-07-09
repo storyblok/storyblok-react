@@ -198,7 +198,7 @@ useStoryblok(
 **Check out our React Boilerplate [here](https://github.com/storyblok/storyblok-react-boilerplate), or read on how to add Storyblok to React in 5 mins [here](https://www.storyblok.com/tp/headless-cms-react)**
 You can also take a look at the [React Playground](https://github.com/arorachakit/storyblok-react/tree/main/playground) in this repo.
 
-### Important Note: Using App Router in Next.js 13 and 14 with Storyblok
+### Learn: Next.js 13 and 14 Data Fetching and Caching Behavior
 
 When using Next.js 13 or 14 with the App Router, ensure that you include `cache: "no-store"` in your requests when fetching data from Storyblok. This prevents data caching, ensuring that you always receive the most up-to-date content from Storyblok.
 
