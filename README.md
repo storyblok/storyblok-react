@@ -634,6 +634,57 @@ We also recommend using the [Storyblok Rich Text Renderer for React by Claus](ht
 
 By default, `@storyblok/react` returns an empty `<div>` if a component is not implemented. Setting `enableFallbackComponent` to `true` when calling `storyblokInit` bypasses that behavior, rendering a fallback component in the frontend instead. You can use the default fallback component, or create a custom React fallback component in your project and use it by setting `customFallbackComponent: [YourFallbackComponent]`.
 
+## Efficiently Loading Storyblok Components in React
+
+When using Storyblok with React, the general approach is to load all the Storyblok components when initializing Storyblok, usually in a layout page to ensure all pages have access to all of them:
+
+```javascript
+storyblokInit({
+  accessToken,
+  use: [apiPlugin],
+  components: {
+    // all your React components
+  },
+});
+```
+
+Storyblok's React SDK automatically renders these predefined components based on your page content. While this is convenient, it can lead to larger bundle sizes and slower page speeds, especially for larger sites or when using heavy JavaScript libraries that are only needed on specific pages or a specific component.
+
+### Solutions
+
+1. **Storyblok's `setComponents` Function**: 
+   Storyblok SDK provides a function called `setComponents` that allows you to load only the components needed for each route instead of defining all components during initialization. This approach is useful but might not be practical if you use a catch-all route, which is common in many React frameworks.
+
+2. **React's `react.lazy`**: 
+   React offers a built-in solution called `react.lazy` for code splitting. Instead of directly importing components, you can do the following:
+    
+    ```javascript
+    "use client";
+    import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
+    import { lazy } from "react";
+    
+    const lazyComponents = {
+      page: lazy(() => import("./components/Page")),
+      // other lazy-loaded components
+    };
+    
+    storyblokInit({
+      accessToken,
+      use: [apiPlugin],
+      components: lazyComponents,
+    });
+    ```
+    
+    This approach enables automatic code splitting and loads only the necessary JavaScript for each page. However, `react.lazy` has some limitations when used with SSR (Server-Side Rendering).
+
+3. **Using `@loadable/component`**:
+   For cases where SSR is needed, or in general, you can use the `@loadable/component` library, which offers similar functionality and better SSR support. This library is framework-agnostic and can be used with any React framework. [Loadable Components Documentation](https://loadable-components.com/docs/getting-started/)
+
+4. **Next.js Dynamic Import**:
+   Next.js has a built-in `dynamic` package that provides dynamic imports for lazy loading. [Next.js Dynamic Import Documentation](https://nextjs.org/docs/advanced-features/dynamic-import)
+
+By using these techniques, you can ensure that only the necessary components and dependencies are loaded for each page, improving your site's performance and speed.
+
 ## The Storyblok JavaScript SDK Ecosystem
 
 ![A visual representation of the Storyblok JavaScript SDK Ecosystem](https://a.storyblok.com/f/88751/2400x1350/be4a4a4180/sdk-ecosystem.png/m/1200x0)
