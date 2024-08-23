@@ -2,8 +2,8 @@ import type {
   ISbStoriesParams,
   StoryblokClient,
 } from '@storyblok/react/rsc';
+import { getStoryblokApi } from "@/lib/storyblok";
 import {
-  getStoryblokApi,
   StoryblokComponent,
 } from '@storyblok/react/rsc';
 
