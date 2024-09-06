@@ -55,7 +55,7 @@
     "@types/react": "18.3.4",
     "@vitejs/plugin-react": "^4.3.1",
     "babel-jest": "^29.7.0",
-    "cypress": "^13.14.1",
+    "cypress": "^13.14.2",
     "eslint-plugin-cypress": "^3.5.0",
     "eslint-plugin-jest": "^28.8.3",
     "jest": "^29.7.0",
