@@ -302,11 +302,11 @@ export default async function Home() {
 
 export async function fetchData() {
   const storyblokApi = getStoryblokApi();
-  return storyblokApi.get(`cdn/stories/home`, { version: "draft" });
+  return storyblokApi.get(`cdn/stories/home`, { version: "draft" }, { cache: "no-store" });
 }
 ```
 
-`StoryblokStory` keeps the state for thet story behind the scenes and uses `StoryblokComponent` to render the route components dynamically, using the list of components loaded during the initialization inside the `storyblokInit` function. You can use the `StoryblokComponent` inside the components to render the nested components dynamically. You can also pass bridge options to `StoryblokStory` using the prop `bridgeOptions`.
+`StoryblokStory` keeps the state for that story behind the scenes and uses `StoryblokComponent` to render the route components dynamically, using the list of components loaded during the initialization inside the `storyblokInit` function. You can use the `StoryblokComponent` inside the components to render the nested components dynamically. You can also pass bridge options to `StoryblokStory` using the prop `bridgeOptions`.
 
 ```js
 const bridgeOptions = { resolveRelations: ["article.author"] };
@@ -381,9 +381,11 @@ export default async function Home() {
 
 export async function fetchData() {
   const storyblokApi = getStoryblokApi();
-  return storyblokApi.get(`cdn/stories/home`, { version: "draft" });
+  return storyblokApi.get(`cdn/stories/home`, { version: "draft" }, { cache: "no-store" });
 }
 ```
+
+> When using RSC, for changes to take effect in the Visual Editor, make sure to prevent caching using `{ cache: "no-store" }`. This ensures your content will be updated on saving.
 
 > Note: To use this approach (with `getStoryblokApi`), you need to include the `apiPlugin` module when calling `storyblokInit` function. If you don't use `apiPlugin`, you can use your preferred method or function to fetch your data.
 
