@@ -2,12 +2,15 @@
   "name": "@storyblok/react",
   "version": "0.0.1",
   "description": "SDK to integrate Storyblok into your project using React.",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/types/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "author": "Storyblok",
+  "homepage": "https://github.com/storyblok/storyblok-react",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/storyblok/storyblok-react"
+  },
+  "bugs": {
+    "url": "https://github.com/storyblok/storyblok-react/issues"
+  },
   "exports": {
     ".": {
       "types": "./dist/types/index.d.ts",
@@ -30,6 +33,12 @@
       "require": "./dist/story.js"
     }
   },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite build --watch",
     "build": "vite build && tsc --project tsconfig.json",
@@ -42,6 +51,10 @@
     "cy:open": "cypress open",
     "test:comp": "cypress run-ct",
     "prepublishOnly": "npm run build && cp ../README.md ./"
+  },
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0"
   },
   "dependencies": {
     "@storyblok/js": "^3.1.1"
@@ -64,10 +77,6 @@
     "rollup-plugin-preserve-directives": "^0.4.0",
     "start-server-and-test": "^2.0.5",
     "vite": "^5.4.3"
-  },
-  "peerDependencies": {
-    "react": "^17.0.0 || ^18.0.0",
-    "react-dom": "^17.0.0 || ^18.0.0"
   },
   "babel": {
     "presets": [
@@ -95,15 +104,6 @@
       "main"
     ]
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/storyblok/storyblok-react"
-  },
-  "author": "Storyblok",
-  "bugs": {
-    "url": "https://github.com/storyblok/storyblok-react/issues"
-  },
-  "homepage": "https://github.com/storyblok/storyblok-react",
   "publishConfig": {
     "access": "public"
   }

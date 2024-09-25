@@ -1,8 +1,9 @@
-import React from "react";
-import { storyblokEditable, SbBlokData } from "@storyblok/react";
+import React from 'react'
+import type { SbBlokData } from '@storyblok/react'
+import { storyblokEditable } from '@storyblok/react'
 
 interface FeatureProps {
-  blok: SbBlokData;
+  blok: SbBlokData
 }
 
 const Feature = ({ blok }: FeatureProps) => {
@@ -13,7 +14,7 @@ const Feature = ({ blok }: FeatureProps) => {
         <p>{blok.description as string}</p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Feature;
+export default Feature

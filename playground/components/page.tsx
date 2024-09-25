@@ -1,24 +1,26 @@
-import React from "react";
+import React from 'react'
+import type {
+  SbBlokData,
+} from '@storyblok/react'
 import {
   StoryblokComponent,
   storyblokEditable,
-  SbBlokData,
-} from "@storyblok/react";
+} from '@storyblok/react'
 
 interface PageProps {
-  blok: SbBlokData;
+  blok: SbBlokData
 }
 
 const Page = ({ blok }: PageProps) => (
   <div {...storyblokEditable(blok)} key={blok._uid} data-test="page">
     {blok.body
-      ? (blok.body as SbBlokData[]).map((nestedBlok) => (
+      ? (blok.body as SbBlokData[]).map(nestedBlok => (
           <div key={nestedBlok._uid}>
             <StoryblokComponent blok={nestedBlok} />
           </div>
         ))
       : null}
   </div>
-);
+)
 
-export default Page;
+export default Page
