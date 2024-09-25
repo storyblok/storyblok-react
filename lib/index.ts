@@ -26,8 +26,8 @@ export const useStoryblok = (
     if (!storyblokApiInstance) {
       console.error(
         "You can't use useStoryblok if you're not loading apiPlugin."
-      ); 
-      return
+      );
+      return;
     }
     async function initStory() {
       const { data } = await storyblokApiInstance.get(

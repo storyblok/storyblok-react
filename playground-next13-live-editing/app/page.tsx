@@ -2,7 +2,7 @@ import {
   getStoryblokApi,
   StoryblokClient,
   ISbStoriesParams,
-  StoryblokStory
+  StoryblokStory,
 } from "@storyblok/react/rsc";
 
 export default async function Home() {
