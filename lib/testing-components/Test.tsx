@@ -1,13 +1,15 @@
-import React, { forwardRef, useEffect } from "react";
+import React, { forwardRef, useEffect } from 'react';
+import type {
+  SbBlokData,
+  SbReactComponentsMap,
+} from '@storyblok/react';
 import {
-  storyblokInit,
   apiPlugin,
   getStoryblokApi,
   registerStoryblokBridge,
   StoryblokComponent,
-  SbReactComponentsMap,
-  SbBlokData,
-} from "@storyblok/react";
+  storyblokInit,
+} from '@storyblok/react';
 
 interface TestProps {
   bridge?: boolean;
@@ -28,7 +30,7 @@ const Test = forwardRef<HTMLElement, TestProps>(
       customFallbackComponent,
       blok,
     },
-    ref
+    ref,
   ) => {
     storyblokInit({
       accessToken,
@@ -41,11 +43,11 @@ const Test = forwardRef<HTMLElement, TestProps>(
 
     const storyblokApi = getStoryblokApi();
     const apiExists = !!(
-      storyblokApi && typeof storyblokApi.get === "function"
+      storyblokApi && typeof storyblokApi.get === 'function'
     );
 
     useEffect(() => {
-      registerStoryblokBridge(43423, (newStory) => console.log(newStory));
+      registerStoryblokBridge(43423, newStory => console.log(newStory));
     }, []);
 
     return (
@@ -58,9 +60,9 @@ const Test = forwardRef<HTMLElement, TestProps>(
         </h3>
       </div>
     );
-  }
+  },
 );
 
-Test.displayName = "Test";
+Test.displayName = 'Test';
 
 export default Test;

@@ -1,10 +1,10 @@
-import { storyblokInit as sbInit } from "@storyblok/js";
+import { storyblokInit as sbInit } from '@storyblok/js';
 
-import {
+import type {
   SbReactComponentsMap,
   SbReactSDKOptions,
   StoryblokClient,
-} from "../types";
+} from '../types';
 
 let storyblokApiInstance: StoryblokClient = null;
 let componentsMap: SbReactComponentsMap = {};
@@ -14,7 +14,7 @@ let customFallbackComponent: React.ElementType = null;
 export const useStoryblokApi = (): StoryblokClient => {
   if (!storyblokApiInstance) {
     console.error(
-      "You can't use getStoryblokApi if you're not loading apiPlugin."
+      'You can\'t use getStoryblokApi if you\'re not loading apiPlugin.',
     );
   }
 
@@ -47,17 +47,17 @@ export const storyblokInit = (pluginOptions: SbReactSDKOptions = {}) => {
   customFallbackComponent = pluginOptions.customFallbackComponent;
 };
 
-export { default as StoryblokComponent } from "./storyblok-component";
+export * from '../types';
 export { useStoryblokApi as getStoryblokApi };
+export { default as StoryblokComponent } from './storyblok-component';
+
 export {
-  storyblokEditable,
   apiPlugin,
   loadStoryblokBridge,
-  useStoryblokBridge,
   registerStoryblokBridge,
   renderRichText,
   RichTextResolver,
   RichTextSchema,
-} from "@storyblok/js";
-
-export * from "../types";
+  storyblokEditable,
+  useStoryblokBridge,
+} from '@storyblok/js';

@@ -1,8 +1,8 @@
 <div align="center">
-	<a href="https://www.storyblok.com?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react" align="center">
-		<img src="https://a.storyblok.com/f/88751/1776x360/ccc1c50c67/sb-react.png"  alt="Storyblok Logo">
-	</a>
-	<h1 align="center">@storyblok/react</h1>
+  <a href="https://www.storyblok.com?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react" align="center">
+  <img src="https://a.storyblok.com/f/88751/1776x360/ccc1c50c67/sb-react.png"  alt="Storyblok Logo">
+  </a>
+  <h1 align="center">@storyblok/react</h1>
   <p align="center">
     The React plugin you need to interact with <a href="http://www.storyblok.com?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react" target="_blank">Storyblok API</a> and enable the <a href="https://www.storyblok.com/docs/guide/essentials/visual-editor?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react" target="_blank">Real-time Visual Editing Experience</a>. This package helps you integrate Storyblok with React along with all types of React based frameworks like Next.js, Remix etc. This SDK also includes the support for React Server Side Components.
   </p>
@@ -63,15 +63,15 @@ Install the file from the CDN:
 Register the plugin on your application and add the [access token](https://www.storyblok.com/docs/api/content-delivery#topics/authentication?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react) of your Storyblok space. You can also add the `apiPlugin` in case that you want to use the Storyblok API Client:
 
 ```js
-import { storyblokInit, apiPlugin } from "@storyblok/react";
+import { apiPlugin, storyblokInit } from '@storyblok/react'
 
 /** Import your components */
-import Page from "./components/Page";
-import Teaser from "./components/Teaser";
+import Page from './components/Page'
+import Teaser from './components/Teaser'
 // import FallbackComponent from "./components/FallbackComponent";
 
 storyblokInit({
-  accessToken: "YOUR_ACCESS_TOKEN",
+  accessToken: 'YOUR_ACCESS_TOKEN',
   use: [apiPlugin],
   components: {
     page: Page,
@@ -82,7 +82,7 @@ storyblokInit({
   // richText: {},
   // enableFallbackComponent: false,
   // customFallbackComponent: FallbackComponent,
-});
+})
 ```
 
 > Note: This is the general way for initalizing the SDK, the initialization might be a little different depending upon the framework. You can see how everything works according to the framework in their respective sections below.
@@ -106,16 +106,16 @@ Possible values:
 Full example for a space created in the US:
 
 ```js
-import { storyblokInit, apiPlugin } from "@storyblok/react";
+import { apiPlugin, storyblokInit } from '@storyblok/react'
 
 storyblokInit({
-  accessToken: "YOUR_ACCESS_TOKEN",
+  accessToken: 'YOUR_ACCESS_TOKEN',
   use: [apiPlugin],
   apiOptions: {
-    region: "us",
+    region: 'us',
   },
   components: {},
-});
+})
 ```
 
 > Note: For spaces created in the United States or China, the `region` parameter **must** be specified.
@@ -129,7 +129,7 @@ storyblokInit({
 For every component you've defined in your Storyblok space, call the `storyblokEditable` function with the blok content:
 
 ```js
-import { storyblokEditable } from "@storyblok/react";
+import { storyblokEditable } from '@storyblok/react'
 
 const Feature = ({ blok }) => {
   return (
@@ -139,10 +139,10 @@ const Feature = ({ blok }) => {
         <p>{blok.description}</p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Feature;
+export default Feature
 ```
 
 Where `blok` is the actual blok data coming from [Storyblok's Content Delivery API](https://www.storyblok.com/docs/api/content-delivery?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react).
@@ -164,19 +164,19 @@ The initalization remains the same when you work with React. You can intialze th
 Use `useStoryblok` to fetch the content as well as enable live editing. You need to pass the `slug` as the first parameter, `apiOptions` as the second parameter, and `bridgeOptions` as the third parameter, which is optional if you want to set the options for the bridge by yourself. Check the available [apiOptions](https://github.com/storyblok/storyblok-js-client#class-storyblok) (passed to `storyblok-js-client`) and [bridgeOptions](https://www.storyblok.com/docs/Guides/storyblok-latest-js?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-nuxt) (passed to the Storyblok Bridge).
 
 ```js
-import { useStoryblok, StoryblokComponent } from "@storyblok/react";
+import { StoryblokComponent, useStoryblok } from '@storyblok/react'
 
 function App() {
-  const story = useStoryblok("react", { version: "draft" });
+  const story = useStoryblok('react', { version: 'draft' })
 
   if (!story?.content) {
-    return <div>Loading...</div>;
+    return <div>Loading...</div>
   }
 
-  return <StoryblokComponent blok={story.content} />;
+  return <StoryblokComponent blok={story.content} />
 }
 
-export default App;
+export default App
 ```
 
 `StoryblokComponent` renders the route components dynamically, using the list of components loaded during the initialization inside the `storyblokInit` function.
@@ -186,13 +186,13 @@ This is how you can pass the Bridge options as a third parameter to `useStoryblo
 ```js
 useStoryblok(
   story.id,
-  { version: "draft", resolveRelations: ["Article.author"] },
+  { version: 'draft', resolveRelations: ['Article.author'] },
   {
-    resolveRelations: ["Article.author"],
-    resolveLinks: "url",
+    resolveRelations: ['Article.author'],
+    resolveLinks: 'url',
     preventClicks: true,
   }
-);
+)
 ```
 
 **Check out our React Boilerplate [here](https://github.com/storyblok/storyblok-react-boilerplate), or read on how to add Storyblok to React in 5 mins [here](https://www.storyblok.com/tp/headless-cms-react)**
@@ -210,15 +210,15 @@ For more details, refer to the Next.js documentation on [opting out of caching](
 
 Here's how you can fetch data from Storyblok with `cache: "no-store"`:
 
-```javascript
+```typescript
 export async function fetchData() {
-  let sbParams: ISbStoriesParams = { version: "draft" };
+  const sbParams: ISbStoriesParams = { version: 'draft' }
 
-  const storyblokApi: StoryblokClient = getStoryblokApi();
+  const storyblokApi: StoryblokClient = getStoryblokApi()
 
   return storyblokApi.get(`cdn/stories/home`, sbParams, {
-    cache: "no-store", // This prevents Next.js 13, 14 default caching behaviour
-  });
+    cache: 'no-store', // This prevents Next.js 13, 14 default caching behaviour
+  })
 }
 ```
 
@@ -233,13 +233,13 @@ The components in the `app` directory are by default React Server Side Component
 In `app/layout.jsx`, call the `storyblokInit` function, but without loading the component list (we will do that on the client). Wrap your whole app using a `StoryblokProvider` component (this provider is created in the next step) :
 
 ```js
-import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
-import StoryblokProvider from "../components/StoryblokProvider";
+import { apiPlugin, storyblokInit } from '@storyblok/react/rsc'
+import StoryblokProvider from '../components/StoryblokProvider'
 
 storyblokInit({
-  accessToken: "YOUR_ACCESS_TOKEN",
+  accessToken: 'YOUR_ACCESS_TOKEN',
   use: [apiPlugin],
-});
+})
 
 export default function RootLayout({ children }) {
   return (
@@ -248,7 +248,7 @@ export default function RootLayout({ children }) {
         <body>{children}</body>
       </html>
     </StoryblokProvider>
-  );
+  )
 }
 ```
 
@@ -258,25 +258,25 @@ Create the `components/StoryblokProvider.jsx` file. Re-initalize the connection 
 
 ```js
 /** 1. Tag it as a client component */
-"use client";
-import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
+'use client'
+import { apiPlugin, storyblokInit } from '@storyblok/react/rsc'
 
 /** 2. Import your components */
-import Page from "../components/Page";
-import Teaser from "../components/Teaser";
+import Page from '../components/Page'
+import Teaser from '../components/Teaser'
 
 /** 3. Initialize it as usual */
 storyblokInit({
-  accessToken: "YOUR_ACCESS_TOKEN",
+  accessToken: 'YOUR_ACCESS_TOKEN',
   use: [apiPlugin],
   components: {
     teaser: Teaser,
     page: Page,
   },
-});
+})
 
 export default function StoryblokProvider({ children }) {
-  return children;
+  return children
 }
 ```
 
@@ -288,30 +288,30 @@ The `getStoryblokApi` function, which is an instance of [storyblok-js-client](ht
 You can render the content of your route with the `StoryblokStory` component, which will automatically handle the Visual Editor live events when editing the story. In `app/page.jsx`, use them as follows:
 
 ```js
-import { getStoryblokApi, StoryblokStory } from "@storyblok/react/rsc";
+import { getStoryblokApi, StoryblokStory } from '@storyblok/react/rsc'
 
 export default async function Home() {
-  const { data } = await fetchData();
+  const { data } = await fetchData()
 
   return (
     <div>
       <StoryblokStory story={data.story} />
     </div>
-  );
+  )
 }
 
 export async function fetchData() {
-  const storyblokApi = getStoryblokApi();
-  return storyblokApi.get(`cdn/stories/home`, { version: "draft" });
+  const storyblokApi = getStoryblokApi()
+  return storyblokApi.get(`cdn/stories/home`, { version: 'draft' })
 }
 ```
 
 `StoryblokStory` keeps the state for thet story behind the scenes and uses `StoryblokComponent` to render the route components dynamically, using the list of components loaded during the initialization inside the `storyblokInit` function. You can use the `StoryblokComponent` inside the components to render the nested components dynamically. You can also pass bridge options to `StoryblokStory` using the prop `bridgeOptions`.
 
-```js
-const bridgeOptions = { resolveRelations: ["article.author"] };
+```jsx
+const bridgeOptions = { resolveRelations: ['article.author'] }
 
-<StoryblokStory story={data.story} bridgeOptions={bridgeOptions} />;
+<StoryblokStory story={data.story} bridgeOptions={bridgeOptions} />
 ```
 
 > Note: To use this approach (with `getStoryblokApi`), you need to include the `apiPlugin` module when calling `storyblokInit` function. If you don't use `apiPlugin`, you can use your preferred method or function to fetch your data.
@@ -346,7 +346,7 @@ storyblokInit({
   },
 });
 
-export default RootLayout({ children }) =>{
+export default RootLayout(({ children }) => {
   const bridgeOptions = { resolveRelations: ["article.author"] };
 
   return (
@@ -366,22 +366,25 @@ The `getStoryblokApi` function, is an instance of [storyblok-js-client](https://
 Go to the route you want to fetch data from and use it as follows:
 
 ```js
-import { getStoryblokApi, StoryblokComponent } from "@storyblok/react/rsc";
+import { getStoryblokApi, StoryblokComponent } from '@storyblok/react/rsc'
 
 export default async function Home() {
-  const { data } = await fetchData();
+  const { data } = await fetchData()
 
   return (
     <div>
-      <h1>Story: {data.story.id}</h1>
+      <h1>
+        Story:
+        {data.story.id}
+      </h1>
       <StoryblokComponent blok={data.story.content} />
     </div>
-  );
+  )
 }
 
 export async function fetchData() {
-  const storyblokApi = getStoryblokApi();
-  return storyblokApi.get(`cdn/stories/home`, { version: "draft" });
+  const storyblokApi = getStoryblokApi()
+  return storyblokApi.get(`cdn/stories/home`, { version: 'draft' })
 }
 ```
 
@@ -401,11 +404,11 @@ The initalization remains the same when you work with Next.js. You can intialze 
 The SDK provides a `getStoryblokApi` object in your app, which is an instance of [storyblok-js-client](https://github.com/storyblok/storyblok-js-client). This can be used to fetch the content from Storyblok. You can use it in functions like `getStaticProps`, `getStaticPaths`, `getServerSideProps` etc.
 
 ```js
-import { getStoryblokApi } from "@storyblok/react";
+import { getStoryblokApi } from '@storyblok/react'
 
 // At the required place
-const storyblokApi = getStoryblokApi();
-const { data } = await storyblokApi.get("cdn/stories", { version: "draft" });
+const storyblokApi = getStoryblokApi()
+const { data } = await storyblokApi.get('cdn/stories', { version: 'draft' })
 ```
 
 > Note: To use this approach, you need to include the `apiPlugin` module when calling `storyblokInit` function. If you don't use `apiPlugin`, you can use your preferred method or function to fetch your data.
@@ -415,16 +418,16 @@ const { data } = await storyblokApi.get("cdn/stories", { version: "draft" });
 The SDK also provides you with the `useStoryblokState` hook. It works similarly to `useStoryblok` for live editing, but it doesn't fetch the content. Instead, it receives a story object as the first parameter. You can also pass the Bridge Options as the second parameter.
 
 ```js
-import { useStoryblokState, StoryblokComponent } from "@storyblok/react";
+import { StoryblokComponent, useStoryblokState } from '@storyblok/react'
 
 export default function Home({ story: initialStory }) {
-  const story = useStoryblokState(initialStory);
+  const story = useStoryblokState(initialStory)
 
   if (!story.content) {
-    return <div>Loading...</div>;
+    return <div>Loading...</div>
   }
 
-  return <StoryblokComponent blok={story.content} />;
+  return <StoryblokComponent blok={story.content} />
 }
 ```
 
@@ -432,26 +435,26 @@ In this case, the story is being passed as a prop that can be coming from where 
 
 ```js
 import {
-  useStoryblokState,
   getStoryblokApi,
   StoryblokComponent,
-} from "@storyblok/react";
+  useStoryblokState,
+} from '@storyblok/react'
 
 export default function Home({ story: initialStory }) {
-  const story = useStoryblokState(initialStory);
+  const story = useStoryblokState(initialStory)
 
   if (!story.content) {
-    return <div>Loading...</div>;
+    return <div>Loading...</div>
   }
 
-  return <StoryblokComponent blok={story.content} />;
+  return <StoryblokComponent blok={story.content} />
 }
 
 export async function getStaticProps({ preview = false }) {
-  const storyblokApi = getStoryblokApi();
-  let { data } = await storyblokApi.get(`cdn/stories/react`, {
-    version: "draft",
-  });
+  const storyblokApi = getStoryblokApi()
+  const { data } = await storyblokApi.get(`cdn/stories/react`, {
+    version: 'draft',
+  })
 
   return {
     props: {
@@ -459,7 +462,7 @@ export async function getStaticProps({ preview = false }) {
       preview,
     },
     revalidate: 3600, // revalidate every hour
-  };
+  }
 }
 ```
 
@@ -540,10 +543,10 @@ You can use an `apiOptions` object. This is passed down to the [storyblok-js-cli
 
 ```js
 storyblokInit({
-  accessToken: "YOUR_ACCESS_TOKEN",
+  accessToken: 'YOUR_ACCESS_TOKEN',
   apiOptions: {
     // storyblok-js-client config object
-    cache: { type: "memory" },
+    cache: { type: 'memory' },
   },
   use: [apiPlugin],
   components: {
@@ -552,13 +555,13 @@ storyblokInit({
     grid: Grid,
     feature: Feature,
   },
-});
+})
 ```
 
 If you prefer to use your own fetch method, just remove the `apiPlugin` and `storyblok-js-client` won't be added to your application.
 
 ```js
-storyblokInit({});
+storyblokInit({})
 ```
 
 ### Storyblok Bridge
@@ -566,11 +569,11 @@ storyblokInit({});
 If you don't use `registerStoryblokBridge`, you still have access to the raw `window.StoryblokBridge`:
 
 ```js
-const sbBridge = new window.StoryblokBridge(options);
+const sbBridge = new window.StoryblokBridge(options)
 
-sbBridge.on(["input", "published", "change"], (event) => {
+sbBridge.on(['input', 'published', 'change'], (event) => {
   // ...
-});
+})
 ```
 
 ### Rendering Rich Text
@@ -578,54 +581,53 @@ sbBridge.on(["input", "published", "change"], (event) => {
 You can easily render rich text by using the `renderRichText` function that comes with `@storyblok/react`:
 
 ```js
-import { renderRichText } from "@storyblok/react";
+import { renderRichText } from '@storyblok/react'
 
-const renderedRichText = renderRichText(blok.richtext);
+const renderedRichText = renderRichText(blok.richtext)
 ```
 
 You can set a **custom Schema and component resolver globally** at init time by using the `richText` init option:
 
 ```js
-import { RichTextSchema, storyblokInit } from "@storyblok/react";
-import cloneDeep from "clone-deep";
+import { RichTextSchema, storyblokInit } from '@storyblok/react'
+import cloneDeep from 'clone-deep'
 
-const mySchema = cloneDeep(RichTextSchema); // you can make a copy of the default RichTextSchema
+const mySchema = cloneDeep(RichTextSchema) // you can make a copy of the default RichTextSchema
 // ... and edit the nodes and marks, or add your own.
 // Check the base RichTextSchema source here https://github.com/storyblok/storyblok-js-client/blob/main/src/schema.ts
 
 storyblokInit({
-  accessToken: "<your-token>",
+  accessToken: '<your-token>',
   richText: {
     schema: mySchema,
     resolver: (component, blok) => {
       switch (component) {
-        case "my-custom-component":
-          return `<div class="my-component-class">${blok.text}</div>`;
+        case 'my-custom-component':
+          return `<div class="my-component-class">${blok.text}</div>`
         default:
-          return "Resolver not defined";
+          return 'Resolver not defined'
       }
     },
   },
-});
+})
 ```
 
 You can also set a **custom Schema and component resolver only once** by passing the options as the second parameter to `renderRichText` function:
 
 ```js
-import { renderRichText } from "@storyblok/react";
+import { renderRichText } from '@storyblok/react'
 
 renderRichText(blok.richTextField, {
   schema: mySchema,
   resolver: (component, blok) => {
     switch (component) {
-      case "my-custom-component":
-        return `<div class="my-component-class">${blok.text}</div>`;
-        break;
+      case 'my-custom-component':
+        return `<div class="my-component-class">${blok.text}</div>`
       default:
-        return `Component ${component} not found`;
+        return `Component ${component} not found`
     }
   },
-});
+})
 ```
 
 We also recommend using the [Storyblok Rich Text Renderer for React by Claus](https://github.com/claus/storyblok-rich-text-react-renderer) for rendering your Storyblok rich text content to React elements and Next.js applications.
@@ -645,36 +647,36 @@ storyblokInit({
   components: {
     // all your React components
   },
-});
+})
 ```
 
 Storyblok's React SDK automatically renders these predefined components based on your page content. While this is convenient, it can lead to larger bundle sizes and slower page speeds, especially for larger sites or when using heavy JavaScript libraries that are only needed on specific pages or a specific component.
 
 ### Solutions
 
-1. **Storyblok's `setComponents` Function**: 
+1. **Storyblok's `setComponents` Function**:
    Storyblok SDK provides a function called `setComponents` that allows you to load only the components needed for each route instead of defining all components during initialization. This approach is useful but might not be practical if you use a catch-all route, which is common in many React frameworks.
 
-2. **React's `react.lazy`**: 
+2. **React's `react.lazy`**:
    React offers a built-in solution called `react.lazy` for code splitting. Instead of directly importing components, you can do the following:
-    
+
     ```javascript
-    "use client";
-    import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
-    import { lazy } from "react";
-    
+    'use client'
+    import { apiPlugin, storyblokInit } from '@storyblok/react/rsc'
+    import { lazy } from 'react'
+
     const lazyComponents = {
-      page: lazy(() => import("./components/Page")),
+      page: lazy(() => import('./components/Page')),
       // other lazy-loaded components
-    };
-    
+    }
+
     storyblokInit({
       accessToken,
       use: [apiPlugin],
       components: lazyComponents,
-    });
+    })
     ```
-    
+
     This approach enables automatic code splitting and loads only the necessary JavaScript for each page. However, `react.lazy` has some limitations when used with SSR (Server-Side Rendering).
 
 3. **Using `@loadable/component`**:

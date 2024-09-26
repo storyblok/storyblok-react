@@ -1,9 +1,11 @@
-import React from "react";
+import React from 'react';
+import type {
+  SbBlokData,
+} from '@storyblok/react';
 import {
   StoryblokComponent,
   storyblokEditable,
-  SbBlokData,
-} from "@storyblok/react";
+} from '@storyblok/react';
 
 interface GridProps {
   blok: SbBlokData;
@@ -11,7 +13,7 @@ interface GridProps {
 
 const Grid = ({ blok }: GridProps) => (
   <ul {...storyblokEditable(blok)} key={blok._uid} data-test="grid">
-    {(blok.columns as SbBlokData[]).map((nestedBlok) => (
+    {(blok.columns as SbBlokData[]).map(nestedBlok => (
       <li key={nestedBlok._uid}>
         <StoryblokComponent blok={nestedBlok} />
       </li>

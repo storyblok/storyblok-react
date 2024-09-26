@@ -1,6 +1,5 @@
-import React from "react";
-import { SbSDKOptions } from "@storyblok/js";
-import type { ISbStoryData, StoryblokBridgeConfigV2 } from "@storyblok/js";
+import type React from 'react';
+import type { ISbStoryData, SbSDKOptions, StoryblokBridgeConfigV2 } from '@storyblok/js';
 
 export interface SbReactComponentsMap {
   [key: string]: React.ElementType;
@@ -18,26 +17,25 @@ export type TUseStoryblokState = <T = void>(
 ) => ISbStoryData<T> | null;
 
 export type {
-  ISbConfig,
-  ISbCache,
-  ISbResult,
-  ISbResponse,
-  ISbError,
-  ISbNode,
-  ISbSchema,
-  ThrottleFn,
-  AsyncFn,
   ArrayFn,
-  ISbContentMangmntAPI,
-  ISbManagmentApiResult,
-  ISbStories,
-  ISbStory,
-  ISbDimensions,
-  ISbStoryData,
+  AsyncFn,
   ISbAlternateObject,
-  ISbStoriesParams,
-  ISbStoryParams,
+  ISbCache,
+  ISbConfig,
+  ISbContentMangmntAPI,
+  ISbDimensions,
+  ISbError,
+  ISbManagmentApiResult,
+  ISbNode,
+  ISbResponse,
+  ISbResult,
   ISbRichtext,
+  ISbSchema,
+  ISbStories,
+  ISbStoriesParams,
+  ISbStory,
+  ISbStoryData,
+  ISbStoryParams,
   SbBlokData,
   SbBlokKeyDataTypes,
   SbRichTextOptions,
@@ -46,5 +44,6 @@ export type {
   StoryblokBridgeV2,
   StoryblokClient,
   StoryblokComponentType,
+  ThrottleFn,
   useStoryblokBridge,
-} from "@storyblok/js";
+} from '@storyblok/js';

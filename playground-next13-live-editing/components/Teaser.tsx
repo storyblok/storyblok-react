@@ -1,5 +1,5 @@
 // "use server";
-import { storyblokEditable } from "@storyblok/react/rsc";
+import { storyblokEditable } from '@storyblok/react/rsc';
 
 const Teaser = ({ blok }) => {
   return (

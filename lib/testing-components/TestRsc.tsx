@@ -1,14 +1,16 @@
-import React from "react";
+import React from 'react';
 
+import type {
+  SbBlokData,
+  SbReactComponentsMap,
+} from '@storyblok/react/rsc';
 import {
-  storyblokInit,
   apiPlugin,
   getStoryblokApi,
-  StoryblokComponent,
-  SbReactComponentsMap,
-  SbBlokData,
   StoryblokBridgeLoader,
-} from "@storyblok/react/rsc";
+  StoryblokComponent,
+  storyblokInit,
+} from '@storyblok/react/rsc';
 
 interface TestProps {
   bridge?: boolean;
@@ -37,7 +39,7 @@ const TestRsc = ({
   });
 
   const storyblokApi = getStoryblokApi();
-  const apiExists = !!(storyblokApi && typeof storyblokApi.get === "function");
+  const apiExists = !!(storyblokApi && typeof storyblokApi.get === 'function');
 
   return (
     <div>
@@ -52,6 +54,6 @@ const TestRsc = ({
   );
 };
 
-TestRsc.displayName = "TestRsc";
+TestRsc.displayName = 'TestRsc';
 
 export default TestRsc;
