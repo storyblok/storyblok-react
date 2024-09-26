@@ -1,192 +1,194 @@
-import React from "react";
-import {
-  useStoryblok,
-  StoryblokComponent,
-  SbRichText,
+import React from 'react'
+import type {
   SbRichTextNode,
-} from "@storyblok/react";
+} from '@storyblok/react'
+import {
+  SbRichText,
+  StoryblokComponent,
+  useStoryblok,
+} from '@storyblok/react'
 
 function App() {
-  const story = useStoryblok("home", { version: "draft" });
+  const story = useStoryblok('home', { version: 'draft' })
 
   if (!story?.content) {
-    return <div>Loading...</div>;
+    return <div>Loading...</div>
   }
 
   const doc: SbRichTextNode<React.ReactElement> = {
-    type: "doc",
+    type: 'doc',
     content: [
       {
-        type: "heading",
+        type: 'heading',
         attrs: { level: 1 },
-        content: [{ text: "Headline 1", type: "text" }],
+        content: [{ text: 'Headline 1', type: 'text' }],
       },
       {
-        type: "paragraph",
+        type: 'paragraph',
         content: [
           {
-            text: "Para",
-            type: "text",
+            text: 'Para',
+            type: 'text',
             marks: [
               {
-                type: "anchor",
+                type: 'anchor',
                 attrs: {
-                  id: "verum-audiamus",
+                  id: 'verum-audiamus',
                 },
               },
             ],
           },
-          { text: "graph", type: "text", marks: [{ type: "bold" }] },
+          { text: 'graph', type: 'text', marks: [{ type: 'bold' }] },
         ],
       },
       {
-        type: "paragraph",
+        type: 'paragraph',
         content: [
           {
-            text: "Bold and italic",
-            type: "text",
-            marks: [{ type: "bold" }, { type: "italic" }],
+            text: 'Bold and italic',
+            type: 'text',
+            marks: [{ type: 'bold' }, { type: 'italic' }],
           },
         ],
       },
       {
-        type: "bullet_list",
+        type: 'bullet_list',
         content: [
           {
-            type: "list_item",
+            type: 'list_item',
             content: [
               {
-                type: "paragraph",
+                type: 'paragraph',
                 content: [
                   {
-                    text: "Bull",
-                    type: "text",
-                    marks: [{ type: "italic" }],
+                    text: 'Bull',
+                    type: 'text',
+                    marks: [{ type: 'italic' }],
                   },
                   {
-                    text: "et 1",
-                    type: "text",
-                    marks: [{ type: "bold" }],
+                    text: 'et 1',
+                    type: 'text',
+                    marks: [{ type: 'bold' }],
                   },
                 ],
               },
             ],
           },
           {
-            type: "list_item",
+            type: 'list_item',
             content: [
               {
-                type: "paragraph",
-                content: [{ text: "Bullet 2", type: "text" }],
+                type: 'paragraph',
+                content: [{ text: 'Bullet 2', type: 'text' }],
               },
             ],
           },
           {
-            type: "list_item",
+            type: 'list_item',
             content: [
               {
-                type: "paragraph",
+                type: 'paragraph',
                 content: [
                   {
-                    text: "Bullet 3",
-                    type: "text",
-                    marks: [{ type: "styled", attrs: { class: "css-class" } }],
+                    text: 'Bullet 3',
+                    type: 'text',
+                    marks: [{ type: 'styled', attrs: { class: 'css-class' } }],
                   },
                 ],
               },
             ],
           },
-          { type: "list_item", content: [{ type: "paragraph" }] },
+          { type: 'list_item', content: [{ type: 'paragraph' }] },
         ],
       },
       {
-        type: "ordered_list",
+        type: 'ordered_list',
         attrs: { order: 1 },
         content: [
           {
-            type: "list_item",
+            type: 'list_item',
             content: [
               {
-                type: "paragraph",
-                content: [{ text: "Ordered 1", type: "text" }],
+                type: 'paragraph',
+                content: [{ text: 'Ordered 1', type: 'text' }],
               },
             ],
           },
           {
-            type: "list_item",
+            type: 'list_item',
             content: [
               {
-                type: "paragraph",
-                content: [{ text: "Ordered 2", type: "text" }],
+                type: 'paragraph',
+                content: [{ text: 'Ordered 2', type: 'text' }],
               },
             ],
           },
           {
-            type: "list_item",
+            type: 'list_item',
             content: [
               {
-                type: "paragraph",
-                content: [{ text: "Ordered 3", type: "text" }],
+                type: 'paragraph',
+                content: [{ text: 'Ordered 3', type: 'text' }],
               },
             ],
           },
         ],
       },
       {
-        type: "blockquote",
+        type: 'blockquote',
         content: [
           {
-            type: "paragraph",
-            content: [{ text: "Quote", type: "text" }],
+            type: 'paragraph',
+            content: [{ text: 'Quote', type: 'text' }],
           },
         ],
       },
-      { type: "horizontal_rule" },
+      { type: 'horizontal_rule' },
       {
-        type: "code_block",
-        attrs: { class: "language-javascript" },
-        content: [{ text: "JavaScript Code", type: "text" }],
+        type: 'code_block',
+        attrs: { class: 'language-javascript' },
+        content: [{ text: 'JavaScript Code', type: 'text' }],
       },
       {
-        type: "paragraph",
+        type: 'paragraph',
         content: [
-          { text: "I am a two", type: "text" },
-          { type: "hard_break" },
+          { text: 'I am a two', type: 'text' },
+          { type: 'hard_break' },
           {
-            text: "line text!",
-            type: "text",
-            marks: [{ type: "code" }],
+            text: 'line text!',
+            type: 'text',
+            marks: [{ type: 'code' }],
           },
         ],
       },
       {
-        type: "paragraph",
+        type: 'paragraph',
         content: [
           {
-            type: "image",
+            type: 'image',
             attrs: {
-              alt: "Alt",
-              src: "https://a.storyblok.com/f/67536/400x400/166f21bd2c/vue.png",
-              title: "Caption",
+              alt: 'Alt',
+              src: 'https://a.storyblok.com/f/67536/400x400/166f21bd2c/vue.png',
+              title: 'Caption',
             },
           },
         ],
       },
       {
-        type: "paragraph",
+        type: 'paragraph',
         content: [
           {
-            text: "External link",
-            type: "text",
+            text: 'External link',
+            type: 'text',
             marks: [
               {
-                type: "link",
+                type: 'link',
                 attrs: {
-                  href: "https://alvarosaburido.dev",
+                  href: 'https://alvarosaburido.dev',
                   uuid: null,
                   anchor: null,
-                  target: "_blank",
-                  linktype: "url",
+                  target: '_blank',
+                  linktype: 'url',
                 },
               },
             ],
@@ -194,41 +196,20 @@ function App() {
         ],
       },
       {
-        type: "paragraph",
+        type: 'paragraph',
         content: [
           {
-            text: "Asset link",
-            type: "text",
+            text: 'Asset link',
+            type: 'text',
             marks: [
               {
-                type: "link",
+                type: 'link',
                 attrs: {
-                  href: "https://a.storyblok.com/f/67536/400x303/ccbe9ca7b3/nuxt-logo.png",
-                  uuid: null,
-                  anchor: null,
-                  target: null,
-                  linktype: "asset",
-                },
-              },
-            ],
-          },
-        ],
-      },
-      {
-        type: "paragraph",
-        content: [
-          {
-            text: "hola@alvarosaburido.dev",
-            type: "text",
-            marks: [
-              {
-                type: "link",
-                attrs: {
-                  href: "hola@alvarosaburido.dev",
+                  href: 'https://a.storyblok.com/f/67536/400x303/ccbe9ca7b3/nuxt-logo.png',
                   uuid: null,
                   anchor: null,
                   target: null,
-                  linktype: "email",
+                  linktype: 'asset',
                 },
               },
             ],
@@ -236,20 +217,20 @@ function App() {
         ],
       },
       {
-        type: "paragraph",
+        type: 'paragraph',
         content: [
           {
-            text: "Internal Link",
-            type: "text",
+            text: 'hola@alvarosaburido.dev',
+            type: 'text',
             marks: [
               {
-                type: "link",
+                type: 'link',
                 attrs: {
-                  href: "/",
-                  uuid: "2bbf3ee7-acbe-401c-ade5-cf33e6e0babb",
+                  href: 'hola@alvarosaburido.dev',
+                  uuid: null,
                   anchor: null,
-                  target: "_blank",
-                  linktype: "story",
+                  target: null,
+                  linktype: 'email',
                 },
               },
             ],
@@ -257,56 +238,20 @@ function App() {
         ],
       },
       {
-        type: "paragraph",
+        type: 'paragraph',
         content: [
           {
-            text: "This is with ",
-            type: "text",
-          },
-          {
-            text: "sub",
-            type: "text",
+            text: 'Internal Link',
+            type: 'text',
             marks: [
               {
-                type: "subscript",
-              },
-            ],
-          },
-        ],
-      },
-      {
-        type: "paragraph",
-        content: [
-          {
-            text: "And this with ",
-            type: "text",
-          },
-          {
-            text: "sup",
-            type: "text",
-            marks: [
-              {
-                type: "superscript",
-              },
-            ],
-          },
-        ],
-      },
-      {
-        type: "paragraph",
-        content: [
-          {
-            text: "This is ",
-            type: "text",
-          },
-          {
-            text: "highlighted",
-            type: "text",
-            marks: [
-              {
-                type: "highlight",
+                type: 'link',
                 attrs: {
-                  color: "#FFF0B4",
+                  href: '/',
+                  uuid: '2bbf3ee7-acbe-401c-ade5-cf33e6e0babb',
+                  anchor: null,
+                  target: '_blank',
+                  linktype: 'story',
                 },
               },
             ],
@@ -314,20 +259,56 @@ function App() {
         ],
       },
       {
-        type: "paragraph",
+        type: 'paragraph',
         content: [
           {
-            text: "And this has a ",
-            type: "text",
+            text: 'This is with ',
+            type: 'text',
           },
           {
-            text: "text color",
-            type: "text",
+            text: 'sub',
+            type: 'text',
             marks: [
               {
-                type: "textStyle",
+                type: 'subscript',
+              },
+            ],
+          },
+        ],
+      },
+      {
+        type: 'paragraph',
+        content: [
+          {
+            text: 'And this with ',
+            type: 'text',
+          },
+          {
+            text: 'sup',
+            type: 'text',
+            marks: [
+              {
+                type: 'superscript',
+              },
+            ],
+          },
+        ],
+      },
+      {
+        type: 'paragraph',
+        content: [
+          {
+            text: 'This is ',
+            type: 'text',
+          },
+          {
+            text: 'highlighted',
+            type: 'text',
+            marks: [
+              {
+                type: 'highlight',
                 attrs: {
-                  color: "#FC0000",
+                  color: '#FFF0B4',
                 },
               },
             ],
@@ -335,14 +316,35 @@ function App() {
         ],
       },
       {
-        type: "paragraph",
+        type: 'paragraph',
         content: [
           {
-            text: "And this is an emoji  ",
-            type: "text",
+            text: 'And this has a ',
+            type: 'text',
+          },
+          {
+            text: 'text color',
+            type: 'text',
             marks: [
               {
-                type: "textStyle",
+                type: 'textStyle',
+                attrs: {
+                  color: '#FC0000',
+                },
+              },
+            ],
+          },
+        ],
+      },
+      {
+        type: 'paragraph',
+        content: [
+          {
+            text: 'And this is an emoji  ',
+            type: 'text',
+            marks: [
+              {
+                type: 'textStyle',
                 attrs: {
                   color: null,
                 },
@@ -350,45 +352,46 @@ function App() {
             ],
           },
           {
-            type: "emoji",
+            type: 'emoji',
             attrs: {
-              name: "innocent",
-              emoji: "😇",
+              name: 'innocent',
+              emoji: '😇',
               fallbackImage:
-                "https://cdn.jsdelivr.net/npm/emoji-datasource-apple/img/apple/64/1f607.png",
+                'https://cdn.jsdelivr.net/npm/emoji-datasource-apple/img/apple/64/1f607.png',
             },
           },
         ],
       },
       {
-        type: "blok",
+        type: 'blok',
         attrs: {
-          id: "489f2970-6787-486a-97c3-6f1e8a99b7a9",
+          id: '489f2970-6787-486a-97c3-6f1e8a99b7a9',
           body: [
             {
               sub: [],
-              _uid: "i-134324ee-1754-48be-93df-02df1e394733",
-              title: "Second button!",
-              component: "button",
+              _uid: 'i-134324ee-1754-48be-93df-02df1e394733',
+              title: 'Second button!',
+              component: 'button',
             },
             {
               sub: [],
-              _uid: "i-437c2948-0be9-442e-949d-a11c79736aa6",
-              title: "My Button ",
-              component: "button",
+              _uid: 'i-437c2948-0be9-442e-949d-a11c79736aa6',
+              title: 'My Button ',
+              component: 'button',
             },
           ],
         },
       },
     ],
-  };
+  }
 
   return (
     <div>
       <SbRichText doc={doc} />
-      <StoryblokComponent blok={story.content} />;
+      <StoryblokComponent blok={story.content} />
+      ;
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

@@ -1,7 +1,7 @@
-"use client";
-import React from "react";
-import { loadStoryblokBridge } from "@storyblok/js";
-import { StoryblokBridgeConfigV2 } from "./types";
+'use client';
+import React from 'react';
+import { loadStoryblokBridge } from '@storyblok/js';
+import type { StoryblokBridgeConfigV2 } from './types';
 
 interface StoryblokBridgeLoaderProps {
   options: StoryblokBridgeConfigV2;
@@ -12,7 +12,7 @@ const setBridge = async (options: StoryblokBridgeConfigV2) => {
   await loadStoryblokBridge();
   const sbBridge = new window.StoryblokBridge(options);
 
-  sbBridge.on(["published", "change"], () => {
+  sbBridge.on(['published', 'change'], () => {
     window.location.reload();
   });
 };

@@ -1,5 +1,6 @@
-import React from "react";
-import { storyblokEditable, SbBlokData } from "@storyblok/react";
+import React from 'react';
+import type { SbBlokData } from '@storyblok/react';
+import { storyblokEditable } from '@storyblok/react';
 
 interface FeatureProps {
   blok: SbBlokData;

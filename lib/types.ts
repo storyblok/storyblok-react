@@ -1,49 +1,47 @@
-import React from "react";
-import { SbSDKOptions } from "@storyblok/js";
-import type { ISbStoryData, StoryblokBridgeConfigV2 } from "@storyblok/js";
-import { SbRichTextNode, SbRichTextResolvers } from "@storyblok/richtext";
+import type React from 'react'
+import type { ISbStoryData, SbSDKOptions, StoryblokBridgeConfigV2 } from '@storyblok/js'
+import type { SbRichTextNode, SbRichTextResolvers } from '@storyblok/richtext'
 
 export interface SbReactComponentsMap {
-  [key: string]: React.ElementType;
+  [key: string]: React.ElementType
 }
 
 export interface SbReactSDKOptions extends SbSDKOptions {
-  components?: SbReactComponentsMap;
-  enableFallbackComponent?: boolean;
-  customFallbackComponent?: React.ElementType;
+  components?: SbReactComponentsMap
+  enableFallbackComponent?: boolean
+  customFallbackComponent?: React.ElementType
 }
 
 export type TUseStoryblokState = <T = void>(
   initialStory: ISbStoryData<T> | null,
   bridgeOptions?: StoryblokBridgeConfigV2
-) => ISbStoryData<T> | null;
+) => ISbStoryData<T> | null
 
 export interface SbRichTextProps {
-  doc: SbRichTextNode<React.ReactElement>;
-  resolvers?: SbRichTextResolvers<React.ReactElement>;
+  doc: SbRichTextNode<React.ReactElement>
+  resolvers?: SbRichTextResolvers<React.ReactElement>
 }
 
 export type {
-  ISbConfig,
-  ISbCache,
-  ISbResult,
-  ISbResponse,
-  ISbError,
-  ISbNode,
-  ISbSchema,
-  ThrottleFn,
-  AsyncFn,
   ArrayFn,
-  ISbContentMangmntAPI,
-  ISbManagmentApiResult,
-  ISbStories,
-  ISbStory,
-  ISbDimensions,
-  ISbStoryData,
+  AsyncFn,
   ISbAlternateObject,
-  ISbStoriesParams,
-  ISbStoryParams,
+  ISbCache,
+  ISbConfig,
+  ISbContentMangmntAPI,
+  ISbDimensions,
+  ISbError,
+  ISbManagmentApiResult,
+  ISbNode,
+  ISbResponse,
+  ISbResult,
   ISbRichtext,
+  ISbSchema,
+  ISbStories,
+  ISbStoriesParams,
+  ISbStory,
+  ISbStoryData,
+  ISbStoryParams,
   SbBlokData,
   SbBlokKeyDataTypes,
   SbRichTextOptions,
@@ -52,5 +50,6 @@ export type {
   StoryblokBridgeV2,
   StoryblokClient,
   StoryblokComponentType,
+  ThrottleFn,
   useStoryblokBridge,
-} from "@storyblok/js";
+} from '@storyblok/js'
