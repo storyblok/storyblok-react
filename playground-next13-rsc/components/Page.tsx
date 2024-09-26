@@ -1,4 +1,4 @@
-import { StoryblokComponent, storyblokEditable } from '@storyblok/react/rsc'
+import { StoryblokComponent, storyblokEditable } from '@storyblok/react/rsc';
 
 const Page = ({ blok }) => (
   <main {...storyblokEditable(blok)}>
@@ -6,6 +6,6 @@ const Page = ({ blok }) => (
       <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
     ))}
   </main>
-)
+);
 
-export default Page
+export default Page;

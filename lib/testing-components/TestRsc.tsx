@@ -1,24 +1,24 @@
-import React from 'react'
+import React from 'react';
 
 import type {
   SbBlokData,
   SbReactComponentsMap,
-} from '@storyblok/react/rsc'
+} from '@storyblok/react/rsc';
 import {
   apiPlugin,
   getStoryblokApi,
   StoryblokBridgeLoader,
   StoryblokComponent,
   storyblokInit,
-} from '@storyblok/react/rsc'
+} from '@storyblok/react/rsc';
 
 interface TestProps {
-  bridge?: boolean
-  accessToken?: string
-  components?: SbReactComponentsMap
-  enableFallbackComponent?: boolean
-  customFallbackComponent?: React.ElementType
-  blok: SbBlokData | false
+  bridge?: boolean;
+  accessToken?: string;
+  components?: SbReactComponentsMap;
+  enableFallbackComponent?: boolean;
+  customFallbackComponent?: React.ElementType;
+  blok: SbBlokData | false;
 }
 
 const TestRsc = ({
@@ -36,10 +36,10 @@ const TestRsc = ({
     enableFallbackComponent,
     customFallbackComponent,
     components,
-  })
+  });
 
-  const storyblokApi = getStoryblokApi()
-  const apiExists = !!(storyblokApi && typeof storyblokApi.get === 'function')
+  const storyblokApi = getStoryblokApi();
+  const apiExists = !!(storyblokApi && typeof storyblokApi.get === 'function');
 
   return (
     <div>
@@ -51,9 +51,9 @@ const TestRsc = ({
       </h3>
       <StoryblokBridgeLoader options={{}} />
     </div>
-  )
-}
+  );
+};
 
-TestRsc.displayName = 'TestRsc'
+TestRsc.displayName = 'TestRsc';
 
-export default TestRsc
+export default TestRsc;

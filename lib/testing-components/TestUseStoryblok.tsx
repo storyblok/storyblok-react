@@ -1,17 +1,17 @@
-import React from 'react'
+import React from 'react';
 import type {
   SbReactComponentsMap,
-} from '@storyblok/react'
+} from '@storyblok/react';
 import {
   apiPlugin,
   StoryblokComponent,
   storyblokInit,
   useStoryblok,
-} from '@storyblok/react'
+} from '@storyblok/react';
 
 interface TestUseStoryblokProps {
-  accessToken?: string
-  components?: SbReactComponentsMap
+  accessToken?: string;
+  components?: SbReactComponentsMap;
 }
 
 const TestUseStoryblok = ({
@@ -22,15 +22,15 @@ const TestUseStoryblok = ({
     accessToken,
     use: accessToken ? [apiPlugin] : [],
     components,
-  })
+  });
 
-  const story = useStoryblok('react', { version: 'draft' })
+  const story = useStoryblok('react', { version: 'draft' });
 
   if (!story) {
-    return <div>Loading...</div>
+    return <div>Loading...</div>;
   }
 
-  return <StoryblokComponent blok={story.content} />
-}
+  return <StoryblokComponent blok={story.content} />;
+};
 
-export default TestUseStoryblok
+export default TestUseStoryblok;

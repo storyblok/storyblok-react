@@ -1,10 +1,10 @@
 /** 1. Tag it as client component */
-'use client'
-import { apiPlugin, storyblokInit } from '@storyblok/react/rsc'
+'use client';
+import { apiPlugin, storyblokInit } from '@storyblok/react/rsc';
 
 /** 2. Import your components */
-import Page from './Page'
-import Teaser from './Teaser'
+import Page from './Page';
+import Teaser from './Teaser';
 
 /** 3. Initialize it as usual */
 storyblokInit({
@@ -14,8 +14,8 @@ storyblokInit({
     teaser: Teaser,
     page: Page,
   },
-})
+});
 
 export default function StoryblokProvider({ children }) {
-  return children
+  return children;
 }

@@ -1,14 +1,14 @@
-import React from 'react'
+import React from 'react';
 import type {
   SbBlokData,
-} from '@storyblok/react'
+} from '@storyblok/react';
 import {
   StoryblokComponent,
   storyblokEditable,
-} from '@storyblok/react'
+} from '@storyblok/react';
 
 interface PageProps {
-  blok: SbBlokData
+  blok: SbBlokData;
 }
 
 const Page = ({ blok }: PageProps) => (
@@ -21,6 +21,6 @@ const Page = ({ blok }: PageProps) => (
         ))
       : null}
   </div>
-)
+);
 
-export default Page
+export default Page;

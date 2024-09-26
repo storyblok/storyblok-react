@@ -1,23 +1,23 @@
-import React, { forwardRef, useEffect } from 'react'
+import React, { forwardRef, useEffect } from 'react';
 import type {
   SbBlokData,
   SbReactComponentsMap,
-} from '@storyblok/react'
+} from '@storyblok/react';
 import {
   apiPlugin,
   getStoryblokApi,
   registerStoryblokBridge,
   StoryblokComponent,
   storyblokInit,
-} from '@storyblok/react'
+} from '@storyblok/react';
 
 interface TestProps {
-  bridge?: boolean
-  accessToken?: string
-  components?: SbReactComponentsMap
-  enableFallbackComponent?: boolean
-  customFallbackComponent?: React.ElementType
-  blok: SbBlokData | false
+  bridge?: boolean;
+  accessToken?: string;
+  components?: SbReactComponentsMap;
+  enableFallbackComponent?: boolean;
+  customFallbackComponent?: React.ElementType;
+  blok: SbBlokData | false;
 }
 
 const Test = forwardRef<HTMLElement, TestProps>(
@@ -39,16 +39,16 @@ const Test = forwardRef<HTMLElement, TestProps>(
       enableFallbackComponent,
       customFallbackComponent,
       components,
-    })
+    });
 
-    const storyblokApi = getStoryblokApi()
+    const storyblokApi = getStoryblokApi();
     const apiExists = !!(
       storyblokApi && typeof storyblokApi.get === 'function'
-    )
+    );
 
     useEffect(() => {
-      registerStoryblokBridge(43423, newStory => console.log(newStory))
-    }, [])
+      registerStoryblokBridge(43423, newStory => console.log(newStory));
+    }, []);
 
     return (
       <div>
@@ -59,10 +59,10 @@ const Test = forwardRef<HTMLElement, TestProps>(
           <span data-test="api">{apiExists.toString()}</span>
         </h3>
       </div>
-    )
+    );
   },
-)
+);
 
-Test.displayName = 'Test'
+Test.displayName = 'Test';
 
-export default Test
+export default Test;

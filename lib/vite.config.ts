@@ -1,6 +1,6 @@
-import { defineConfig } from 'vite'
-import path from 'node:path'
-import preserveDirectives from 'rollup-plugin-preserve-directives'
+import { defineConfig } from 'vite';
+import path from 'node:path';
+import preserveDirectives from 'rollup-plugin-preserve-directives';
 
 export default defineConfig({
   plugins: [preserveDirectives()],
@@ -12,9 +12,9 @@ export default defineConfig({
       ],
       name: 'storyblokReact',
       fileName: (format, entry) => {
-        const isRscEntry = entry.includes('rsc/index')
-        const name = isRscEntry ? 'rsc' : entry.split('/').pop()
-        return format === 'es' ? `${name}.mjs` : `${name}.js`
+        const isRscEntry = entry.includes('rsc/index');
+        const name = isRscEntry ? 'rsc' : entry.split('/').pop();
+        return format === 'es' ? `${name}.mjs` : `${name}.js`;
       },
     },
     rollupOptions: {
@@ -25,4 +25,4 @@ export default defineConfig({
       },
     },
   },
-})
+});

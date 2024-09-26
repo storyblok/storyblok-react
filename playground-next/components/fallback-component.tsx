@@ -1,8 +1,8 @@
-import React from 'react'
-import type { SbBlokData } from '@storyblok/react'
+import React from 'react';
+import type { SbBlokData } from '@storyblok/react';
 
 interface FallbackComponentProps {
-  blok: SbBlokData
+  blok: SbBlokData;
 }
 
 const FallbackComponent = ({ blok }: FallbackComponentProps) => (
@@ -15,6 +15,6 @@ const FallbackComponent = ({ blok }: FallbackComponentProps) => (
       .
     </p>
   </>
-)
+);
 
-export default FallbackComponent
+export default FallbackComponent;

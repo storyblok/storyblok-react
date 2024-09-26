@@ -1,20 +1,20 @@
-import type React from 'react'
-import type { ISbStoryData, SbSDKOptions, StoryblokBridgeConfigV2 } from '@storyblok/js'
+import type React from 'react';
+import type { ISbStoryData, SbSDKOptions, StoryblokBridgeConfigV2 } from '@storyblok/js';
 
 export interface SbReactComponentsMap {
-  [key: string]: React.ElementType
+  [key: string]: React.ElementType;
 }
 
 export interface SbReactSDKOptions extends SbSDKOptions {
-  components?: SbReactComponentsMap
-  enableFallbackComponent?: boolean
-  customFallbackComponent?: React.ElementType
+  components?: SbReactComponentsMap;
+  enableFallbackComponent?: boolean;
+  customFallbackComponent?: React.ElementType;
 }
 
 export type TUseStoryblokState = <T = void>(
   initialStory: ISbStoryData<T> | null,
   bridgeOptions?: StoryblokBridgeConfigV2
-) => ISbStoryData<T> | null
+) => ISbStoryData<T> | null;
 
 export type {
   ArrayFn,
@@ -46,4 +46,4 @@ export type {
   StoryblokComponentType,
   ThrottleFn,
   useStoryblokBridge,
-} from '@storyblok/js'
+} from '@storyblok/js';

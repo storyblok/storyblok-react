@@ -1,9 +1,9 @@
-import React from 'react'
-import type { SbBlokData } from '@storyblok/react'
-import { storyblokEditable } from '@storyblok/react'
+import React from 'react';
+import type { SbBlokData } from '@storyblok/react';
+import { storyblokEditable } from '@storyblok/react';
 
 interface TeaserProps {
-  blok: SbBlokData
+  blok: SbBlokData;
 }
 
 const Teaser = ({ blok }: TeaserProps) => {
@@ -13,7 +13,7 @@ const Teaser = ({ blok }: TeaserProps) => {
         <h2>{blok.headline as string}</h2>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Teaser
+export default Teaser;

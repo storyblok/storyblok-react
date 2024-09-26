@@ -1,9 +1,9 @@
-import React, { forwardRef } from 'react'
-import type { SbBlokData } from '@storyblok/react'
-import { storyblokEditable } from '@storyblok/react'
+import React, { forwardRef } from 'react';
+import type { SbBlokData } from '@storyblok/react';
+import { storyblokEditable } from '@storyblok/react';
 
 interface RefCheckerProps {
-  blok: SbBlokData
+  blok: SbBlokData;
 }
 
 const RefChecker = forwardRef<HTMLDivElement, RefCheckerProps>(
@@ -17,10 +17,10 @@ const RefChecker = forwardRef<HTMLDivElement, RefCheckerProps>(
       >
         Shoud have a passed ref
       </div>
-    )
+    );
   },
-)
+);
 
-RefChecker.displayName = 'RefChecker'
+RefChecker.displayName = 'RefChecker';
 
-export default RefChecker
+export default RefChecker;

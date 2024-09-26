@@ -1,14 +1,14 @@
-import React from 'react'
+import React from 'react';
 import type {
   SbBlokData,
-} from '@storyblok/react'
+} from '@storyblok/react';
 import {
   StoryblokComponent,
   storyblokEditable,
-} from '@storyblok/react'
+} from '@storyblok/react';
 
 interface GridProps {
-  blok: SbBlokData
+  blok: SbBlokData;
 }
 
 const Grid = ({ blok }: GridProps) => (
@@ -19,6 +19,6 @@ const Grid = ({ blok }: GridProps) => (
       </li>
     ))}
   </ul>
-)
+);
 
-export default Grid
+export default Grid;
