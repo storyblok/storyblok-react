@@ -1,9 +1,8 @@
-import React from "react";
+import React, { forwardRef } from 'react';
 
-import { forwardRef } from "react";
-import { convertAttributesInElement } from "../utils";
-import { useSbRichtextResolver } from "./richtext";
-import type { SbRichTextProps } from "../types";
+import { convertAttributesInElement } from '../utils';
+import { useSbRichtextResolver } from './richtext';
+import type { SbRichTextProps } from '../types';
 
 // If you're forwarding a ref to SbRichText
 const SbRichText = forwardRef<HTMLDivElement, SbRichTextProps>(
@@ -20,7 +19,7 @@ const SbRichText = forwardRef<HTMLDivElement, SbRichTextProps>(
     // If you're forwarding a ref, make sure to attach the ref to a DOM element.
     // For example, wrapping <Root /> in a div and attaching the ref to it:
     return <div ref={ref}>{formattedHtml}</div>;
-  }
+  },
 );
 
 export default SbRichText;

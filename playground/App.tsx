@@ -1,18 +1,18 @@
-import React from 'react'
+import React from 'react';
 import type {
   SbRichTextNode,
-} from '@storyblok/react'
+} from '@storyblok/react';
 import {
   SbRichText,
   StoryblokComponent,
   useStoryblok,
-} from '@storyblok/react'
+} from '@storyblok/react';
 
 function App() {
-  const story = useStoryblok('home', { version: 'draft' })
+  const story = useStoryblok('home', { version: 'draft' });
 
   if (!story?.content) {
-    return <div>Loading...</div>
+    return <div>Loading...</div>;
   }
 
   const doc: SbRichTextNode<React.ReactElement> = {
@@ -383,7 +383,7 @@ function App() {
         },
       },
     ],
-  }
+  };
 
   return (
     <div>
@@ -391,7 +391,7 @@ function App() {
       <StoryblokComponent blok={story.content} />
       ;
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

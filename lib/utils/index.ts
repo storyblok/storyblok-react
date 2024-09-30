@@ -1,14 +1,14 @@
-import React from "react";
+import React from 'react';
 
 function camelCase(str: string) {
-  return str.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
+  return str.replace(/-([a-z])/g, g => g[1].toUpperCase());
 }
 
 function convertStyleStringToObject(styleString: string) {
   return styleString
-    .split(";")
+    .split(';')
     .reduce((styleObject: { [key: string]: string }, styleProperty) => {
-      let [key, value] = styleProperty.split(":");
+      let [key, value] = styleProperty.split(':');
       key = key?.trim();
       value = value?.trim();
       if (key && value) {
@@ -25,7 +25,7 @@ function convertStyleStringToObject(styleString: string) {
  * @return {React.ReactElement} A new React element with converted attributes.
  */
 export function convertAttributesInElement(
-  element: React.ReactElement
+  element: React.ReactElement,
 ): React.ReactElement {
   // Base case: if the element is not a React element, return it unchanged.
   if (!React.isValidElement(element)) {
@@ -34,18 +34,18 @@ export function convertAttributesInElement(
 
   // Convert attributes of the current element.
   const attributeMap: { [key: string]: string } = {
-    class: "className",
-    for: "htmlFor",
-    targetAttr: "targetattr",
+    class: 'className',
+    for: 'htmlFor',
+    targetAttr: 'targetattr',
     // Add more attribute conversions here as needed
   };
 
   const newProps: { [key: string]: unknown } = Object.keys(
-    element.props as Record<string, unknown>
+    element.props as Record<string, unknown>,
   ).reduce((acc: { [key: string]: unknown }, key) => {
     let value = (element.props as Record<string, unknown>)[key];
 
-    if (key === "style" && typeof value === "string") {
+    if (key === 'style' && typeof value === 'string') {
       value = convertStyleStringToObject(value);
     }
 
@@ -57,7 +57,7 @@ export function convertAttributesInElement(
   // Process children recursively.
   const children = React.Children.map(
     (element.props as React.PropsWithChildren).children,
-    (child) => convertAttributesInElement(child as React.ReactElement)
+    child => convertAttributesInElement(child as React.ReactElement),
   );
   const newElement = React.createElement(element.type, newProps, children);
   // Clone the element with the new properties and updated children.

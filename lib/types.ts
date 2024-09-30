@@ -1,25 +1,25 @@
-import type React from 'react'
-import type { ISbStoryData, SbSDKOptions, StoryblokBridgeConfigV2 } from '@storyblok/js'
-import type { SbRichTextNode, SbRichTextResolvers } from '@storyblok/richtext'
+import type React from 'react';
+import type { ISbStoryData, SbSDKOptions, StoryblokBridgeConfigV2 } from '@storyblok/js';
+import type { SbRichTextNode, SbRichTextResolvers } from '@storyblok/richtext';
 
 export interface SbReactComponentsMap {
-  [key: string]: React.ElementType
+  [key: string]: React.ElementType;
 }
 
 export interface SbReactSDKOptions extends SbSDKOptions {
-  components?: SbReactComponentsMap
-  enableFallbackComponent?: boolean
-  customFallbackComponent?: React.ElementType
+  components?: SbReactComponentsMap;
+  enableFallbackComponent?: boolean;
+  customFallbackComponent?: React.ElementType;
 }
 
 export type TUseStoryblokState = <T = void>(
   initialStory: ISbStoryData<T> | null,
   bridgeOptions?: StoryblokBridgeConfigV2
-) => ISbStoryData<T> | null
+) => ISbStoryData<T> | null;
 
 export interface SbRichTextProps {
-  doc: SbRichTextNode<React.ReactElement>
-  resolvers?: SbRichTextResolvers<React.ReactElement>
+  doc: SbRichTextNode<React.ReactElement>;
+  resolvers?: SbRichTextResolvers<React.ReactElement>;
 }
 
 export type {
@@ -52,4 +52,4 @@ export type {
   StoryblokComponentType,
   ThrottleFn,
   useStoryblokBridge,
-} from '@storyblok/js'
+} from '@storyblok/js';
