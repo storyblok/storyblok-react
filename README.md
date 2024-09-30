@@ -31,12 +31,15 @@
 </p>
 
 ## Kickstart a new project
+
 Are you eager to dive into coding? **[Follow these steps to kickstart a new project with Storyblok and React](https://www.storyblok.com/technologies#react?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react)**, and get started in just a few minutes!
 
 ## 5-minute Tutorial
+
 Are you looking for a hands-on, step-by-step tutorial? The **[React 5-minute Tutorial](https://www.storyblok.com/tp/headless-cms-react?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react)** has you covered! It provides comprehensive instructions on how to set up a Storyblok space and connect it to your React project.
 
 ## Ultimate Tutorial
+
 Are you looking for a hands-on, step-by-step tutorial? The **[Next.js Ultimate Tutorial](https://www.storyblok.com/tp/nextjs-headless-cms-ultimate-tutorial?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react)** has you covered! It provides comprehensive instructions on building a complete, multilingual website using Storyblok and Next.js from start to finish.
 
 ## Installation
