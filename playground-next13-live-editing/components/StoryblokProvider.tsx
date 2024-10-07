@@ -1,21 +1,8 @@
-/** 1. Tag it as client component */
 'use client';
-import { apiPlugin, storyblokInit } from '@storyblok/react/rsc';
 
-/** 2. Import your components */
-import Page from './Page';
-import Teaser from './Teaser';
+import { getStoryblokApi } from '@/lib/storyblok';
 
-/** 3. Initialize it as usual */
-storyblokInit({
-  accessToken: 'OurklwV5XsDJTIE1NJaD2wtt',
-  use: [apiPlugin],
-  components: {
-    teaser: Teaser,
-    page: Page,
-  },
-});
-
-export default function StoryblokProvider({ children }) {
+export default function StoryblokProvider({ children }: any) {
+  getStoryblokApi();
   return children;
 }

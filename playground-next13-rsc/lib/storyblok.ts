@@ -1,6 +1,12 @@
-import { apiPlugin, storyblokInit } from "@storyblok/react/rsc";
+import Page from '@/components/Page';
+import Teaser from '@/components/Teaser';
+import { apiPlugin, storyblokInit } from '@storyblok/react/rsc';
 
 export const getStoryblokApi = storyblokInit({
-  accessToken: "OurklwV5XsDJTIE1NJaD2wtt",
+  accessToken: 'RVLbQ7MG4kCi3r1sQQ4VEAtt',
   use: [apiPlugin],
+  components: {
+    teaser: Teaser,
+    page: Page,
+  },
 });
