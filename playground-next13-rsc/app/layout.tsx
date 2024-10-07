@@ -1,20 +1,6 @@
 import {
-  apiPlugin,
   StoryblokBridgeLoader,
-  storyblokInit,
 } from '@storyblok/react/rsc';
-
-import Page from '../components/Page';
-import Teaser from '../components/Teaser';
-
-storyblokInit({
-  accessToken: 'RVLbQ7MG4kCi3r1sQQ4VEAtt',
-  use: [apiPlugin],
-  components: {
-    teaser: Teaser,
-    page: Page,
-  },
-});
 
 export const metadata = {
   title: 'Create Next App',
