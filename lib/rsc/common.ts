@@ -43,7 +43,7 @@ export const getComponent = (componentKey: string): React.ElementType | false =>
 export const getEnableFallbackComponent = () => enableFallbackComponent;
 export const getCustomFallbackComponent = () => customFallbackComponent;
 
-export const storyblokInit = (pluginOptions: SbReactSDKOptions = {},): (() => StoryblokClient) => {
+export const storyblokInit = (pluginOptions: SbReactSDKOptions = {}): (() => StoryblokClient) => {
   if (storyblokApiInstance) {
     return () => storyblokApiInstance;
   }
@@ -62,7 +62,7 @@ export const storyblokInit = (pluginOptions: SbReactSDKOptions = {},): (() => St
 
 export * from '../types';
 export { useStoryblokApi as getStoryblokApi };
-export { default as SbServerComponent } from './storyblok-server-component';
+export { default as StoryblokServerComponent } from './server-component';
 
 export {
   apiPlugin,

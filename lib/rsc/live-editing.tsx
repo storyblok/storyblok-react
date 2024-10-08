@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { registerStoryblokBridge } from "@storyblok/js";
-import { useEffect, startTransition } from "react";
-import { liveEditUpdateAction } from "./live-edit-update-action";
+import { registerStoryblokBridge } from '@storyblok/js';
+import { startTransition, useEffect } from 'react';
+import { liveEditUpdateAction } from './live-edit-update-action';
 
 const StoryblokLiveEditing = ({ story = null, bridgeOptions = {} }) => {
   if (typeof window === 'undefined') {
@@ -20,7 +20,7 @@ const StoryblokLiveEditing = ({ story = null, bridgeOptions = {} }) => {
 
   const storyId = story?.internalId ?? story?.id ?? 0;
   useEffect(() => {
-    registerStoryblokBridge(storyId, (newStory) => handleInput(newStory), bridgeOptions);
+    registerStoryblokBridge(storyId, newStory => handleInput(newStory), bridgeOptions);
   }, []);
 
   return null;
