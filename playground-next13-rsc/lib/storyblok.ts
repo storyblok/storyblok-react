@@ -3,7 +3,7 @@ import Teaser from '@/components/Teaser';
 import { apiPlugin, storyblokInit } from '@storyblok/react/rsc';
 
 export const getStoryblokApi = storyblokInit({
-  accessToken: 'RVLbQ7MG4kCi3r1sQQ4VEAtt',
+  accessToken: 'OurklwV5XsDJTIE1NJaD2wtt',
   use: [apiPlugin],
   components: {
     teaser: Teaser,

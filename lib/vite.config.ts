@@ -18,7 +18,7 @@ export default defineConfig({
       },
     },
     rollupOptions: {
-      external: ['react', 'next'],
+      external: ['react', 'next/cache'],
       output: {
         preserveModules: true,
         globals: { react: 'React' },

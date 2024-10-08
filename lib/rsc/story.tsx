@@ -1,39 +1,38 @@
 import React, { forwardRef } from 'react';
 import type { ISbStoryData, StoryblokBridgeConfigV2 } from '../types';
-import { SbServerComponent } from './common';
-import StoryblokLiveEditing from './storyblok-live-editing';
+import { StoryblokServerComponent } from './common';
+import StoryblokLiveEditing from './live-editing';
 
-interface SbStoryServerComponentProps {
+interface StoryblokStoryProps {
   story: ISbStoryData;
   bridgeOptions: StoryblokBridgeConfigV2;
   [key: string]: unknown;
 }
 
-const SbStoryServerComponent = forwardRef<HTMLElement, SbStoryServerComponentProps>(
+const StoryblokStory = forwardRef<HTMLElement, StoryblokStoryProps>(
   ({ story, bridgeOptions, ...restProps }, ref) => {
     if (!story) {
       console.error(
-        'Please provide a \'story\' property to the SbStoryServerComponent',
+        'Please provide a \'story\' property to the StoryblokServerComponent',
       );
       return null;
     }
 
-    if (!globalThis.storyCache.has(story.uuid)) {
-      globalThis.storyCache.set(story.uuid, story);
-    } else {
+    if (globalThis.storyCache.has(story.uuid)) {
       story = globalThis.storyCache.get(story.uuid);
     }
+
     if (typeof story.content === 'string') {
       story.content = JSON.parse(story.content);
     }
 
     return (
       <>
-        <SbServerComponent ref={ref} blok={story.content} {...restProps} />
+        <StoryblokServerComponent ref={ref} blok={story.content} {...restProps} />
         <StoryblokLiveEditing story={story} bridgeOptions={bridgeOptions} />
       </>
     );
   },
 );
 
-export default SbStoryServerComponent;
+export default StoryblokStory;

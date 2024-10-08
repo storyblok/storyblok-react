@@ -11,7 +11,7 @@ interface SbServerComponentProps {
   [key: string]: unknown;
 }
 
-const SbServerComponent = forwardRef<HTMLElement, SbServerComponentProps>(
+const StoryblokServerComponent = forwardRef<HTMLElement, SbServerComponentProps>(
   ({ blok, ...restProps }, ref) => {
     if (!blok) {
       console.error(
@@ -52,6 +52,6 @@ const SbServerComponent = forwardRef<HTMLElement, SbServerComponentProps>(
   },
 );
 
-SbServerComponent.displayName = 'StoryblokComponent';
+StoryblokServerComponent.displayName = 'StoryblokComponent';
 
-export default SbServerComponent;
+export default StoryblokServerComponent;
