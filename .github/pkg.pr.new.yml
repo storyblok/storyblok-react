@@ -2,9 +2,9 @@ name: Publish Any Commit
 on:
   push:
     branches:
-      - "**"
+      - '**'
     tags:
-      - "!**"
+      - '!**'
 
 env:
   PNPM_CACHE_FOLDER: .pnpm-store
