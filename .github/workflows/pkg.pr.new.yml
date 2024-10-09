@@ -26,10 +26,10 @@ jobs:
       - run: corepack enable
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
-          cache: pnpm
+          node-version: 20
+          cache: npm
       - name: Install dependencies
-        run: pnpm install
+        run: npm install
       - name: Build
-        run: pnpm build
-      - run: pnpx pkg-pr-new publish --compact --pnpm
+        run: npm build
+      - run: npx pkg-pr-new publish --compact
