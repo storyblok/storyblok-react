@@ -29,7 +29,9 @@ jobs:
           node-version: 20
           cache: npm
       - name: Install dependencies
-        run: npm install
+        run: npm ci
       - name: Build
         run: npm run build
-      - run: npx pkg-pr-new publish --compact
+      - name: Commit publish
+        working-directory: lib
+        run: npx pkg-pr-new publish --compact
