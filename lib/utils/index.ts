@@ -52,7 +52,9 @@ export function convertAttributesInElement(
     const mappedKey = attributeMap[key] || key;
     acc[mappedKey] = value;
     return acc;
-  }, {});
+  }, {
+    key: `${element.type}-${Math.random().toString(36).substring(7)}`,
+  });
 
   // Process children recursively.
   const children = React.Children.map(
@@ -61,5 +63,6 @@ export function convertAttributesInElement(
   );
   const newElement = React.createElement(element.type, newProps, children);
   // Clone the element with the new properties and updated children.
+  console.log(newElement);
   return newElement;
 }

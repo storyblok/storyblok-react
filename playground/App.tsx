@@ -1,10 +1,10 @@
 import React from 'react';
 import type {
-  SbRichTextNode,
+  StoryblokRichTextNode,
 } from '@storyblok/react';
 import {
-  SbRichText,
   StoryblokComponent,
+  StoryblokRichText,
   useStoryblok,
 } from '@storyblok/react';
 
@@ -15,7 +15,7 @@ function App() {
     return <div>Loading...</div>;
   }
 
-  const doc: SbRichTextNode<React.ReactElement> = {
+  const doc: StoryblokRichTextNode<React.ReactElement> = {
     type: 'doc',
     content: [
       {
@@ -387,7 +387,7 @@ function App() {
 
   return (
     <div>
-      <SbRichText doc={doc} />
+      <StoryblokRichText doc={doc} />
       <StoryblokComponent blok={story.content} />
       ;
     </div>
