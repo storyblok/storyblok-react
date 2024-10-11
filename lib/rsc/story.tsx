@@ -23,7 +23,16 @@ const StoryblokStory = forwardRef<HTMLElement, StoryblokStoryProps>(
     }
 
     if (typeof story.content === 'string') {
-      story.content = JSON.parse(story.content);
+      try {
+        story.content = JSON.parse(story.content);
+      }
+      catch (error) {
+        console.error(
+          'An error occurred while trying to parse the story content',
+          error,
+        );
+        story.content = {};
+      }
     }
 
     return (

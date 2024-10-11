@@ -4,7 +4,7 @@ import type {
 } from '@storyblok/react/rsc';
 import { getStoryblokApi } from '@/lib/storyblok';
 import {
-  SbServerComponent,
+  StoryblokServerComponent,
 } from '@storyblok/react/rsc';
 
 export default async function Home() {
@@ -16,7 +16,7 @@ export default async function Home() {
         Story:
         {data.story.id}
       </h1>
-      <SbServerComponent blok={data.story.content} />
+      <StoryblokServerComponent blok={data.story.content} />
     </div>
   );
 }
