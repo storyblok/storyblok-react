@@ -288,15 +288,14 @@ The `getStoryblokApi` function can now be used inside your Story components to f
 
 ```js
 import { StoryblokClient, ISbStoriesParams } from '@storyblok/react';
-import { getStoryblokApi } from '@/lib/storyblok'; // Remember to import from the local file
 import { StoryblokStory } from '@storyblok/react/rsc';
+import { getStoryblokApi } from '@/lib/storyblok'; // Remember to import from the local file
 
 export default async function Home() {
   const { data } = await fetchData();
 
   return (
     <div>
-      <h1>Story: {data.story.id}</h1>
       <StoryblokStory story={data.story} />
     </div>
   );
