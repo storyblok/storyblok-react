@@ -1,10 +1,4 @@
-import { apiPlugin, storyblokInit } from '@storyblok/react/rsc';
-import StoryblokProvider from '../components/StoryblokProvider';
-
-storyblokInit({
-  accessToken: 'OurklwV5XsDJTIE1NJaD2wtt',
-  use: [apiPlugin],
-});
+import StoryblokProvider from '@/components/StoryblokProvider';
 
 export const metadata = {
   title: 'Create Next App',

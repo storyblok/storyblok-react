@@ -1,11 +1,9 @@
-import type {
-  ISbStoriesParams,
-  StoryblokClient,
-} from '@storyblok/react/rsc';
 import {
-  getStoryblokApi,
+  type ISbStoriesParams,
+  type StoryblokClient,
   StoryblokStory,
 } from '@storyblok/react/rsc';
+import { getStoryblokApi } from '@/lib/storyblok';
 
 export default async function Home() {
   const { data } = await fetchData();
