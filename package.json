@@ -13,7 +13,7 @@
   "scripts": {
     "dev": "npm run dev --workspace=lib & npm run demo",
     "demo": "npm run demo --workspace=playground",
-    "demo-next": "npm run demo --workspace=playground-next",
+    "demo-next": "npm run build && npm run demo --workspace=playground-next",
     "demo-next13-rsc": "npm run demo --workspace=playground-next13-rsc",
     "demo-next13-live-editing": "npm run demo --workspace=playground-next13-live-editing",
     "build": "npm run build --workspace=lib",
