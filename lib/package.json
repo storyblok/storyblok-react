@@ -57,7 +57,7 @@
     "react-dom": "^17.0.0 || ^18.0.0"
   },
   "dependencies": {
-    "@storyblok/js": "^3.1.4"
+    "@storyblok/js": "^3.1.7"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

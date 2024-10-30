@@ -14,12 +14,16 @@ const SbRichText = forwardRef<HTMLDivElement, StoryblokRichTextProps>(
 
     /* const Root = () => render(doc) */
     const html = render(doc);
-    console.log('this is the html', html);
-    /*  const formattedHtml = convertAttributesInElement(html); */
+    const formattedHtml = convertAttributesInElement(html as React.ReactElement);
 
     // If you're forwarding a ref, make sure to attach the ref to a DOM element.
     // For example, wrapping <Root /> in a div and attaching the ref to it:
-    return <div ref={ref}>{}</div>;
+    // return <div ref={ref}>{formattedHtml}</div>;
+    return (
+      <div ref={ref}>
+        {formattedHtml}
+      </div>
+    );
   },
 );
 

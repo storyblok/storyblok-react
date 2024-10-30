@@ -1,21 +1,22 @@
 import React from 'react';
-import type {
+/* import type {
   StoryblokRichTextNode,
-} from '@storyblok/react';
+} from '@storyblok/react'; */
 import {
-  StoryblokComponent,
+  /*  StoryblokComponent, */
   StoryblokRichText,
   useStoryblok,
 } from '@storyblok/react';
 
 function App() {
-  const story = useStoryblok('home', { version: 'draft' });
+  // const story = useStoryblok('home', { version: 'draft' });
+  const story = useStoryblok('react/test-richtext', { version: 'draft' });
 
   if (!story?.content) {
     return <div>Loading...</div>;
   }
 
-  const doc: StoryblokRichTextNode<React.ReactElement> = {
+  /*  const doc: StoryblokRichTextNode<React.ReactElement> = {
     type: 'doc',
     content: [
       {
@@ -98,7 +99,6 @@ function App() {
               },
             ],
           },
-          { type: 'list_item', content: [{ type: 'paragraph' }] },
         ],
       },
       {
@@ -383,13 +383,63 @@ function App() {
         },
       },
     ],
-  };
+  }; */
 
+  /*  const list = {
+    type: 'bullet_list',
+    content: [
+      {
+        type: 'list_item',
+        content: [
+          {
+            type: 'paragraph',
+            content: [
+              {
+                text: 'Bull',
+                type: 'text',
+                marks: [{ type: 'italic' }],
+              },
+              {
+                text: 'et 1',
+                type: 'text',
+                marks: [{ type: 'bold' }],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        type: 'list_item',
+        content: [
+          {
+            type: 'paragraph',
+            content: [{ text: 'Bullet 2', type: 'text' }],
+          },
+        ],
+      },
+      {
+        type: 'list_item',
+        content: [
+          {
+            type: 'paragraph',
+            content: [
+              {
+                text: 'Bullet 3',
+                type: 'text',
+                marks: [{ type: 'styled', attrs: { class: 'css-class' } }],
+              },
+            ],
+          },
+        ],
+      },
+      { type: 'list_item', content: [{ type: 'paragraph' }] },
+    ],
+  }; */
   return (
     <div>
-      <StoryblokRichText doc={doc} />
-      <StoryblokComponent blok={story.content} />
-      ;
+      <StoryblokRichText doc={story.content.richText} />
+      {/* <StoryblokComponent blok={story.content} />
+      ; */}
     </div>
   );
 }

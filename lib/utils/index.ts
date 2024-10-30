@@ -63,6 +63,5 @@ export function convertAttributesInElement(
   );
   const newElement = React.createElement(element.type, newProps, children);
   // Clone the element with the new properties and updated children.
-  console.log(newElement);
   return newElement;
 }

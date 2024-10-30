@@ -9,6 +9,7 @@ function componentResolver(node: StoryblokRichTextNode<React.ReactElement>) {
   return React.createElement(StoryblokComponent, {
     blok: node?.attrs?.body[0],
     id: node.attrs?.id,
+    key: node.attrs?.id,
   });
 }
 
@@ -21,6 +22,7 @@ export function useStoryblokRichtextResolver(
       [BlockTypes.COMPONENT]: componentResolver,
       ...options.resolvers,
     },
+    keyedResolvers: true,
   };
   return richTextResolver(mergedOptions);
 }
