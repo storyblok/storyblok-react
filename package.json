@@ -16,6 +16,7 @@
     "demo-next": "npm run demo --workspace=playground-next",
     "demo-next13-rsc": "npm run demo --workspace=playground-next13-rsc",
     "demo-next13-live-editing": "npm run demo --workspace=playground-next13-live-editing",
+    "prettier": "prettier . --write",
     "build": "npm run build --workspace=lib",
     "test": "npm run test --workspace=lib",
     "test:unit": "npm run test:unit --workspace=lib",

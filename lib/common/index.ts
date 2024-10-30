@@ -49,15 +49,28 @@ export const storyblokInit = (pluginOptions: SbReactSDKOptions = {}) => {
 
 export * from '../types';
 export { useStoryblokApi as getStoryblokApi };
+export * from '../types';
+export { useStoryblokRichtextResolver } from './richtext';
 export { default as StoryblokComponent } from './storyblok-component';
+export { default as StoryblokRichText } from './storyblok-rich-text';
 
 export {
   apiPlugin,
+  BlockTypes,
   loadStoryblokBridge,
+  MarkTypes,
   registerStoryblokBridge,
   renderRichText,
   RichTextResolver,
+  richTextResolver,
   RichTextSchema,
   storyblokEditable,
+  type StoryblokRichTextImageOptimizationOptions,
+  type StoryblokRichTextNode,
+  type StoryblokRichTextNodeResolver,
+  type StoryblokRichTextNodeTypes,
+  type StoryblokRichTextOptions,
+  type StoryblokRichTextResolvers,
+  TextTypes,
   useStoryblokBridge,
 } from '@storyblok/js';
