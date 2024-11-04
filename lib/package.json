@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "SDK to integrate Storyblok into your project using React.",
   "author": "Storyblok",
+  "license": "MIT",
   "homepage": "https://github.com/storyblok/storyblok-react",
   "repository": {
     "type": "git",
