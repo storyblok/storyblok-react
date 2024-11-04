@@ -1,4 +1,3 @@
-// "use server";
 import { storyblokEditable } from '@storyblok/react/rsc';
 
 const Teaser = ({ blok }) => {

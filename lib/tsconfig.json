@@ -15,6 +15,6 @@
   },
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "Recommended",
-  "include": ["index.ts", "rsc/*", "common", "bridge-loader.tsx", "story.tsx"],
+  "include": ["index.ts", "rsc/*", "common"],
   "exclude": ["node_modules"]
 }

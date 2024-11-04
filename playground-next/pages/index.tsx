@@ -22,7 +22,7 @@ export default function Home({
     page: Page,
   });
 
-  const story = useStoryblokState(initialStory);
+  const story = useStoryblokState(initialStory) as typeof initialStory;
 
   if (!story.content) {
     return <div>Loading...</div>;
