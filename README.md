@@ -317,6 +317,16 @@ const bridgeOptions = { resolveRelations: ['article.author'] }
 <StoryblokStory story={data.story} bridgeOptions={bridgeOptions} />
 ```
 
+***Important***: When you render components, you must use `StoryblokServerComponent` exported from `@storyblok/react/rsc` instead of `StoryblokComponent`, even when you declare a client component with `"use client"`. This is because the components are always rendered on the server side.
+
+```jsx
+import { StoryblokServerComponent } from '@storyblok/react/rsc';
+
+export default function Page({ blok }) {
+  return <StoryblokServerComponent blok={blok} />;
+}
+```
+
 > Note: To use this approach (with `getStoryblokApi`), you need to include the `apiPlugin` module when calling `storyblokInit` function. If you don't use `apiPlugin`, you can use your preferred method or function to fetch your data.
 
 To try this setup, take a look at the [Next 13 Live Editing Playground](https://github.com/arorachakit/storyblok-react/tree/main/playground-next13-live-editing) in this repo.
