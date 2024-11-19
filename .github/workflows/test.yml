@@ -1,10 +1,6 @@
-name: Release CI
+name: Run tests
 
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+on: [push]
 
 env:
   PNPM_CACHE_FOLDER: .pnpm-store
@@ -28,10 +24,7 @@ jobs:
           cache: pnpm
       - name: Install dependencies
         run: pnpm install
-      - name: Build lib
-        run: pnpm build
-      - name: Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: pnpx semantic-release
+      - name: Vitest run
+        run: pnpm run test:unit
+      - name: Cypress run
+        run: pnpm run test:e2e

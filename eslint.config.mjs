@@ -4,5 +4,5 @@ export default storyblokLintConfig({
   rules: {
     'no-console': 'off',
   },
-  ignores: ['**/node_modules/**', 'lib/cypress/', 'README.md'],
+  ignores: ['**/node_modules/**', 'cypress/', 'README.md'],
 });

@@ -18,7 +18,10 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    strategy:
+      matrix:
+        node-version: [20]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -26,12 +29,10 @@ jobs:
       - run: corepack enable
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: npm
+          node-version: ${{ matrix.node-version }}
+          cache: pnpm
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install
       - name: Build
-        run: npm run build
-      - name: Commit publish
-        working-directory: lib
-        run: npx pkg-pr-new publish --compact
+        run: pnpm build
+      - run: pnpx pkg-pr-new publish --compact --pnpm
