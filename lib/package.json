@@ -65,7 +65,7 @@
     "@babel/core": "^7.25.2",
     "@babel/preset-env": "^7.25.4",
     "@cypress/react": "^8.0.2",
-    "@cypress/vite-dev-server": "^5.2.0",
+    "@cypress/vite-dev-server": "^5.2.1",
     "@tsconfig/recommended": "^1.0.7",
     "@types/react": "18.3.4",
     "@vitejs/plugin-react": "^4.3.1",
