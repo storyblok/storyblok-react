@@ -4,7 +4,7 @@ import type {
   SbReactComponentsMap,
   SbReactSDKOptions,
   StoryblokClient,
-} from '../types';
+} from '@/types';
 
 let storyblokApiInstance: StoryblokClient = null;
 const componentsMap: Map<string, React.ElementType> = new Map<string, React.ElementType>();

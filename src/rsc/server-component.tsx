@@ -1,10 +1,10 @@
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 import {
   getComponent,
   getCustomFallbackComponent,
   getEnableFallbackComponent,
 } from './index';
-import type { SbBlokData } from '../types';
+import type { SbBlokData } from '@/types';
 
 interface SbServerComponentProps {
   blok: SbBlokData;

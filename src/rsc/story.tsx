@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import type { ISbStoryData, StoryblokBridgeConfigV2 } from '../types';
+import type { ISbStoryData, StoryblokBridgeConfigV2 } from '@/types';
 import { StoryblokServerComponent } from './common';
 import StoryblokLiveEditing from './live-editing';
 

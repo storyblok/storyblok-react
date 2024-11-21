@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import type { TUseStoryblokState } from '../types';
+import type { TUseStoryblokState } from '@/types';
 import { registerStoryblokBridge } from '@storyblok/js';
 
 export const useStoryblokState: TUseStoryblokState = (
