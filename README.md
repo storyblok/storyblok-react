@@ -321,11 +321,17 @@ const bridgeOptions = { resolveRelations: ['article.author'] }
 > When you render components, you must use `StoryblokServerComponent` exported from `@storyblok/react/rsc` instead of `StoryblokComponent`, even when you declare a client component with `"use client"`. This is because the components are always rendered on the server side.
 
 ```jsx
-import { StoryblokServerComponent } from '@storyblok/react/rsc';
+import { storyblokEditable, StoryblokServerComponent } from '@storyblok/react/rsc';
 
-export default function Page({ blok }) {
-  return <StoryblokServerComponent blok={blok} />;
-}
+const Page = ({ blok }) => (
+  <main {...storyblokEditable(blok)}>
+    {blok.body.map(nestedBlok => (
+      <StoryblokServerComponent blok={nestedBlok} key={nestedBlok._uid} />
+    ))}
+  </main>
+);
+
+export default Page;
 ```
 
 > [!NOTE]
