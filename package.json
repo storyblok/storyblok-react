@@ -48,8 +48,7 @@
     "demo-next13-app-router": "pnpm run --filter ./playground/next13-app-router demo",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "prepublishOnly": "pnpm build && cp ../README.md ./",
-    "postinstall": "simple-git-hooks"
+    "prepublishOnly": "pnpm build && cp ../README.md ./"
   },
   "peerDependencies": {
     "react": "^17.0.0 || ^18.0.0",
