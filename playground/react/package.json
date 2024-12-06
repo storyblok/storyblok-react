@@ -2,7 +2,7 @@
   "name": "@storyblok/react-playground",
   "version": "0.0.1",
   "scripts": {
-    "demo": "vite",
+    "dev": "vite",
     "build": "vite build"
   },
   "peerDependencies": {

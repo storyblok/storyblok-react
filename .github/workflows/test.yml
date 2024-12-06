@@ -7,7 +7,7 @@ env:
   SKIP_INSTALL_SIMPLE_GIT_HOOKS: 1 # Skip installing simple-git-hooks
 
 jobs:
-  release:
+  tests:
     runs-on: ubuntu-24.04
     strategy:
       matrix:
