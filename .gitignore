@@ -1,7 +1,8 @@
 .DS_Store
 node_modules
 dist
-dist-v2
-lib/cypress/screenshots/
-lib/cypress/videos
+coverage
+cypress/screenshots/
+cypress/videos
+cypress/downloads
 .next
