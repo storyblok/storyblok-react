@@ -40,6 +40,7 @@ const Test = forwardRef<HTMLElement, TestProps>(
     );
 
     useEffect(() => {
+      // eslint-disable-next-line no-console
       registerStoryblokBridge(43423, newStory => console.log(newStory));
     }, []);
 
