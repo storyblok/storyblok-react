@@ -1,38 +1,118 @@
 {
-  "name": "@storyblok/react-workspace",
-  "version": "0.0.1",
+  "name": "@storyblok/react",
+  "type": "module",
+  "version": "4.0.0",
   "private": false,
+  "packageManager": "pnpm@9.13.2",
+  "description": "SDK to integrate Storyblok into your project using React.",
+  "author": "Storyblok",
   "license": "MIT",
-  "workspaces": [
-    "./lib",
-    "./playground",
-    "./playground-next",
-    "./playground-next13-rsc",
-    "./playground-next13-live-editing"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/storyblok/storyblok-react"
+  },
+  "bugs": {
+    "url": "https://github.com/storyblok/storyblok-react/issues"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./rsc": {
+      "types": "./dist/rsc/index.d.ts",
+      "import": "./dist/rsc.mjs",
+      "require": "./dist/rsc.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
   ],
   "scripts": {
-    "dev": "npm run dev --workspace=lib & npm run demo",
-    "demo": "npm run demo --workspace=playground",
-    "demo-next": "npm run build && npm run demo --workspace=playground-next",
-    "demo-next13-rsc": "npm run demo --workspace=playground-next13-rsc",
-    "demo-next13-live-editing": "npm run demo --workspace=playground-next13-live-editing",
-    "build": "npm run build --workspace=lib",
-    "test": "npm run test --workspace=lib",
-    "test:unit": "npm run test:unit --workspace=lib",
-    "test:e2e": "npm run test:e2e --workspace=lib",
+    "dev": "vite build --watch",
+    "build": "vite build && tsc --project tsconfig.json",
+    "test": "pnpm run test:unit:ci && pnpm run test:e2e",
+    "test:unit": "vitest",
+    "test:unit:ci": "vitest run",
+    "test:unit:ui": "vitest --ui",
+    "test:e2e": "start-server-and-test playground:next13-app-router http://localhost:3000/ cy:run",
+    "test:e2e-watch": "start-server-and-test playground:next13-app-router http-get://localhost:3000/ cy:open",
+    "cy:run": "cypress run",
+    "cy:open": "cypress open",
+    "test:comp": "cypress run-ct",
+    "playground": "pnpm run --filter ./playground/react dev",
+    "playground:next": "pnpm run --filter ./playground/next15 dev",
+    "playground:next13": "pnpm run --filter ./playground/next13 dev",
+    "playground:next13-app-router": "pnpm run --filter ./playground/next13-app-router dev",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "prepublishOnly": "pnpm build && cp ../README.md ./"
+  },
+  "peerDependencies": {
+    "next": "^13 || ^14 || ^15",
+    "react": "^17 || ^18 || ^19",
+    "react-dom": "^17 || ^18 || ^19"
+  },
+  "dependencies": {
+    "@storyblok/js": "3.1.9"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.4.1",
-    "@commitlint/config-conventional": "^19.4.1",
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "@commitlint/cli": "^19.6.0",
+    "@commitlint/config-conventional": "^19.6.0",
+    "@cypress/react": "^8.0.2",
+    "@cypress/vite-dev-server": "^5.2.1",
     "@storyblok/eslint-config": "^0.3.0",
-    "@tsconfig/recommended": "^1.0.7",
-    "eslint": "^9.9.1"
+    "@tsconfig/recommended": "^1.0.8",
+    "@types/node": "^22.10.1",
+    "@types/react": "18.3.12",
+    "@vitejs/plugin-react": "^4.3.4",
+    "babel-jest": "^29.7.0",
+    "cypress": "^13.16.1",
+    "eslint": "^9.16.0",
+    "eslint-plugin-cypress": "^4.1.0",
+    "eslint-plugin-jest": "^28.9.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "rollup-plugin-preserve-directives": "^0.4.0",
+    "simple-git-hooks": "^2.11.1",
+    "start-server-and-test": "^2.0.8",
+    "typescript": "5.6.3",
+    "vite": "^5.4.11",
+    "vitest": "^2.1.8"
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ]
   },
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
     ]
+  },
+  "release": {
+    "branches": [
+      "main"
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint",
+    "pre-push": "pnpm commitlint --last --verbose"
   }
 }

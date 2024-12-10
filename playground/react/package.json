@@ -1,0 +1,19 @@
+{
+  "name": "@storyblok/react-playground",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@storyblok/react": "workspace:^",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "@types/react": "18.3.4",
+    "vite": "^5.4.3"
+  }
+}

@@ -1,19 +1,28 @@
 name: Run linters
 on: [push]
 
+env:
+  PNPM_CACHE_FOLDER: .pnpm-store
+  SKIP_INSTALL_SIMPLE_GIT_HOOKS: 1 # Skip installing simple-git-hooks
+
 jobs:
   lint:
     name: Lint
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
+    strategy:
+      matrix:
+        node-version: [20]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Use Node.js 20
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: npm
+          node-version: ${{ matrix.node-version }}
+          cache: pnpm
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install
       - name: Run Lint
-        run: npm run lint
+        run: pnpm run lint
