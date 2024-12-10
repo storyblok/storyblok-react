@@ -28,6 +28,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Run Next 15
+        run: pnpm start-server-and-test playground:next http://localhost:3000/ cy:run
+
       - name: Run Next 13
         run: pnpm start-server-and-test playground:next13 http://localhost:3000/ cy:run
 
@@ -37,6 +40,3 @@ jobs:
 
       - name: Run Next 13 - App Router
         run: pnpm start-server-and-test playground:next13-app-router http://localhost:3000/ cy:run
-
-      - name: Run Next 15
-        run: pnpm start-server-and-test playground:next http://localhost:3000/ cy:run
