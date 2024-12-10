@@ -48,6 +48,7 @@
     "playground:next": "pnpm run --filter ./playground/next15 dev",
     "playground:next13": "pnpm run --filter ./playground/next13 dev",
     "playground:next13-app-router": "pnpm run --filter ./playground/next13-app-router dev",
+    "playground:all": "pnpm -r --parallel --filter='./playground/*' run dev",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prepublishOnly": "pnpm build && cp ../README.md ./"

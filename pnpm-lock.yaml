@@ -121,13 +121,6 @@ importers:
       '@storyblok/react':
         specifier: workspace:^
         version: link:../..
-    devDependencies:
-      eslint:
-        specifier: 8.57.0
-        version: 8.57.0
-      eslint-config-next:
-        specifier: 14.2.8
-        version: 14.2.8(eslint-plugin-import-x@4.4.2(eslint@8.57.0)(typescript@5.7.2))(eslint@8.57.0)(typescript@5.7.2)
       next:
         specifier: ^13.4.2
         version: 13.5.7(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -137,6 +130,13 @@ importers:
       react-dom:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
+    devDependencies:
+      eslint:
+        specifier: 8.57.0
+        version: 8.57.0
+      eslint-config-next:
+        specifier: 14.2.8
+        version: 14.2.8(eslint-plugin-import-x@4.4.2(eslint@8.57.0)(typescript@5.7.2))(eslint@8.57.0)(typescript@5.7.2)
       swr:
         specifier: ^2.2.5
         version: 2.2.5(react@18.3.1)
@@ -172,11 +172,11 @@ importers:
         specifier: workspace:^
         version: link:../..
       react:
-        specifier: ^18.3.1
-        version: 18.3.1
+        specifier: ^19.0.0
+        version: 19.0.0
       react-dom:
-        specifier: ^18.3.1
-        version: 18.3.1(react@18.3.1)
+        specifier: ^19.0.0
+        version: 19.0.0(react@19.0.0)
     devDependencies:
       '@types/node':
         specifier: ^22.10.1
