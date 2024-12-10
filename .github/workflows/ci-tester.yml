@@ -28,6 +28,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Build lib
+        run: pnpm build
+
       - name: Run Next 15
         run: pnpm start-server-and-test playground:next http://localhost:3000/ cy:run
 
