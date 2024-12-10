@@ -1,0 +1,35 @@
+name: Build Next 13 App Router Playground
+
+on: [push]
+
+env:
+  PNPM_CACHE_FOLDER: .pnpm-store
+  SKIP_INSTALL_SIMPLE_GIT_HOOKS: 1 # Skip installing simple-git-hooks
+
+jobs:
+  build-playground:
+    runs-on: ubuntu-24.04
+    strategy:
+      matrix:
+        node-version: [20]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build lib
+        run: pnpm build
+
+      - name: Run Next 13 - App Router
+        run: pnpm start-server-and-test playground:next13-app-router http://localhost:3000/ cy:run
