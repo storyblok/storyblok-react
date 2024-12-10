@@ -36,6 +36,7 @@ export type {
   ISbStory,
   ISbStoryData,
   ISbStoryParams,
+  ISbThrottle,
   SbBlokData,
   SbBlokKeyDataTypes,
   SbRichTextOptions,
@@ -44,6 +45,5 @@ export type {
   StoryblokBridgeV2,
   StoryblokClient,
   StoryblokComponentType,
-  ThrottleFn,
   useStoryblokBridge,
 } from '@storyblok/js';

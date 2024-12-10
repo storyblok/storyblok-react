@@ -39,26 +39,26 @@
     "test:unit": "vitest",
     "test:unit:ci": "vitest run",
     "test:unit:ui": "vitest --ui",
-    "test:e2e": "start-server-and-test playground-next13-app-router http://localhost:3000/ cy:run",
-    "test:e2e-watch": "start-server-and-test playground-next13-app-router http-get://localhost:3000/ cy:open",
+    "test:e2e": "start-server-and-test playground:next13-app-router http://localhost:3000/ cy:run",
+    "test:e2e-watch": "start-server-and-test playground:next13-app-router http-get://localhost:3000/ cy:open",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
     "test:comp": "cypress run-ct",
     "playground": "pnpm run --filter ./playground/react dev",
-    "playground-next": "pnpm run --filter ./playground/next15 dev",
-    "playground-next13": "pnpm run --filter ./playground/next13 dev",
-    "playground-next13-app-router": "pnpm run --filter ./playground/next13-app-router dev",
+    "playground:next": "pnpm run --filter ./playground/next15 dev",
+    "playground:next13": "pnpm run --filter ./playground/next13 dev",
+    "playground:next13-app-router": "pnpm run --filter ./playground/next13-app-router dev",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prepublishOnly": "pnpm build && cp ../README.md ./"
   },
   "peerDependencies": {
-    "react": "^17.0.0 || ^18.0.0",
-    "react-dom": "^17.0.0 || ^18.0.0"
+    "next": "^14 || ^15",
+    "react": "^17 || ^18 || ^19",
+    "react-dom": "^17 || ^18 || ^19"
   },
   "dependencies": {
-    "@storyblok/js": "^3.1.7",
-    "next": "^15.0.3"
+    "@storyblok/js": "3.1.9"
   },
   "devDependencies": {
     "@babel/core": "^7.26.0",
@@ -69,22 +69,22 @@
     "@cypress/vite-dev-server": "^5.2.1",
     "@storyblok/eslint-config": "^0.3.0",
     "@tsconfig/recommended": "^1.0.8",
-    "@types/node": "^22.9.1",
-    "@types/react": "18.3.12",
-    "@vitejs/plugin-react": "^4.3.3",
+    "@types/node": "^22.10.1",
+    "@types/react": "19.0.1",
+    "@vitejs/plugin-react": "^4.3.4",
     "babel-jest": "^29.7.0",
-    "cypress": "^13.16.0",
-    "eslint": "^9.15.0",
+    "cypress": "^13.16.1",
+    "eslint": "^9.16.0",
     "eslint-plugin-cypress": "^4.1.0",
     "eslint-plugin-jest": "^28.9.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "rollup-plugin-preserve-directives": "^0.4.0",
     "simple-git-hooks": "^2.11.1",
     "start-server-and-test": "^2.0.8",
-    "typescript": "^5.6.3",
+    "typescript": "5.6.3",
     "vite": "^5.4.11",
-    "vitest": "^2.1.5"
+    "vitest": "^2.1.8"
   },
   "babel": {
     "presets": [

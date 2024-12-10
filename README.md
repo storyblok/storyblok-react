@@ -337,7 +337,7 @@ export default Page;
 > [!NOTE]
 > To use this approach (with `getStoryblokApi`), you need to include the `apiPlugin` module when calling `storyblokInit` function. If you don't use `apiPlugin`, you can use your preferred method or function to fetch your data.
 
-To try this setup, take a look at the [Next 13 Live Editing Playground](https://github.com/storyblok/storyblok-react/tree/main/playground-next13-live-editing) in this repo.
+To try this setup, take a look at the [Next 13 Live Editing Playground](https://github.com/storyblok/storyblok-react/tree/main/playground/next13) in this repo.
 
 ## Next.js using Pages Router
 

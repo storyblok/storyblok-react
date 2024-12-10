@@ -13,13 +13,9 @@ interface PageProps {
 
 const Page = ({ blok }: PageProps) => (
   <div {...storyblokEditable(blok)} key={blok._uid} data-test="page">
-    {blok.body
-      ? (blok.body as SbBlokData[]).map(nestedBlok => (
-          <div key={nestedBlok._uid}>
-            <StoryblokComponent blok={nestedBlok} />
-          </div>
-        ))
-      : null}
+    {(blok.body as SbBlokData[] | undefined)?.map(nestedBlok => (
+      <StoryblokComponent key={nestedBlok._uid} blok={nestedBlok} />
+    ))}
   </div>
 );
 

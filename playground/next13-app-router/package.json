@@ -1,5 +1,6 @@
 {
   "name": "next13-live-editing",
+  "type": "module",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -13,9 +14,11 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
+  "dependencies": {
+    "@storyblok/react": "workspace:^"
+  },
   "devDependencies": {
-    "@storyblok/react": "workspace:^",
-    "eslint": "9.9.1",
+    "eslint": "8.57.0",
     "eslint-config-next": "14.2.8",
     "next": "^13.4.2",
     "react": "^18.3.1",

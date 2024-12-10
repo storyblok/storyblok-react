@@ -1,4 +1,5 @@
-import { useStoryblok } from '@storyblok/react';
+import { StoryblokComponent, useStoryblok } from '@storyblok/react';
+import React from 'react';
 
 function App() {
   const story = useStoryblok('home', { version: 'draft' });

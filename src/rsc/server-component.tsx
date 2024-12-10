@@ -51,6 +51,6 @@ const StoryblokServerComponent = forwardRef<HTMLElement, SbServerComponentProps>
   },
 );
 
-StoryblokServerComponent.displayName = 'StoryblokComponent';
+StoryblokServerComponent.displayName = 'StoryblokServerComponent';
 
 export default StoryblokServerComponent;
