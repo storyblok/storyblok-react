@@ -17,7 +17,7 @@ const StoryblokServerComponent = forwardRef<HTMLElement, SbServerComponentProps>
         'Please provide a \'blok\' property to the StoryblokComponent',
       );
       return (
-        <div>Please provide a blok property to the StoryblokComponent</div>
+        <div>Please provide a blok property to the StoryblokServerComponent</div>
       );
     }
 

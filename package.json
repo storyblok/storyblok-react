@@ -35,7 +35,7 @@
   "scripts": {
     "dev": "vite build --watch",
     "build": "vite build && tsc --project tsconfig.json",
-    "test": "pnpm run test:unit && pnpm run test:e2e",
+    "test": "pnpm run test:unit:ci && pnpm run test:e2e",
     "test:unit": "vitest",
     "test:unit:ci": "vitest run",
     "test:unit:ui": "vitest --ui",
@@ -53,7 +53,7 @@
     "prepublishOnly": "pnpm build && cp ../README.md ./"
   },
   "peerDependencies": {
-    "next": "^14 || ^15",
+    "next": "^13 || ^14 || ^15",
     "react": "^17 || ^18 || ^19",
     "react-dom": "^17 || ^18 || ^19"
   },
@@ -70,15 +70,15 @@
     "@storyblok/eslint-config": "^0.3.0",
     "@tsconfig/recommended": "^1.0.8",
     "@types/node": "^22.10.1",
-    "@types/react": "19.0.1",
+    "@types/react": "18.3.12",
     "@vitejs/plugin-react": "^4.3.4",
     "babel-jest": "^29.7.0",
     "cypress": "^13.16.1",
     "eslint": "^9.16.0",
     "eslint-plugin-cypress": "^4.1.0",
     "eslint-plugin-jest": "^28.9.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "rollup-plugin-preserve-directives": "^0.4.0",
     "simple-git-hooks": "^2.11.1",
     "start-server-and-test": "^2.0.8",

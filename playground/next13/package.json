@@ -10,7 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@storyblok/react": "latest"
+    "@storyblok/react": "workspace:^"
   },
   "dependenciesMeta": {
     "@storyblok/react": {

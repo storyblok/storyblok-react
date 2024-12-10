@@ -5,7 +5,7 @@ import StoryblokLiveEditing from './live-editing';
 
 interface StoryblokStoryProps {
   story: ISbStoryData;
-  bridgeOptions: StoryblokBridgeConfigV2;
+  bridgeOptions?: StoryblokBridgeConfigV2;
 }
 
 const StoryblokStory = forwardRef<HTMLElement, StoryblokStoryProps>(
