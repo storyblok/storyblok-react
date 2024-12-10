@@ -62,5 +62,5 @@ export const useStoryblok = (
   return story;
 };
 
-export * from './common';
 export * from './common/client';
+export * from './common/index';
