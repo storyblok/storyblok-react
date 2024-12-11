@@ -548,6 +548,7 @@ Or you can have more control by using the `useStoryblokRichText` hook:
 
 ```ts
 import { useStoryblokRichText, convertAttributesInElement } from '@storyblok/react';
+import Codeblock from './Codeblock';
 
 function App() {
   const { render } = useStoryblokRichTextResolver({
@@ -567,6 +568,49 @@ function App() {
 
 For more incredible options you can pass to the `useStoryblokRichText`, please consult the [Full options](https://github.com/storyblok/richtext?tab=readme-ov-file#options) documentation.
 
+### Overriding the default resolvers
+
+You can override the default resolvers by passing a `resolvers` prop to the `StoryblokRichText` component, for example, to use NextJS Link component or add a custom codeblok component:
+
+```ts
+import { StoryblokRichText, useStoryblok, MarkTypes, type StoryblokRichTextNode } from '@storyblok/react';
+import Link from 'next/link';
+import CodeBlock from './components/CodeBlock';
+
+function App() {
+  const story = useStoryblok('home', { version: 'draft' });
+
+  if (!story?.content) {
+    return <div>Loading...</div>;
+  }
+
+  const resolvers = {
+     [MarkTypes.LINK]: (node: StoryblokRichTextNode<ReactElement>) => {
+      return node.attrs?.linktype === 'story'
+        ? React.createElement(Link, {
+          href: node.attrs?.href,
+          target: node.attrs?.target,
+        }, 'NextLink')
+        : React.createElement('a', {
+          href: node.attrs?.href,
+          target: node.attrs?.target,
+        }, node.text);
+    },
+    [BlockTypes.CODE_BLOCK]: (node) => {
+      return React.createElement(CodeBlock, {
+        class: node?.attrs?.class,
+      }, node.children)
+    },
+  }
+
+  return (
+    <div>
+      <StoryblokRichText doc={story.content.richText}
+       resolvers={resolvers} />
+    </div>
+  );
+}
+```
 
 ### Legacy Rich Text Resolver
 
