@@ -1,4 +1,4 @@
-import { StoryblokComponent, StoryblokRichText, useStoryblok } from '@storyblok/react';
+import { StoryblokRichText, useStoryblok } from '@storyblok/react';
 import React from 'react';
 
 function App() {
