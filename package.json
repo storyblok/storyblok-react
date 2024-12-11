@@ -50,7 +50,7 @@
     "playground:next13-app-router": "pnpm run --filter ./playground/next13-app-router dev",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "prepublishOnly": "pnpm build && cp ../README.md ./"
+    "prepublishOnly": "pnpm build"
   },
   "peerDependencies": {
     "next": "^13 || ^14 || ^15",
