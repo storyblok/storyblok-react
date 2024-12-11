@@ -51,9 +51,7 @@ export const storyblokInit = (pluginOptions: SbReactSDKOptions = {}) => {
 
 export { useStoryblokApi as getStoryblokApi };
 
-export { useStoryblokRichTextResolver } from './richtext';
 export { default as StoryblokComponent } from './storyblok-component';
-export { default as StoryblokRichText } from './storyblok-rich-text';
 
 export {
   apiPlugin,

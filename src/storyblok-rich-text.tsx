@@ -1,8 +1,8 @@
 import React, { forwardRef } from 'react';
 
-import { convertAttributesInElement } from '../utils';
+import { convertAttributesInElement } from './utils';
 import { useStoryblokRichTextResolver } from './richtext';
-import type { StoryblokRichTextProps } from '../types';
+import type { StoryblokRichTextProps } from './types';
 
 // If you're forwarding a ref to StoryblokRichText
 const StoryblokRichText = forwardRef<HTMLDivElement, StoryblokRichTextProps>(
