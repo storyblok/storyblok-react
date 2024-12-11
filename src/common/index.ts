@@ -6,6 +6,8 @@ import type {
   StoryblokClient,
 } from '@/types';
 
+export * from '../types';
+
 let storyblokApiInstance: StoryblokClient = null;
 let componentsMap: SbReactComponentsMap = {};
 let enableFallbackComponent: boolean = false;
@@ -47,17 +49,29 @@ export const storyblokInit = (pluginOptions: SbReactSDKOptions = {}) => {
   customFallbackComponent = pluginOptions.customFallbackComponent;
 };
 
-export * from '../types';
 export { useStoryblokApi as getStoryblokApi };
+
+export { useStoryblokRichTextResolver } from './richtext';
 export { default as StoryblokComponent } from './storyblok-component';
+export { default as StoryblokRichText } from './storyblok-rich-text';
 
 export {
   apiPlugin,
+  BlockTypes,
   loadStoryblokBridge,
+  MarkTypes,
   registerStoryblokBridge,
   renderRichText,
   RichTextResolver,
+  richTextResolver,
   RichTextSchema,
   storyblokEditable,
+  type StoryblokRichTextImageOptimizationOptions,
+  type StoryblokRichTextNode,
+  type StoryblokRichTextNodeResolver,
+  type StoryblokRichTextNodeTypes,
+  type StoryblokRichTextOptions,
+  type StoryblokRichTextResolvers,
+  TextTypes,
   useStoryblokBridge,
 } from '@storyblok/js';
