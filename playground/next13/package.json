@@ -1,0 +1,28 @@
+{
+  "name": "next",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@storyblok/react": "workspace:^"
+  },
+  "dependenciesMeta": {
+    "@storyblok/react": {
+      "injected": true
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^22.5.4",
+    "@types/react": "^18.3.4",
+    "next": "^13.4.6",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "typescript": "^5.6.3"
+  }
+}

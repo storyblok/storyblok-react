@@ -321,17 +321,23 @@ const bridgeOptions = { resolveRelations: ['article.author'] }
 > When you render components, you must use `StoryblokServerComponent` exported from `@storyblok/react/rsc` instead of `StoryblokComponent`, even when you declare a client component with `"use client"`. This is because the components are always rendered on the server side.
 
 ```jsx
-import { StoryblokServerComponent } from '@storyblok/react/rsc';
+import { storyblokEditable, StoryblokServerComponent } from '@storyblok/react/rsc';
 
-export default function Page({ blok }) {
-  return <StoryblokServerComponent blok={blok} />;
-}
+const Page = ({ blok }) => (
+  <main {...storyblokEditable(blok)}>
+    {blok.body.map(nestedBlok => (
+      <StoryblokServerComponent blok={nestedBlok} key={nestedBlok._uid} />
+    ))}
+  </main>
+);
+
+export default Page;
 ```
 
 > [!NOTE]
 > To use this approach (with `getStoryblokApi`), you need to include the `apiPlugin` module when calling `storyblokInit` function. If you don't use `apiPlugin`, you can use your preferred method or function to fetch your data.
 
-To try this setup, take a look at the [Next 13 Live Editing Playground](https://github.com/storyblok/storyblok-react/tree/main/playground-next13-live-editing) in this repo.
+To try this setup, take a look at the [Next 13 Live Editing Playground](https://github.com/storyblok/storyblok-react/tree/main/playground/next13) in this repo.
 
 ## Next.js using Pages Router
 
@@ -648,6 +654,12 @@ By using these techniques, you can ensure that only the necessary components and
 
 Please see our [contributing guidelines](https://github.com/storyblok/.github/blob/master/contributing.md) and our [code of conduct](https://www.storyblok.com/trust-center#code-of-conduct?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react).
 This project use [semantic-release](https://semantic-release.gitbook.io/semantic-release/) for generate new versions by using commit messages and we use the Angular Convention to naming the commits. Check [this question](https://semantic-release.gitbook.io/semantic-release/support/faq#how-can-i-change-the-type-of-commits-that-trigger-a-release) about it in semantic-release FAQ.
+
+Please run `simple-git-hooks` after cloning the repository to enable the pre-commit hooks.
+
+```bash
+pnpm simple-git-hook
+```
 
 ## License
 
