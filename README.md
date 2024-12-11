@@ -522,7 +522,56 @@ sbBridge.on(['input', 'published', 'change'], (event) => {
 })
 ```
 
-### Rendering Rich Text
+## Rendering Rich Text
+
+You can render rich text fields by using the `StoryblokRichText` component:
+
+```ts
+import { StoryblokRichText, useStoryblok } from '@storyblok/react';
+
+function App() {
+  const story = useStoryblok('home', { version: 'draft' });
+
+  if (!story?.content) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <div>
+      <StoryblokRichText doc={story.content.richText} />
+    </div>
+  );
+}
+```
+
+Or you can have more control by using the `useStoryblokRichText` hook:
+
+```ts
+import { useStoryblokRichText, convertAttributesInElement } from '@storyblok/react';
+
+function App() {
+  const { render } = useStoryblokRichTextResolver({
+    // options like resolvers
+  });
+
+  const html = render(doc);
+  const formattedHtml = convertAttributesInElement(html as React.ReactElement); // JSX
+
+  return (
+    <div ref={ref}>
+      {formattedHtml}
+    </div>
+  );
+}
+```
+
+For more incredible options you can pass to the `useStoryblokRichText`, please consult the [Full options](https://github.com/storyblok/richtext?tab=readme-ov-file#options) documentation.
+
+
+### Legacy Rich Text Resolver
+
+> [!WARNING]  
+> The legacy `renderRichText` is soon to be deprecated. We recommend migrating to the new approach described above instead.
 
 You can easily render rich text by using the `renderRichText` function that comes with `@storyblok/react`:
 

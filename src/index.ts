@@ -64,3 +64,4 @@ export const useStoryblok = (
 
 export * from './common/client';
 export * from './common/index';
+export * from './utils';
