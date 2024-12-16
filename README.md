@@ -525,7 +525,7 @@ sbBridge.on(['input', 'published', 'change'], (event) => {
 ## Rendering Rich Text 
 
 > [!WARNING]  
-> We have identify issues with richtext and Types on React 19 and Next 15. Please use React 18 and Next 14 for now until the next major release.
+> We have identified issues with richtext and Types on React 19 and Next.js 15. As a temporary measure, we advise you to continue using React 18 and Next.js 14 until we have fully resolved the issues.
 
 You can render rich text fields by using the `StoryblokRichText` component:
 
