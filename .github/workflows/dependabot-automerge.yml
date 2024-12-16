@@ -1,28 +1,28 @@
-# **** AUTOMERGE ****
-# Merge automatically the PR that contain a minor or patch update on the dependency you define in env.DEPENDENCY
-#  - Inspiration: https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions#enable-auto-merge-on-a-pull-request
-
-name: Dependabot auto-merge
+name: Dependabot auto-approve
 on: pull_request
 
 permissions:
   pull-requests: write
-  contents: write
 
 jobs:
   dependabot:
     runs-on: ubuntu-latest
-    if: ${{ github.actor == 'dependabot[bot]' }}
+    if: github.event.pull_request.user.login == 'dependabot[bot]' && github.repository == 'storyblok/storyblok-react'
     steps:
       - name: Dependabot metadata
         id: metadata
-        uses: dependabot/fetch-metadata@v1.1.1
+        uses: dependabot/fetch-metadata@v2
         with:
           github-token: '${{ secrets.GITHUB_TOKEN }}'
-      - name: Enable auto-merge for Dependabot PRs
-        if: ${{contains(steps.metadata.outputs.dependency-names, env.DEPENDENCY) && (steps.metadata.outputs.update-type == 'version-update:semver-patch' || steps.metadata.outputs.update-type == 'version-update:semver-minor')}}
-        run: gh pr merge --auto --merge "$PR_URL"
+          alert-lookup: true
+      - uses: actions/checkout@v4
+      - name: Approve a PR if not already approved
+        run: |
+          gh pr checkout "$PR_URL" # sets the upstream metadata for `gh pr status`
+          if [ "$(gh pr status --json reviewDecision -q .currentBranch.reviewDecision)" != "APPROVED" ];
+          then gh pr review --approve "$PR_URL"
+          else echo "PR already approved, skipping additional approvals to minimize emails/notification noise.";
+          fi
         env:
-          DEPENDENCY: '@storyblok/js'
           PR_URL: ${{github.event.pull_request.html_url}}
-          GITHUB_TOKEN: ${{secrets.DEPENDABOT_TOKEN}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
