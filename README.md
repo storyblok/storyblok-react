@@ -522,7 +522,114 @@ sbBridge.on(['input', 'published', 'change'], (event) => {
 })
 ```
 
-### Rendering Rich Text
+## Rendering Rich Text 
+
+> [!WARNING]  
+> We have identified issues with richtext and Types on React 19 and Next.js 15. As a temporary measure, we advise you to continue using React 18 and Next.js 14 until we have fully resolved the issues.
+
+You can render rich text fields by using the `StoryblokRichText` component:
+
+```ts
+import { StoryblokRichText, useStoryblok } from '@storyblok/react';
+
+function App() {
+  const story = useStoryblok('home', { version: 'draft' });
+
+  if (!story?.content) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <div>
+      <StoryblokRichText doc={story.content.richText} />
+    </div>
+  );
+}
+```
+
+Or you can have more control by using the `useStoryblokRichText` hook:
+
+```ts
+import { useStoryblokRichText, convertAttributesInElement } from '@storyblok/react';
+import Codeblock from './Codeblock';
+
+function App() {
+  const { render } = useStoryblokRichTextResolver({
+    // options like resolvers
+  });
+
+  const html = render(doc);
+  const formattedHtml = convertAttributesInElement(html as React.ReactElement); // JSX
+
+  return (
+    <div ref={ref}>
+      {formattedHtml}
+    </div>
+  );
+}
+```
+
+For more incredible options you can pass to the `useStoryblokRichText`, please consult the [Full options](https://github.com/storyblok/richtext?tab=readme-ov-file#options) documentation.
+
+### Overriding the default resolvers
+
+You can override the default resolvers by passing a `resolvers` prop to the `StoryblokRichText` component, for example, to use NextJS Link component or add a custom codeblok component:
+
+```ts
+import { StoryblokRichText, useStoryblok, MarkTypes, type StoryblokRichTextNode } from '@storyblok/react';
+import Link from 'next/link';
+import CodeBlock from './components/CodeBlock';
+
+function App() {
+  const story = useStoryblok('home', { version: 'draft' });
+
+  if (!story?.content) {
+    return <div>Loading...</div>;
+  }
+
+  const resolvers = {
+     [MarkTypes.LINK]: (node: StoryblokRichTextNode<ReactElement>) => {
+      return node.attrs?.linktype === 'story'
+         ? (
+            <Link
+              href={node.attrs?.href}
+              target={node.attrs?.target}
+            >
+              {node.text}
+            </Link>
+          )
+        : (
+            <a
+              href={node.attrs?.href}
+              target={node.attrs?.target}
+            >
+              {node.text}
+            </a>
+          );
+    },
+    [BlockTypes.CODE_BLOCK]: (node) => 
+      <CodeBlock 
+        class={node?.attrs?.class}
+      >
+        {node.children}  
+      </CodeBlock>;
+  }
+
+  return (
+    <div>
+      <StoryblokRichText 
+        doc={story.content.richText}
+        resolvers={resolvers} 
+      />
+    </div>
+  );
+}
+```
+
+### Legacy Rich Text Resolver
+
+> [!WARNING]  
+> The legacy `renderRichText` is soon to be deprecated. We recommend migrating to the new approach described above instead.
 
 You can easily render rich text by using the `renderRichText` function that comes with `@storyblok/react`:
 

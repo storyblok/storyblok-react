@@ -64,3 +64,6 @@ export const useStoryblok = (
 
 export * from './common/client';
 export * from './common/index';
+export { useStoryblokRichTextResolver } from './richtext';
+export { default as StoryblokRichText } from './storyblok-rich-text';
+export * from './utils';

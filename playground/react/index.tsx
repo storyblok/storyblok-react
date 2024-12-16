@@ -8,15 +8,17 @@ import Page from './components/page';
 import Feature from './components/feature';
 
 import { apiPlugin, storyblokInit } from '@storyblok/react';
+import IFrameEmbed from './components/iframe-embed';
 
 storyblokInit({
   accessToken: 'd6IKUtAUDiKyAhpJtrLFcwtt',
   use: [apiPlugin],
   components: {
-    teaser: Teaser,
-    grid: Grid,
-    feature: Feature,
-    page: Page,
+    'teaser': Teaser,
+    'grid': Grid,
+    'feature': Feature,
+    'page': Page,
+    'iframe-embed': IFrameEmbed,
   },
 });
 
