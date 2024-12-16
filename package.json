@@ -34,7 +34,7 @@
   ],
   "scripts": {
     "dev": "vite build --watch",
-    "build": "vite build && tsc --project tsconfig.json",
+    "build": "vite build && tsc --project tsconfig.json && resolve-tspaths --ext d.ts",
     "test": "pnpm run test:unit:ci && pnpm run test:e2e",
     "test:unit": "vitest",
     "test:unit:ci": "vitest run",
@@ -79,6 +79,7 @@
     "eslint-plugin-jest": "^28.9.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "resolve-tspaths": "^0.8.23",
     "rollup-plugin-preserve-directives": "^0.4.0",
     "simple-git-hooks": "^2.11.1",
     "start-server-and-test": "^2.0.8",
