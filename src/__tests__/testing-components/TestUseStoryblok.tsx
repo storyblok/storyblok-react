@@ -24,7 +24,7 @@ const TestUseStoryblok = ({
     return <div>Loading...</div>;
   }
 
-  return <StoryblokComponent blok={story.content} />;
+  return <StoryblokComponent blok={story.content} custom="custom" />;
 };
 
 export default TestUseStoryblok;

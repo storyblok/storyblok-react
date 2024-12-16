@@ -6,12 +6,12 @@ import {
 } from './index';
 import type { SbBlokData } from '@/types';
 
-interface StoryblokComponentProps {
+interface StoryblokComponentProps extends Omit<Record<string, unknown>, 'blok'> {
   blok: SbBlokData;
 }
 
 const StoryblokComponent = forwardRef<HTMLElement, StoryblokComponentProps>(
-  ({ blok, ...restProps }, ref) => {
+  ({ blok, ...restProps }: StoryblokComponentProps, ref) => {
     if (!blok) {
       console.error(
         'Please provide a \'blok\' property to the StoryblokComponent',
