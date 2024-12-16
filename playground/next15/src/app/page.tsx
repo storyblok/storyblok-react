@@ -1,15 +1,13 @@
 import type {
   ISbStoriesParams,
   StoryblokClient,
-  StoryblokRichText,
   StoryblokRichTextNode,
-  StoryblokStory,
 } from '@storyblok/react/rsc';
-import { MarkTypes } from '@storyblok/react/rsc';
+import { MarkTypes, StoryblokRichText, StoryblokStory,
+} from '@storyblok/react/rsc';
 import { getStoryblokApi } from '@/lib/storyblok';
 import Link from 'next/link';
 import type { ReactElement } from 'react';
-import React, { createElement } from 'react';
 
 export default async function Home() {
   const { data } = await fetchData();
@@ -74,14 +72,22 @@ export default async function Home() {
     // custom resolvers
     [MarkTypes.LINK]: (node: StoryblokRichTextNode<ReactElement>) => {
       return node.attrs?.linktype === 'story'
-        ? createElement(Link, {
-          href: node.attrs?.href,
-          target: node.attrs?.target,
-        }, 'NextLink')
-        : createElement('a', {
-          href: node.attrs?.href,
-          target: node.attrs?.target,
-        }, node.text);
+        ? (
+            <Link
+              href={node.attrs?.href}
+              target={node.attrs?.target}
+            >
+              {node.text}
+            </Link>
+          )
+        : (
+            <a
+              href={node.attrs?.href}
+              target={node.attrs?.target}
+            >
+              {node.text}
+            </a>
+          );
     },
   };
 

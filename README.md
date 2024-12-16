@@ -522,7 +522,10 @@ sbBridge.on(['input', 'published', 'change'], (event) => {
 })
 ```
 
-## Rendering Rich Text
+## Rendering Rich Text 
+
+> [!WARNING]  
+> We have identify issues with richtext and Types on React 19 and Next 15. Please use React 18 and Next 14 for now until the next major release.
 
 You can render rich text fields by using the `StoryblokRichText` component:
 
@@ -587,26 +590,37 @@ function App() {
   const resolvers = {
      [MarkTypes.LINK]: (node: StoryblokRichTextNode<ReactElement>) => {
       return node.attrs?.linktype === 'story'
-        ? React.createElement(Link, {
-          href: node.attrs?.href,
-          target: node.attrs?.target,
-        }, 'NextLink')
-        : React.createElement('a', {
-          href: node.attrs?.href,
-          target: node.attrs?.target,
-        }, node.text);
+         ? (
+            <Link
+              href={node.attrs?.href}
+              target={node.attrs?.target}
+            >
+              {node.text}
+            </Link>
+          )
+        : (
+            <a
+              href={node.attrs?.href}
+              target={node.attrs?.target}
+            >
+              {node.text}
+            </a>
+          );
     },
-    [BlockTypes.CODE_BLOCK]: (node) => {
-      return React.createElement(CodeBlock, {
-        class: node?.attrs?.class,
-      }, node.children)
-    },
+    [BlockTypes.CODE_BLOCK]: (node) => 
+      <CodeBlock 
+        class={node?.attrs?.class}
+      >
+        {node.children}  
+      </CodeBlock>;
   }
 
   return (
     <div>
-      <StoryblokRichText doc={story.content.richText}
-       resolvers={resolvers} />
+      <StoryblokRichText 
+        doc={story.content.richText}
+        resolvers={resolvers} 
+      />
     </div>
   );
 }
