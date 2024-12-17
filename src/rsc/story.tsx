@@ -3,13 +3,13 @@ import type { ISbStoryData, StoryblokBridgeConfigV2 } from '@/types';
 import { StoryblokServerComponent } from './common';
 import StoryblokLiveEditing from './live-editing';
 
-interface StoryblokStoryProps {
+interface StoryblokStoryProps extends Omit<Record<string, unknown>, 'story' | 'bridgeOptions'> {
   story: ISbStoryData;
   bridgeOptions?: StoryblokBridgeConfigV2;
 }
 
 const StoryblokStory = forwardRef<HTMLElement, StoryblokStoryProps>(
-  ({ story, bridgeOptions, ...restProps }, ref) => {
+  ({ story, bridgeOptions, ...restProps }: StoryblokStoryProps, ref) => {
     if (!story) {
       console.error(
         'Please provide a \'story\' property to the StoryblokServerComponent',
