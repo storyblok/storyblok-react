@@ -9,3 +9,15 @@ updates:
       prefix: fix
       prefix-development: chore
       include: scope
+    labels:
+      - dependabot
+    groups:
+      security-updates:
+        applies-to: security-updates
+        update-types:
+          - patch
+    ignore:
+      - dependency-name: '*'
+        update-types:
+          - version-update:semver-minor
+          - version-update:semver-major
