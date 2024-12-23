@@ -31,7 +31,7 @@
 </p>
 
 ## Kickstart a new project
-Are you eager to dive into coding? **[Follow these steps to kickstart a new project with Storyblok and React](https://www.storyblok.com/technologies#react?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react)**, and get started in just a few minutes!
+Are you eager to dive into coding? **[Follow these steps to kickstart a new project with Storyblok and React](https://www.storyblok.com/technologies?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react#react)**, and get started in just a few minutes!
 
 ## 5-minute Tutorial
 Are you looking for a hands-on, step-by-step tutorial? The **[React 5-minute Tutorial](https://www.storyblok.com/tp/headless-cms-react?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react)** has you covered! It provides comprehensive instructions on how to set up a Storyblok space and connect it to your React project.
@@ -60,7 +60,7 @@ Install the file from the CDN:
 
 ## Initialization
 
-Register the plugin on your application and add the [access token](https://www.storyblok.com/docs/api/content-delivery#topics/authentication?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react) of your Storyblok space. You can also add the `apiPlugin` in case that you want to use the Storyblok API Client:
+Register the plugin on your application and add the [access token](https://www.storyblok.com/docs/api/content-delivery/v2/getting-started/authentication?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react) of your Storyblok space. You can also add the `apiPlugin` in case that you want to use the Storyblok API Client:
 
 ```js
 import { apiPlugin, storyblokInit } from '@storyblok/react'
@@ -89,7 +89,7 @@ storyblokInit({
 
 Add all your components to the components object in the `storyblokInit` function.
 
-That's it! All the features are enabled for you: the _Api Client_ for interacting with [Storyblok CDN API](https://www.storyblok.com/docs/api/content-delivery#topics/introduction?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react), and _Storyblok Bridge_ for [real-time visual editing experience](https://www.storyblok.com/docs/guide/essentials/visual-editor?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react).
+That's it! All the features are enabled for you: the _Api Client_ for interacting with [Storyblok CDN API](https://www.storyblok.com/docs/api/content-delivery/v2/getting-started/introduction?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react), and _Storyblok Bridge_ for [real-time visual editing experience](https://www.storyblok.com/docs/guide/essentials/visual-editor?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react).
 
 > You can enable/disable some of these features if you don't need them, so you save some KB. Please read the "Features and API" section
 
@@ -759,7 +759,7 @@ By using these techniques, you can ensure that only the necessary components and
 
 ## Contributing
 
-Please see our [contributing guidelines](https://github.com/storyblok/.github/blob/master/contributing.md) and our [code of conduct](https://www.storyblok.com/trust-center#code-of-conduct?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react).
+Please see our [contributing guidelines](https://github.com/storyblok/.github/blob/master/contributing.md) and our [code of conduct](https://www.storyblok.com/trust-center?utm_source=github.com&utm_medium=readme&utm_campaign=storyblok-react#code-of-conduct).
 This project use [semantic-release](https://semantic-release.gitbook.io/semantic-release/) for generate new versions by using commit messages and we use the Angular Convention to naming the commits. Check [this question](https://semantic-release.gitbook.io/semantic-release/support/faq#how-can-i-change-the-type-of-commits-that-trigger-a-release) about it in semantic-release FAQ.
 
 Please run `simple-git-hooks` after cloning the repository to enable the pre-commit hooks.
