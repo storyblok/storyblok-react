@@ -1,9 +1,9 @@
 {
   "name": "@storyblok/react",
   "type": "module",
-  "version": "4.3.0",
+  "version": "4.3.2",
   "private": false,
-  "packageManager": "pnpm@9.13.2",
+  "packageManager": "pnpm@9.15.1",
   "description": "SDK to integrate Storyblok into your project using React.",
   "author": "Storyblok",
   "license": "MIT",
@@ -58,12 +58,12 @@
     "react-dom": "^17 || ^18 || ^19"
   },
   "dependencies": {
-    "@storyblok/js": "3.1.9"
+    "@storyblok/js": "3.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.26.0",
     "@babel/preset-env": "^7.26.0",
-    "@commitlint/cli": "^19.6.0",
+    "@commitlint/cli": "^19.6.1",
     "@commitlint/config-conventional": "^19.6.0",
     "@cypress/react": "^8.0.2",
     "@cypress/vite-dev-server": "^5.2.1",
@@ -73,18 +73,18 @@
     "@types/react": "18.3.12",
     "@vitejs/plugin-react": "^4.3.4",
     "babel-jest": "^29.7.0",
-    "cypress": "^13.16.1",
-    "eslint": "^9.16.0",
+    "cypress": "^13.17.0",
+    "eslint": "^9.17.0",
     "eslint-plugin-cypress": "^4.1.0",
-    "eslint-plugin-jest": "^28.9.0",
+    "eslint-plugin-jest": "^28.10.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "rollup-plugin-preserve-directives": "^0.4.0",
     "simple-git-hooks": "^2.11.1",
-    "start-server-and-test": "^2.0.8",
+    "start-server-and-test": "^2.0.9",
     "typescript": "5.6.3",
-    "vite": "^5.4.11",
-    "vite-plugin-dts": "^4.3.0",
+    "vite": "^6.0.6",
+    "vite-plugin-dts": "^4.4.0",
     "vitest": "^2.1.8"
   },
   "babel": {
