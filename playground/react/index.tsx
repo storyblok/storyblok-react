@@ -11,7 +11,7 @@ import { apiPlugin, storyblokInit } from '@storyblok/react';
 import IFrameEmbed from './components/iframe-embed';
 
 storyblokInit({
-  accessToken: 'd6IKUtAUDiKyAhpJtrLFcwtt',
+  accessToken: 'OurklwV5XsDJTIE1NJaD2wtt',
   use: [apiPlugin],
   components: {
     'teaser': Teaser,
