@@ -4,7 +4,6 @@ import React from 'react';
 function RichtextPage() {
   const story = useStoryblok('react/test-richtext', { version: 'draft' });
 
-  console.log(story);
   if (!story?.content) {
     return <div>Loading...</div>;
   }
