@@ -1,5 +1,11 @@
 import React from 'react';
 
+function decodeHtmlEntities(text: string): string {
+  const textarea = document.createElement('textarea');
+  textarea.innerHTML = text;
+  return textarea.value;
+}
+
 function camelCase(str: string) {
   return str.replace(/-([a-z])/g, g => g[1].toUpperCase());
 }
@@ -29,6 +35,10 @@ export function convertAttributesInElement(element: React.ReactElement | React.R
 
   // Base case: if the element is not a React element, return it unchanged.
   if (!React.isValidElement(element)) {
+    // If it's a text node, decode any HTML entities
+    if (typeof element === 'string') {
+      return decodeHtmlEntities(element) as unknown as React.ReactElement;
+    }
     return element;
   }
 
@@ -55,7 +65,13 @@ export function convertAttributesInElement(element: React.ReactElement | React.R
   newProps.key = (element.key as string);
 
   // Process children recursively.
-  const children = React.Children.map((element.props as React.PropsWithChildren).children, child => convertAttributesInElement(child as React.ReactElement));
+  const children = React.Children.map((element.props as React.PropsWithChildren).children, (child) => {
+    if (typeof child === 'string') {
+      return decodeHtmlEntities(child);
+    }
+    return convertAttributesInElement(child as React.ReactElement);
+  });
+
   const newElement = React.createElement(element.type, newProps, children);
   // Clone the element with the new properties and updated children.
   return newElement;
