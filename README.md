@@ -554,7 +554,7 @@ import { useStoryblokRichText, convertAttributesInElement } from '@storyblok/rea
 import Codeblock from './Codeblock';
 
 function App() {
-  const { render } = useStoryblokRichTextResolver({
+  const { render } = useStoryblokRichText({
     // options like resolvers
   });
 
@@ -569,7 +569,7 @@ function App() {
 }
 ```
 
-For more incredible options you can pass to the `useStoryblokRichText`, please consult the [Full options](https://github.com/storyblok/richtext?tab=readme-ov-file#options) documentation.
+For a comprehensive list of options you can provide to the `useStoryblokRichText`, please consult the [Full options](https://github.com/storyblok/richtext?tab=readme-ov-file#options) documentation.
 
 ### Overriding the default resolvers
 
