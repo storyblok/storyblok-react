@@ -1,14 +1,31 @@
-import { StoryblokComponent, useStoryblok } from '@storyblok/react';
 import React from 'react';
+import { BrowserRouter, Link, Route, Routes } from 'react-router';
+import Home from './pages/Home';
+import RichtextPage from './pages/RichtextPage';
 
 function App() {
-  const story = useStoryblok('home', { version: 'draft' });
+  return (
+    <BrowserRouter>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/react">Home</Link>
+            </li>
+            <li>
+              <Link to="/react/test-richtext">Richtext</Link>
+            </li>
+          </ul>
+        </nav>
 
-  if (!story?.content) {
-    return <div>Loading...</div>;
-  }
-
-  return <StoryblokComponent blok={story.content} />;
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="react" element={<Home />} />
+          <Route path="react/test-richtext" element={<RichtextPage />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
+  );
 }
 
 export default App;
