@@ -83,7 +83,7 @@
     "simple-git-hooks": "^2.11.1",
     "start-server-and-test": "^2.0.9",
     "typescript": "5.6.3",
-    "vite": "^6.0.6",
+    "vite": "^5.4.13",
     "vite-plugin-dts": "^4.4.0",
     "vitest": "^2.1.8"
   },
