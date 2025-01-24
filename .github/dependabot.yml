@@ -13,7 +13,10 @@ updates:
       - dependabot
     groups:
       security-updates:
-        applies-to: security-updates
+        patterns:
+          - '*'
+        exclude-patterns:
+          - 'storyblok*'
         update-types:
           - patch
     ignore:
