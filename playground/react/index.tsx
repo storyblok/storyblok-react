@@ -10,6 +10,7 @@ import Feature from './components/feature';
 import { apiPlugin, storyblokInit } from '@storyblok/react';
 import IFrameEmbed from './components/iframe-embed';
 
+// https://app.storyblok.com/#/me/spaces/147897
 storyblokInit({
   accessToken: 'OurklwV5XsDJTIE1NJaD2wtt',
   use: [apiPlugin],
