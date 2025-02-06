@@ -19,8 +19,14 @@ updates:
           - 'storyblok*'
         update-types:
           - patch
+          - minor
+      storyblok:
+        patterns:
+          - 'storyblok*'
+        update-types:
+          - patch
+          - minor
     ignore:
       - dependency-name: '*'
         update-types:
-          - version-update:semver-minor
           - version-update:semver-major
