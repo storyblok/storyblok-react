@@ -1,6 +1,8 @@
 'use server';
 
-export async function liveEditUpdateAction({ story, pathToRevalidate }) {
+import type { ISbStoryData } from '@storyblok/js';
+
+export async function liveEditUpdateAction({ story, pathToRevalidate }: { story: ISbStoryData; pathToRevalidate: string }) {
   if (!story || !pathToRevalidate) {
     return console.error('liveEditUpdateAction: story or pathToRevalidate is not provided');
   }
