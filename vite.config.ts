@@ -1,10 +1,10 @@
-import { defineConfig } from 'vitest/config';
+import { defineConfig, type Plugin } from 'vitest/config';
 import path from 'node:path';
 import preserveDirectives from 'rollup-plugin-preserve-directives';
 import dts from 'vite-plugin-dts';
 
 export default defineConfig({
-  plugins: [dts({ insertTypesEntry: true }), preserveDirectives()],
+  plugins: [dts({ insertTypesEntry: true }), preserveDirectives()] as Plugin[],
   build: {
     lib: {
       entry: [

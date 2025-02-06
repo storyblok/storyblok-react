@@ -8,6 +8,8 @@ env:
 
 jobs:
   commitlint:
+    # Skip job if PR is from Dependabot
+    if: github.actor != 'dependabot[bot]'
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout
