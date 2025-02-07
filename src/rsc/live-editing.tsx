@@ -25,7 +25,7 @@ const StoryblokLiveEditing = ({ story = null, bridgeOptions = {} }: { story: ISb
     });
   };
 
-  const storyId = story?.internalId ?? story?.id ?? 0;
+  const storyId = story?.id ?? 0;
   useEffect(() => {
     registerStoryblokBridge(storyId, newStory => handleInput(newStory), bridgeOptions);
   }, []);

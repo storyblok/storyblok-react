@@ -10,7 +10,7 @@ export const useStoryblokState: TUseStoryblokState = (
 ) => {
   const [story, setStory] = useState(initialStory);
 
-  const storyId = (initialStory as any)?.internalId ?? initialStory?.id ?? 0;
+  const storyId = initialStory?.id ?? 0;
   const isBridgeEnabled = typeof window !== 'undefined'
     && typeof window.storyblokRegisterEvent !== 'undefined';
 
