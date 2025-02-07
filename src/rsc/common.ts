@@ -11,7 +11,12 @@ const componentsMap: Map<string, React.ElementType> = new Map<string, React.Elem
 let enableFallbackComponent: boolean = false;
 let customFallbackComponent: React.ElementType = null;
 
-globalThis.storyCache = new Map<string, ISbStoryData>();
+declare global {
+  // eslint-disable-next-line no-var, vars-on-top
+  var storyCache: Map<string, ISbStoryData>;
+}
+
+globalThis.storyCache = !globalThis.storyCache ? new Map<string, ISbStoryData>() : globalThis.storyCache;
 
 export const useStoryblokApi = (): StoryblokClient => {
   if (!storyblokApiInstance) {

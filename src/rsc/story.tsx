@@ -19,6 +19,8 @@ const StoryblokStory = forwardRef<HTMLElement, StoryblokStoryProps>(
 
     if (globalThis.storyCache.has(story.uuid)) {
       story = globalThis.storyCache.get(story.uuid);
+      // Delete the story from the cache to avoid draft content leaking
+      globalThis.storyCache.delete(story.uuid);
     }
 
     if (typeof story.content === 'string') {
