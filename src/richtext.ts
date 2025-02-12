@@ -16,6 +16,9 @@ export function useStoryblokRichTextResolver(
 ) {
   const mergedOptions = {
     renderFn: React.createElement,
+    textFn: (text: string) => React.createElement(React.Fragment, {
+      key: Math.random().toString(36).substring(2, 15),
+    }, text),
     resolvers: {
       [BlockTypes.COMPONENT]: componentResolver,
       ...options.resolvers,
