@@ -16,7 +16,7 @@ export function componentResolver(
   const body = node?.attrs?.body;
   return React.createElement(StoryblokComponent, {
     blok: Array.isArray(body) ? body[0] : undefined,
-    key: node.attrs?.id || generateKey('sb-component'),
+    key: generateKey('component'),
   });
 }
 
@@ -29,28 +29,14 @@ export function useStoryblokRichTextResolver(
     renderFn: (element: string, props: any, children: any) => {
       const elementProps = {
         ...props,
-        key: `${element}-${keyCounter++}`,
+        key: generateKey(element),
       };
       return React.createElement(element, elementProps, children);
     },
     textFn: (text: string) =>
-      React.createElement(
-        React.Fragment,
-        {
-          key: `text-${keyCounter++}`,
-        },
-        text,
-      ),
+      React.createElement(React.Fragment, { key: generateKey('text') }, text),
     resolvers: {
-      [BlockTypes.COMPONENT]: (
-        node: StoryblokRichTextNode<React.ReactElement>,
-      ) => {
-        const body = node?.attrs?.body;
-        return React.createElement(StoryblokComponent, {
-          blok: Array.isArray(body) ? body[0] : undefined,
-          key: `component-${keyCounter++}`,
-        });
-      },
+      [BlockTypes.COMPONENT]: componentResolver,
       ...options.resolvers,
     },
     keyedResolvers: true,
