@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@storyblok/js':
-        specifier: 3.2.3
-        version: 3.2.3
+        specifier: 3.2.4
+        version: 3.2.4
       next:
         specifier: ^13 || ^14 || ^15
         version: 13.5.7(@babel/core@7.26.9)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1863,8 +1863,8 @@ packages:
     peerDependencies:
       eslint: '>=8.40.0'
 
-  '@storyblok/js@3.2.3':
-    resolution: {integrity: sha512-RRnskb6GCpy2CeVVxQMEwAgbWqG7ehnzCVqbidsR7GpPhcdfdCgsAYDlSnAePwzbpMZXqpW1itJXDnuLmm1LXQ==}
+  '@storyblok/js@3.2.4':
+    resolution: {integrity: sha512-vNGZoAji43PGtNtCgsUsincjuZ4/XtKyusB7LDbgbIHi9O481Xtj5Pewq/fRmjhjNUm9UcWhsXIvgB8dcNQ/lg==}
 
   '@storyblok/react@file:':
     resolution: {directory: '', type: directory}
@@ -5056,8 +5056,8 @@ packages:
   std-env@3.8.1:
     resolution: {integrity: sha512-vj5lIj3Mwf9D79hBkltk5qmkFI+biIKWS2IBxEyEU3AX1tUf7AoL8nSazCOiiqQsGKIq01SClsKEzweu34uwvA==}
 
-  storyblok-js-client@6.10.8:
-    resolution: {integrity: sha512-yjXzKQO16ry+LMEUksfLjO/Eq88DwMflHVxg1YDF2Ak13fHhSD/M36XE/E1jrTbjdVuxSnlxrt8jYP6NiCnCSQ==}
+  storyblok-js-client@6.10.9:
+    resolution: {integrity: sha512-aYKXJYewdHn/g+tm7Z58aYigdZuWF8M9Ns2nZCAprTdsjv3e9o64WPPxRYSoNtS1KI6xMsor36CrO892u5L6Dg==}
 
   stream-combiner@0.0.4:
     resolution: {integrity: sha512-rT00SPnTVyRsaSz5zgSPma/aHSOic5U1prhYdRy5HS2kTZviFpmDgzilbtsJsxiroqACmayynDN/9VzIbX5DOw==}
@@ -7437,14 +7437,14 @@ snapshots:
       - typescript
       - vitest
 
-  '@storyblok/js@3.2.3':
+  '@storyblok/js@3.2.4':
     dependencies:
       '@storyblok/richtext': 3.0.2
-      storyblok-js-client: 6.10.8
+      storyblok-js-client: 6.10.9
 
   '@storyblok/react@file:(next@13.5.7(@babel/core@7.26.9)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@storyblok/js': 3.2.3
+      '@storyblok/js': 3.2.4
       next: 13.5.7(@babel/core@7.26.9)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -11608,7 +11608,7 @@ snapshots:
 
   std-env@3.8.1: {}
 
-  storyblok-js-client@6.10.8: {}
+  storyblok-js-client@6.10.9: {}
 
   stream-combiner@0.0.4:
     dependencies:
