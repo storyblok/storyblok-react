@@ -522,9 +522,9 @@ sbBridge.on(['input', 'published', 'change'], (event) => {
 })
 ```
 
-## Rendering Rich Text 
+## Rendering Rich Text
 
-> [!WARNING]  
+> [!WARNING]
 > We have identified issues with richtext and Types on React 19 and Next.js 15. As a temporary measure, we advise you to continue using React 18 and Next.js 14 until we have fully resolved the issues.
 
 You can render rich text fields by using the `StoryblokRichText` component:
@@ -547,14 +547,14 @@ function App() {
 }
 ```
 
-Or you can have more control by using the `useStoryblokRichText` hook:
+Or you can have more control by using the `useStoryblokRichTextResolver` hook:
 
 ```ts
 import { useStoryblokRichText, convertAttributesInElement } from '@storyblok/react';
 import Codeblock from './Codeblock';
 
 function App() {
-  const { render } = useStoryblokRichText({
+  const { render } = useStoryblokRichTextResolver({
     // options like resolvers
   });
 
@@ -569,7 +569,7 @@ function App() {
 }
 ```
 
-For a comprehensive list of options you can provide to the `useStoryblokRichText`, please consult the [Full options](https://github.com/storyblok/richtext?tab=readme-ov-file#options) documentation.
+For a comprehensive list of options you can provide to the `useStoryblokRichTextResolver`, please consult the [Full options](https://github.com/storyblok/richtext?tab=readme-ov-file#overwrite-resolvers) documentation.
 
 ### Overriding the default resolvers
 
@@ -607,19 +607,19 @@ function App() {
             </a>
           );
     },
-    [BlockTypes.CODE_BLOCK]: (node) => 
-      <CodeBlock 
+    [BlockTypes.CODE_BLOCK]: (node) =>
+      <CodeBlock
         class={node?.attrs?.class}
       >
-        {node.children}  
+        {node.children}
       </CodeBlock>;
   }
 
   return (
     <div>
-      <StoryblokRichText 
+      <StoryblokRichText
         doc={story.content.richText}
-        resolvers={resolvers} 
+        resolvers={resolvers}
       />
     </div>
   );
@@ -628,7 +628,7 @@ function App() {
 
 ### Legacy Rich Text Resolver
 
-> [!WARNING]  
+> [!WARNING]
 > The legacy `renderRichText` is soon to be deprecated. We recommend migrating to the new approach described above instead.
 
 You can easily render rich text by using the `renderRichText` function that comes with `@storyblok/react`:
