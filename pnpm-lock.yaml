@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@storyblok/js':
-        specifier: 3.2.5
-        version: 3.2.5
+        specifier: 3.3.0
+        version: 3.3.0
       next:
         specifier: ^13 || ^14 || ^15
         version: 13.5.7(@babel/core@7.26.9)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1891,6 +1891,9 @@ packages:
   '@storyblok/js@3.2.5':
     resolution: {integrity: sha512-G9AO5qamMpLyBgCGaPywqPRzwLcPKkQY1sugRSAMq9ckgyKOwUyV7iXKA5WcYyM79MeorcmNtaT3kapYMgD4FQ==}
 
+  '@storyblok/js@3.3.0':
+    resolution: {integrity: sha512-+i0I6nvbCXnfO6L5b5SYvoqLHUb1j3iIznuN/tcGO9c8MYNopY7XGOjrOOTlJVAoiFECJyzYiwC7mDRwrotvfw==}
+
   '@storyblok/react@file:':
     resolution: {directory: '', type: directory}
     peerDependencies:
@@ -1900,6 +1903,9 @@ packages:
 
   '@storyblok/richtext@3.0.2':
     resolution: {integrity: sha512-KBLx9ycNVMyVnNyPiwBH5g9uWmiJpMzp9YvpnnADXlPLoksusrwI56BusSM8HaIgJgcnB5RR0LvhySkPFdC8Zg==}
+
+  '@storyblok/richtext@3.1.0':
+    resolution: {integrity: sha512-QtH5G+F7w3YuGGnHAFldo71vPpBT5prndZWFPDihlIsWaW0rEWyE9iX+6fp2f4XDgbhi0vyF1HqajFplGOtFVg==}
 
   '@stylistic/eslint-plugin@2.10.1':
     resolution: {integrity: sha512-U+4yzNXElTf9q0kEfnloI9XbOyD4cnEQCxjUI94q0+W++0GAEQvJ/slwEj9lwjDHfGADRSr+Tco/z0XJvmDfCQ==}
@@ -7544,6 +7550,11 @@ snapshots:
       '@storyblok/richtext': 3.0.2
       storyblok-js-client: 6.10.10
 
+  '@storyblok/js@3.3.0':
+    dependencies:
+      '@storyblok/richtext': 3.1.0
+      storyblok-js-client: 6.10.10
+
   '@storyblok/react@file:(next@13.5.7(@babel/core@7.26.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@storyblok/js': 3.2.5
@@ -7552,6 +7563,8 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
 
   '@storyblok/richtext@3.0.2': {}
+
+  '@storyblok/richtext@3.1.0': {}
 
   '@stylistic/eslint-plugin@2.10.1(eslint@9.19.0(jiti@2.4.2))(typescript@5.7.3)':
     dependencies:
