@@ -1,12 +1,12 @@
 import React, { forwardRef } from 'react';
 
 import { convertAttributesInElement } from './utils';
-import { useStoryblokRichTextResolver } from './richtext';
+import { useStoryblokRichText } from './richtext';
 import type { StoryblokRichTextProps } from './types';
 
 const StoryblokRichText = forwardRef<HTMLDivElement, StoryblokRichTextProps>(
   ({ doc, resolvers }, ref) => {
-    const { render } = useStoryblokRichTextResolver({
+    const { render } = useStoryblokRichText({
       resolvers,
     });
 

@@ -11,7 +11,7 @@ export function componentResolver(node: StoryblokRichTextNode<React.ReactElement
   });
 }
 
-export function useStoryblokRichTextResolver(
+export function useStoryblokRichText(
   options: StoryblokRichTextOptions<React.ReactElement>,
 ) {
   const mergedOptions = {
