@@ -1,6 +1,6 @@
-export { useStoryblokRichText } from '../richtext';
 export * from './common';
 export { useStoryblokServerRichText } from './server-richtext';
+
 export { default as StoryblokServerRichText } from './server-storyblok-rich-text';
 export { default as StoryblokStory } from './story';
 export {

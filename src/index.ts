@@ -9,6 +9,8 @@ import type {
 
 import { getStoryblokApi } from './common';
 
+import { useStoryblokRichText } from './richtext';
+
 export const useStoryblok = (
   slug: string,
   apiOptions: ISbStoriesParams = {},
@@ -64,6 +66,12 @@ export const useStoryblok = (
 
 export * from './common/client';
 export * from './common/index';
-export { useStoryblokRichText } from './richtext';
+
+// Export the main function
+export { useStoryblokRichText };
+
+/** @deprecated Use useStoryblokRichText instead */
+export const useStoryblokRichTextResolver = useStoryblokRichText;
+
 export { default as StoryblokRichText } from './storyblok-rich-text';
 export * from './utils';
