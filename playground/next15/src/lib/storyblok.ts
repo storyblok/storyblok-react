@@ -1,3 +1,4 @@
+import EmojiRandomizer from '@/components/EmojiRandomizer';
 import Grid from '@/components/Grid';
 import IFrameEmbed from '@/components/IFrameEmbed';
 import Page from '@/components/Page';
@@ -12,5 +13,6 @@ export const getStoryblokApi = storyblokInit({
     'page': Page,
     'grid': Grid,
     'iframe-embed': IFrameEmbed,
+    'emoji-randomizer': EmojiRandomizer,
   },
 });

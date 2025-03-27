@@ -524,9 +524,7 @@ sbBridge.on(['input', 'published', 'change'], (event) => {
 
 ## Rendering Rich Text 
 
-> [!WARNING]  
-> We have identified issues with richtext and Types on React 19 and Next.js 15. As a temporary measure, we advise you to continue using React 18 and Next.js 14 until we have fully resolved the issues.
-
+### Client-side Rich Text Rendering
 You can render rich text fields by using the `StoryblokRichText` component:
 
 ```ts
@@ -569,7 +567,52 @@ function App() {
 }
 ```
 
-For a comprehensive list of options you can provide to the `useStoryblokRichText`, please consult the [Full options](https://github.com/storyblok/richtext?tab=readme-ov-file#options) documentation.
+### Server-side Rich Text Rendering
+
+> [!INFO]  
+> Recommended for Next.js 15 and React 19.
+
+You can render rich text fields by using the `StoryblokServerRichText` component:
+
+```ts
+import { StoryblokServerRichText, useStoryblok } from '@storyblok/react/rsc';
+
+function App() {
+  const story = useStoryblok('home', { version: 'draft' });
+
+  if (!story?.content) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <div>
+      <StoryblokServerRichText doc={story.content.richText} />
+    </div>
+  );
+}
+```
+
+Or you can have more control by using the `useStoryblokServerRichText` hook:
+
+```ts
+import { useStoryblokServerRichText, convertAttributesInElement } from '@storyblok/react';
+import Codeblock from './Codeblock';
+
+function App() {
+  const { render } = useStoryblokServerRichText({
+    // options like resolvers
+  });
+
+  const html = render(doc);
+  const formattedHtml = convertAttributesInElement(html as React.ReactElement); // JSX
+
+  return (
+    <div ref={ref}>
+      {formattedHtml}
+    </div>
+  );
+}
+```
 
 ### Overriding the default resolvers
 

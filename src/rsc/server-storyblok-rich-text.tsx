@@ -1,12 +1,12 @@
 import React, { forwardRef } from 'react';
 
-import { convertAttributesInElement } from './utils';
-import { useStoryblokRichText } from './richtext';
-import type { StoryblokRichTextProps } from './types';
+import { convertAttributesInElement } from '../utils';
+import type { StoryblokRichTextProps } from '../types';
+import { useStoryblokServerRichText } from './server-richtext';
 
 const StoryblokRichText = forwardRef<HTMLDivElement, StoryblokRichTextProps>(
   ({ doc, resolvers }, ref) => {
-    const { render } = useStoryblokRichText({
+    const { render } = useStoryblokServerRichText({
       resolvers,
     });
 
