@@ -2,5 +2,5 @@
 @plugin '@tailwindcss/typography';
 
 span[data-type='emoji'] img {
-  @apply m-0
+  @apply m-0;
 }

@@ -1,5 +1,4 @@
 import type { ISbStoriesParams, StoryblokClient } from '@storyblok/react/rsc';
-import EmojiRandomizer from '@/components/EmojiRandomizer';
 import { getStoryblokApi } from '@/lib/storyblok';
 import { StoryblokServerRichText } from '@storyblok/react/rsc';
 
