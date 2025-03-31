@@ -30,3 +30,11 @@ updates:
       - dependency-name: '*'
         update-types:
           - version-update:semver-major
+  # Ignore all dependencies in the playground directory
+  - package-ecosystem: npm
+    directory: /playground
+    schedule:
+      interval: monthly
+    ignore:
+      - dependency-name: '*'
+    open-pull-requests-limit: 0

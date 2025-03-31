@@ -3,7 +3,7 @@
   "type": "module",
   "version": "4.3.5",
   "private": false,
-  "packageManager": "pnpm@10.2.0",
+  "packageManager": "pnpm@10.7.0",
   "description": "SDK to integrate Storyblok into your project using React.",
   "author": "Storyblok",
   "license": "MIT",
@@ -91,7 +91,8 @@
   },
   "pnpm": {
     "onlyBuiltDependencies": [
-      "cypress"
+      "cypress",
+      "simple-git-hooks"
     ]
   },
   "babel": {
