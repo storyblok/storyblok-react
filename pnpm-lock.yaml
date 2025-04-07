@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@storyblok/js':
-        specifier: 3.3.1
-        version: 3.3.1
+        specifier: 3.4.0
+        version: 3.4.0
       next:
         specifier: ^13 || ^14 || ^15
         version: 13.5.7(@babel/core@7.26.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1749,8 +1749,8 @@ packages:
     peerDependencies:
       eslint: '>=8.40.0'
 
-  '@storyblok/js@3.3.1':
-    resolution: {integrity: sha512-pMsH/J3yIDLShQePb0XcWrM1tZoPwlPqs0j+34jc4KEoDkpHhXCiROA4jvxWzHz+WVZKQe3FZ//C2Lork0aoeQ==}
+  '@storyblok/js@3.4.0':
+    resolution: {integrity: sha512-naOamqsJREFPgM8bTVg3ycc78NBPSkDhnQMf/3G4w8qD1qN5yhInI3q2OEr0gPp3+NT8FyfLB78sOyHdNnwvsA==}
 
   '@storyblok/react@file:':
     resolution: {directory: '', type: directory}
@@ -1759,8 +1759,8 @@ packages:
       react: ^17 || ^18 || ^19
       react-dom: ^17 || ^18 || ^19
 
-  '@storyblok/richtext@3.1.0':
-    resolution: {integrity: sha512-QtH5G+F7w3YuGGnHAFldo71vPpBT5prndZWFPDihlIsWaW0rEWyE9iX+6fp2f4XDgbhi0vyF1HqajFplGOtFVg==}
+  '@storyblok/richtext@3.2.0':
+    resolution: {integrity: sha512-koVGDv1HtiI5vymE5fzRB1VO1PNguj+RSfHI4zCy2+90pRoqZbsUCR8V2TaNl7Pg8R1oOkFZnbAxdt9Z4xoxDg==}
 
   '@stylistic/eslint-plugin@2.10.1':
     resolution: {integrity: sha512-U+4yzNXElTf9q0kEfnloI9XbOyD4cnEQCxjUI94q0+W++0GAEQvJ/slwEj9lwjDHfGADRSr+Tco/z0XJvmDfCQ==}
@@ -7432,19 +7432,19 @@ snapshots:
       - typescript
       - vitest
 
-  '@storyblok/js@3.3.1':
+  '@storyblok/js@3.4.0':
     dependencies:
-      '@storyblok/richtext': 3.1.0
+      '@storyblok/richtext': 3.2.0
       storyblok-js-client: 6.10.11
 
   '@storyblok/react@file:(next@13.5.7(@babel/core@7.26.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@storyblok/js': 3.3.1
+      '@storyblok/js': 3.4.0
       next: 13.5.7(@babel/core@7.26.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@storyblok/richtext@3.1.0': {}
+  '@storyblok/richtext@3.2.0': {}
 
   '@stylistic/eslint-plugin@2.10.1(eslint@9.19.0(jiti@2.4.2))(typescript@5.8.2)':
     dependencies:
