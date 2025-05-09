@@ -185,7 +185,7 @@ importers:
         version: 18.3.1(react@18.3.1)
       react-router:
         specifier: ^7.1.1
-        version: 7.5.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 7.6.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     devDependencies:
       '@types/node':
         specifier: ^20.17.10
@@ -1899,6 +1899,9 @@ packages:
 
   '@types/ms@0.7.34':
     resolution: {integrity: sha512-nG96G3Wp6acyAgJqGasjODb+acrI7KltPiRxzHPXnP3NgI28bpQDRv53olbqGXbfcgF5aiiHmO3xpwEpS5Ld9g==}
+
+  '@types/node@20.17.46':
+    resolution: {integrity: sha512-0PQHLhZPWOxGW4auogW0eOQAuNIlCYvibIpG67ja0TOJ6/sehu+1en7sfceUn+QQtx4Rk3GxbLNwPh0Cav7TWw==}
 
   '@types/node@20.17.46':
     resolution: {integrity: sha512-0PQHLhZPWOxGW4auogW0eOQAuNIlCYvibIpG67ja0TOJ6/sehu+1en7sfceUn+QQtx4Rk3GxbLNwPh0Cav7TWw==}
@@ -4829,8 +4832,8 @@ packages:
     resolution: {integrity: sha512-z6F7K9bV85EfseRCp2bzrpyQ0Gkw1uLoCel9XBVWPg/TjRj94SkJzUTGfOa4bs7iJvBWtQG0Wq7wnI0syw3EBQ==}
     engines: {node: '>=0.10.0'}
 
-  react-router@7.5.1:
-    resolution: {integrity: sha512-/jjU3fcYNd2bwz9Q0xt5TwyiyoO8XjSEFXJY4O/lMAlkGTHWuHRAbR9Etik+lSDqMC7A7mz3UlXzgYT6Vl58sA==}
+  react-router@7.6.0:
+    resolution: {integrity: sha512-GGufuHIVCJDbnIAXP3P9Sxzq3UUsddG3rrI3ut1q6m0FI6vxVBF3JoPQ38+W/blslLH4a5Yutp8drkEpXoddGQ==}
     engines: {node: '>=20.0.0'}
     peerDependencies:
       react: '>=18'
@@ -5429,9 +5432,6 @@ packages:
 
   tunnel-agent@0.6.0:
     resolution: {integrity: sha512-McnNiV1l8RYeY8tBgEpuodCC1mLUdbSN+CYBL7kJsJNInOP8UjDDEwdk6Mw60vdLLrr5NHKZhMAOSrR2NZuQ+w==}
-
-  turbo-stream@2.4.0:
-    resolution: {integrity: sha512-FHncC10WpBd2eOmGwpmQsWLDoK4cqsA/UT/GqNoaKOQnT8uzhtCbg3EoUDMvqpOSAI0S26mr0rkjzbOO6S3v1g==}
 
   tweetnacl@0.14.5:
     resolution: {integrity: sha512-KXXFFdAbFXY4geFIwoyNK+f5Z1b7swfXABfL7HXCmoIWMKU3dmS26672A4EeQtDzLKy7SXmfBu51JolvEKwtGA==}
@@ -7847,6 +7847,11 @@ snapshots:
   '@types/node@20.17.46':
     dependencies:
       undici-types: 6.19.8
+
+  '@types/node@20.17.46':
+    dependencies:
+      undici-types: 6.19.8
+    optional: true
 
   '@types/normalize-package-data@2.4.4': {}
 
@@ -10446,6 +10451,37 @@ snapshots:
       - supports-color
     optional: true
 
+  jest-config@29.7.0(@types/node@20.17.46):
+    dependencies:
+      '@babel/core': 7.27.1
+      '@jest/test-sequencer': 29.7.0
+      '@jest/types': 29.6.3
+      babel-jest: 29.7.0(@babel/core@7.27.1)
+      chalk: 4.1.2
+      ci-info: 3.9.0
+      deepmerge: 4.3.1
+      glob: 7.2.3
+      graceful-fs: 4.2.11
+      jest-circus: 29.7.0
+      jest-environment-node: 29.7.0
+      jest-get-type: 29.6.3
+      jest-regex-util: 29.6.3
+      jest-resolve: 29.7.0
+      jest-runner: 29.7.0
+      jest-util: 29.7.0
+      jest-validate: 29.7.0
+      micromatch: 4.0.8
+      parse-json: 5.2.0
+      pretty-format: 29.7.0
+      slash: 3.0.0
+      strip-json-comments: 3.1.1
+    optionalDependencies:
+      '@types/node': 20.17.46
+    transitivePeerDependencies:
+      - babel-plugin-macros
+      - supports-color
+    optional: true
+
   jest-diff@29.7.0:
     dependencies:
       chalk: 4.1.2
@@ -11646,12 +11682,11 @@ snapshots:
 
   react-refresh@0.17.0: {}
 
-  react-router@7.5.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  react-router@7.6.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       cookie: 1.0.2
       react: 18.3.1
       set-cookie-parser: 2.7.1
-      turbo-stream: 2.4.0
     optionalDependencies:
       react-dom: 18.3.1(react@18.3.1)
 
@@ -12337,8 +12372,6 @@ snapshots:
   tunnel-agent@0.6.0:
     dependencies:
       safe-buffer: 5.2.1
-
-  turbo-stream@2.4.0: {}
 
   tweetnacl@0.14.5: {}
 
