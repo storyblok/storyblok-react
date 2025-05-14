@@ -575,20 +575,29 @@ function App() {
 You can render rich text fields by using the `StoryblokServerRichText` component:
 
 ```ts
-import { StoryblokServerRichText, useStoryblok } from '@storyblok/react/rsc';
+import { StoryblokServerRichText, StoryblokStory } from '@storyblok/react/rsc';
+import { StoryblokClient, ISbStoriesParams } from '@storyblok/react';
+import { getStoryblokApi } from '@/lib/storyblok'; // Remember to import from the local file
 
-function App() {
-  const story = useStoryblok('home', { version: 'draft' });
+async function App() {
+  const { data } = await fetchData();
 
-  if (!story?.content) {
+  if (!data?.story?.content) {
     return <div>Loading...</div>;
   }
 
   return (
     <div>
-      <StoryblokServerRichText doc={story.content.richText} />
+      <StoryblokServerRichText doc={data.story.content.richText} />
     </div>
   );
+}
+
+export async function fetchData() {
+  let sbParams: ISbStoriesParams = { version: 'draft' };
+
+  const storyblokApi: StoryblokClient = getStoryblokApi();
+  return storyblokApi.get(`cdn/stories/home`, sbParams);
 }
 ```
 
