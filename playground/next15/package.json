@@ -12,14 +12,14 @@
     "@storyblok/react": "workspace:^",
     "@tailwindcss/postcss": "^4.0.14",
     "@tailwindcss/typography": "^0.5.16",
-    "next": "15.0.4",
+    "next": "15.3.2",
     "postcss": "^8.5.3",
-    "react": "19.0.0",
-    "react-dom": "19.0.0",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
     "tailwindcss": "^4.0.14"
   },
   "devDependencies": {
-    "@types/node": "^20",
+    "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19"
   }
