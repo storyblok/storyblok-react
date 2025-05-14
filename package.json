@@ -70,7 +70,7 @@
     "@cypress/vite-dev-server": "^6.0.3",
     "@storyblok/eslint-config": "^0.3.0",
     "@tsconfig/recommended": "^1.0.8",
-    "@types/node": "^22.15.17",
+    "@types/node": "^20.17.47",
     "@types/react": "19.1.4",
     "@vitejs/plugin-react": "^4.4.1",
     "babel-jest": "^29.7.0",
