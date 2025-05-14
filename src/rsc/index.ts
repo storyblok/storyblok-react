@@ -1,13 +1,7 @@
-import { useStoryblokRichText } from '../richtext';
-
-// Export the main function
-export { useStoryblokRichText };
-
-/** @deprecated Use useStoryblokRichText instead */
-export const useStoryblokRichTextResolver = useStoryblokRichText;
-
-export { default as StoryblokRichText } from '../storyblok-rich-text';
 export * from './common';
+export { useStoryblokServerRichText } from './server-richtext';
+
+export { default as StoryblokServerRichText } from './server-storyblok-rich-text';
 export { default as StoryblokStory } from './story';
 export {
   BlockTypes,
