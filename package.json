@@ -58,6 +58,11 @@
     "react": "^17 || ^18 || ^19",
     "react-dom": "^17 || ^18 || ^19"
   },
+  "peerDependenciesMeta": {
+    "next": {
+      "optional": true
+    }
+  },
   "dependencies": {
     "@storyblok/js": "3.4.1"
   },
