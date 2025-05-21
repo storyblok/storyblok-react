@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@storyblok/js':
-        specifier: 3.4.1
-        version: 3.4.1
+        specifier: 4.0.0
+        version: 4.0.0
       next:
         specifier: ^13 || ^14 || ^15
         version: 13.5.11(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -1812,6 +1812,9 @@ packages:
 
   '@storyblok/js@3.4.1':
     resolution: {integrity: sha512-EDQhSRjh+1v0GQwbEGQ60eoX3pm3JtqbCIcbro0jAJGUL3azl59y7UekdgHwzFvhj4WD2BCwdfLher3qQCbt9A==}
+
+  '@storyblok/js@4.0.0':
+    resolution: {integrity: sha512-D3EB9LQ9P9I9WTauwUaBkZ6J8qMVnpUAxPZRbarL7SdDKILD4CAVR9Bn+T6H5znu45J4Zq9P7OvxH+sQZPvgXw==}
 
   '@storyblok/react@file:':
     resolution: {directory: '', type: directory}
@@ -5348,6 +5351,9 @@ packages:
   storyblok-js-client@6.10.12:
     resolution: {integrity: sha512-f5wNGnlMyBoo/9UqTY0uGXk3q8q+iaQ+Xl53/mUGvvi4ULvSEDsBJpubKjikdYSbKdOxPCOHwOo13ZDb2IbX/g==}
 
+  storyblok-js-client@7.0.0:
+    resolution: {integrity: sha512-00zWW3jscL4W1kek9QCrInq1jw4xwjeM0jXuKg4sa/bCT8QuLGaGU9Wn3hat/hkvZLRFC09fV4sJRxDqwsFaKQ==}
+
   stream-combiner@0.0.4:
     resolution: {integrity: sha512-rT00SPnTVyRsaSz5zgSPma/aHSOic5U1prhYdRy5HS2kTZviFpmDgzilbtsJsxiroqACmayynDN/9VzIbX5DOw==}
 
@@ -7785,6 +7791,11 @@ snapshots:
     dependencies:
       '@storyblok/richtext': 3.2.0
       storyblok-js-client: 6.10.12
+
+  '@storyblok/js@4.0.0':
+    dependencies:
+      '@storyblok/richtext': 3.2.0
+      storyblok-js-client: 7.0.0
 
   '@storyblok/react@file:(next@13.5.11(@babel/core@7.27.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
@@ -12314,6 +12325,8 @@ snapshots:
   std-env@3.9.0: {}
 
   storyblok-js-client@6.10.12: {}
+
+  storyblok-js-client@7.0.0: {}
 
   stream-combiner@0.0.4:
     dependencies:

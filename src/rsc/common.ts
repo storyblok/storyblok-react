@@ -73,8 +73,6 @@ export {
   loadStoryblokBridge,
   registerStoryblokBridge,
   renderRichText,
-  RichTextResolver,
-  RichTextSchema,
   storyblokEditable,
   useStoryblokBridge,
 } from '@storyblok/js';

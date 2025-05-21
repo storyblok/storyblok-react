@@ -626,65 +626,6 @@ function App() {
 }
 ```
 
-### Legacy Rich Text Resolver
-
-> [!WARNING]  
-> The legacy `renderRichText` is soon to be deprecated. We recommend migrating to the new approach described above instead.
-
-You can easily render rich text by using the `renderRichText` function that comes with `@storyblok/react`:
-
-```js
-import { renderRichText } from '@storyblok/react'
-
-const renderedRichText = renderRichText(blok.richtext)
-```
-
-You can set a **custom Schema and component resolver globally** at init time by using the `richText` init option:
-
-```js
-import { RichTextSchema, storyblokInit } from '@storyblok/react'
-import cloneDeep from 'clone-deep'
-
-const mySchema = cloneDeep(RichTextSchema) // you can make a copy of the default RichTextSchema
-// ... and edit the nodes and marks, or add your own.
-// Check the base RichTextSchema source here https://github.com/storyblok/storyblok-js-client/blob/main/src/schema.ts
-
-storyblokInit({
-  accessToken: '<your-token>',
-  richText: {
-    schema: mySchema,
-    resolver: (component, blok) => {
-      switch (component) {
-        case 'my-custom-component':
-          return `<div class="my-component-class">${blok.text}</div>`
-        default:
-          return 'Resolver not defined'
-      }
-    },
-  },
-})
-```
-
-You can also set a **custom Schema and component resolver only once** by passing the options as the second parameter to `renderRichText` function:
-
-```js
-import { renderRichText } from '@storyblok/react'
-
-renderRichText(blok.richTextField, {
-  schema: mySchema,
-  resolver: (component, blok) => {
-    switch (component) {
-      case 'my-custom-component':
-        return `<div class="my-component-class">${blok.text}</div>`
-      default:
-        return `Component ${component} not found`
-    }
-  },
-})
-```
-
-We also recommend using the [Storyblok Rich Text Renderer for React by Claus](https://github.com/claus/storyblok-rich-text-react-renderer) for rendering your Storyblok rich text content to React elements and Next.js applications.
-
 ### Using fallback components
 
 By default, `@storyblok/react` returns an empty `<div>` if a component is not implemented. Setting `enableFallbackComponent` to `true` when calling `storyblokInit` bypasses that behavior, rendering a fallback component in the frontend instead. You can use the default fallback component, or create a custom React fallback component in your project and use it by setting `customFallbackComponent: [YourFallbackComponent]`.
