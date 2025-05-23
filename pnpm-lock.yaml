@@ -1822,6 +1822,9 @@ packages:
       next: ^13 || ^14 || ^15
       react: ^17 || ^18 || ^19
       react-dom: ^17 || ^18 || ^19
+    peerDependenciesMeta:
+      next:
+        optional: true
 
   '@storyblok/richtext@3.2.0':
     resolution: {integrity: sha512-koVGDv1HtiI5vymE5fzRB1VO1PNguj+RSfHI4zCy2+90pRoqZbsUCR8V2TaNl7Pg8R1oOkFZnbAxdt9Z4xoxDg==}
@@ -7800,9 +7803,10 @@ snapshots:
   '@storyblok/react@file:(next@13.5.11(@babel/core@7.27.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@storyblok/js': 3.4.1
-      next: 13.5.11(@babel/core@7.27.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
+    optionalDependencies:
+      next: 13.5.11(@babel/core@7.27.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
 
   '@storyblok/richtext@3.2.0': {}
 
