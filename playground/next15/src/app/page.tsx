@@ -13,61 +13,43 @@ export default async function Home() {
   const { data } = await fetchData();
 
   const doc = {
-    type: 'doc',
-    content: [
+    "type": "doc",
+    "content": [
       {
-        type: 'paragraph',
-        content: [
+        "type": "paragraph",
+        "content": [
           {
-            type: 'text',
-            text: 'This is a test of the StoryblokRichText component.',
+            "text": "This is some rich text. ",
+            "type": "text"
           },
-        ],
-      },
-      {
-        type: 'paragraph',
-        content: [
           {
-            text: 'Internal Link',
-            type: 'text',
-            marks: [
+            "text": "blablabla",
+            "type": "text",
+            "marks": [
               {
-                type: 'link',
-                attrs: {
-                  href: '/',
-                  uuid: '8489bed8-d86f-4fde-965c-e3d748e12147',
-                  anchor: null,
-                  target: '_self',
-                  linktype: 'story',
-                },
-              },
-            ],
-          },
-        ],
+                "type": "bold"
+              }
+            ]
+          }
+        ]
       },
       {
-        type: 'paragraph',
-        content: [
-          {
-            text: 'External link',
-            type: 'text',
-            marks: [
-              {
-                type: 'link',
-                attrs: {
-                  href: 'https://alvarosaburido.dev',
-                  uuid: null,
-                  anchor: null,
-                  target: '_blank',
-                  linktype: 'url',
-                },
-              },
-            ],
-          },
-        ],
-      },
-    ],
+        "type": "blok",
+        "attrs": {
+          "id": "1e6b3ae6-163b-4837-ad38-6da15aa3f637",
+          "body": [
+            {
+              "_uid": "i-2c4913a6-845e-481f-b397-0b0cab06316b",
+              "columns": [],
+              "component": "grid",
+              "_editable": "<!--#storyblok#{\"name\": \"grid\", \"space\": \"330386\", \"uid\": \"i-2c4913a6-845e-481f-b397-0b0cab06316b\", \"id\": \"641083779\"}-->"
+            }
+          ]
+        }
+      }
+    ]
   };
+
   const resolvers = {
     // custom resolvers
     [MarkTypes.LINK]: (node: StoryblokRichTextNode<ReactElement>) => {
